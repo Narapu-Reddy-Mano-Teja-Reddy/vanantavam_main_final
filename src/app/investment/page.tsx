@@ -66,6 +66,18 @@ export default function Investment() {
     <>
       <Navigation />
 
+      <style>{`
+        @media (max-width: 900px) {
+          .inv-steps-col {
+            border-left: none !important;
+            padding-left: 0 !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 24px;
+            margin-top: 12px;
+          }
+        }
+      `}</style>
+
       {/* ================= HERO SECTION ================= */}
       <section
         className="hero"
@@ -75,7 +87,7 @@ export default function Investment() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '140px 20px 90px',
+          padding: 'clamp(100px, 14vh, 140px) 20px clamp(50px, 8vh, 90px)',
           overflow: 'hidden',
           backgroundColor: 'var(--bg-dark-forest, #122217)',
         }}
@@ -213,7 +225,7 @@ export default function Investment() {
         style={{
           background: 'linear-gradient(135deg, #122217 0%, #1A2E20 100%)',
           color: '#FFFFFF',
-          padding: '64px 20px',
+          padding: 'clamp(48px, 6vh, 64px) 20px',
           borderTop: '1px solid rgba(198, 162, 101, 0.25)',
           borderBottom: '1px solid rgba(198, 162, 101, 0.25)',
           position: 'relative',
@@ -250,21 +262,7 @@ export default function Investment() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div
-              style={{
-                width: '48px',
-                height: '48px',
-                borderRadius: '50%',
-                background: 'rgba(198, 162, 101, 0.15)',
-                border: '1px solid rgba(198, 162, 101, 0.3)',
-                color: 'var(--accent-gold)',
-                display: 'grid',
-                placeItems: 'center',
-                margin: '0 auto 20px',
-              }}
-            >
-              <Quote size={22} />
-            </div>
+             
 
             <blockquote
               style={{
@@ -311,7 +309,7 @@ export default function Investment() {
       <section
         id="market-perspective"
         style={{
-          padding: 'clamp(80px, 10vh, 120px) 20px',
+          padding: 'clamp(60px, 8vh, 120px) 20px',
           backgroundColor: 'var(--bg-cream, #F9F8F6)',
         }}
       >
@@ -325,8 +323,8 @@ export default function Investment() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: 'clamp(40px, 6vw, 80px)',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+              gap: 'clamp(36px, 6vw, 80px)',
               alignItems: 'center',
             }}
           >
@@ -390,7 +388,7 @@ export default function Investment() {
 
               <div
                 style={{
-                  padding: '28px 32px',
+                  padding: 'clamp(20px, 3vw, 32px)',
                   background: '#FFFFFF',
                   borderRadius: '20px',
                   borderLeft: '4px solid var(--accent-gold, #C6A265)',
@@ -496,7 +494,7 @@ export default function Investment() {
       {/* ================= SECTION 2: MARKET VOLATILITY ================= */}
       <section
         style={{
-          padding: 'clamp(80px, 10vh, 120px) 20px',
+          padding: 'clamp(60px, 8vh, 120px) 20px',
           backgroundColor: '#FFFFFF',
           borderTop: '1px solid var(--border-light, rgba(40, 44, 39, 0.08))',
           borderBottom: '1px solid var(--border-light, rgba(40, 44, 39, 0.08))',
@@ -511,9 +509,10 @@ export default function Investment() {
         >
           {/* Layout: Left Sticky Header with Image, Right Stacking Feature Cards */}
           <div
+            className="projects-sticky-layout"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 460px), 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
               gap: 'clamp(36px, 5vw, 80px)',
               alignItems: 'start',
               position: 'relative',
@@ -521,6 +520,7 @@ export default function Investment() {
           >
             {/* LEFT COLUMN: Sticky Header + Featured Showcase Frame */}
             <div
+              className="projects-sticky-header"
               style={{
                 position: 'sticky',
                 top: '120px',
@@ -637,6 +637,7 @@ export default function Investment() {
                 return (
                   <motion.div
                     key={card.kicker}
+                    className="projects-sticky-card"
                     initial={{ opacity: 0, y: 40, scale: 0.97 }}
                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     viewport={{ once: true, margin: '-60px' }}
@@ -651,7 +652,7 @@ export default function Investment() {
                       background: '#FFFFFF',
                       border: '1px solid rgba(18, 34, 23, 0.08)',
                       borderRadius: '24px',
-                      padding: 'clamp(28px, 3.5vw, 40px)',
+                      padding: 'clamp(24px, 3.5vw, 40px)',
                       boxShadow: '0 12px 36px rgba(18, 34, 23, 0.07)',
                       display: 'flex',
                       flexDirection: 'column',
@@ -726,7 +727,7 @@ export default function Investment() {
               background: 'linear-gradient(135deg, #122217 0%, #1A2E20 100%)',
               color: '#FFFFFF',
               borderRadius: '28px',
-              padding: 'clamp(40px, 6vw, 64px)',
+              padding: 'clamp(32px, 5vw, 64px)',
               marginTop: '60px',
               position: 'relative',
               overflow: 'hidden',
@@ -819,7 +820,7 @@ export default function Investment() {
       {/* ================= SECTION 3: INVESTMENT FRAMEWORK ================= */}
       <section
         style={{
-          padding: 'clamp(80px, 10vh, 120px) 20px',
+          padding: 'clamp(60px, 8vh, 120px) 20px',
           background: 'var(--bg-cream, #F9F8F6)',
           borderBottom: '1px solid rgba(18, 34, 23, 0.08)',
         }}
@@ -893,7 +894,7 @@ export default function Investment() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
               gap: '24px',
               marginBottom: '60px',
             }}
@@ -1074,7 +1075,7 @@ export default function Investment() {
               background: '#122217',
               color: '#FFFFFF',
               borderRadius: '28px',
-              padding: 'clamp(36px, 5vw, 56px)',
+              padding: 'clamp(32px, 5vw, 56px)',
               boxShadow: '0 22px 60px rgba(18, 34, 23, 0.25)',
               border: '1px solid rgba(198, 162, 101, 0.35)',
             }}
@@ -1082,7 +1083,7 @@ export default function Investment() {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
                 gap: '40px',
                 alignItems: 'center',
               }}
@@ -1129,6 +1130,7 @@ export default function Investment() {
               </div>
 
               <div
+                className="inv-steps-col"
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
@@ -1230,7 +1232,7 @@ export default function Investment() {
       <section
         id="connect-form"
         style={{
-          padding: 'clamp(80px, 10vh, 130px) 20px',
+          padding: 'clamp(60px, 8vh, 130px) 20px',
           backgroundColor: 'var(--bg-cream, #F9F8F6)',
           position: 'relative',
         }}
@@ -1245,8 +1247,8 @@ export default function Investment() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-              gap: 'clamp(40px, 6vw, 70px)',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+              gap: 'clamp(36px, 6vw, 70px)',
               alignItems: 'center',
             }}
           >
@@ -1385,7 +1387,7 @@ export default function Investment() {
               style={{
                 backgroundColor: '#FFFFFF',
                 borderRadius: '28px',
-                padding: 'clamp(36px, 5vw, 48px)',
+                padding: 'clamp(28px, 5vw, 48px)',
                 boxShadow: '0 20px 50px rgba(18, 34, 23, 0.08)',
                 border: '1px solid rgba(18, 34, 23, 0.08)',
                 position: 'relative',

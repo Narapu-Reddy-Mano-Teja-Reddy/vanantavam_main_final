@@ -1043,7 +1043,7 @@ WHO WE ARE
                 {
                   id: "ishavana",
                   name: "ISHAVANA",
-                  badge: "KOLLEGALA ·10 Acres",
+                  badge: "Shivanasamudhra ·10 Acres",
                   img: "/assets/project-images/Esahavana/EV.webp",
                    
                 },
