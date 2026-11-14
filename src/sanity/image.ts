@@ -13,7 +13,7 @@ export const urlForImage = (source: SanityImageSource) => {
 }
 
 export const FALLBACK_BLOG_IMAGE =
-  '/Blogs-content/May 2022/VT_Blog_1_The_Vanatvam_Philosophy.webp'
+  '/Blogs-content/May 2022/vt-blog-1-the-vanatvam-philosophy.webp'
 
 export function resolvePostImage(post: {
   coverImage?: SanityImageSource | null

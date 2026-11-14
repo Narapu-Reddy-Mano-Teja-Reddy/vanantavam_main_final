@@ -277,19 +277,19 @@ function FloatingOrb({
 
 const galleryImages = [
   {
-    src: "/assets/project-images/Brindavana/Sunlit Garden Orchard with Cottage.webp",
+    src: "/assets/project-images/Brindavana/sunlit-garden-orchard-with-cottage.webp",
     alt: "Sunlit Garden Orchard with Cottage at Brindavana",
   },
   {
-    src: "/assets/project-images/Brindavana/Rainy Countryside Pond Reflections.webp",
+    src: "/assets/project-images/Brindavana/rainy-countryside-pond-reflections.webp",
     alt: "Rainy Countryside Pond Reflections",
   },
   {
-    src: "/assets/project-images/Brindavana/Tropical Garden Pathway Tunnel.webp",
+    src: "/assets/project-images/Brindavana/tropical-garden-pathway-tunnel.webp",
     alt: "Tropical Garden Pathway Tunnel",
   },
   {
-    src: "/assets/project-images/Brindavana/Vibrant Tropical Garden Nursery.webp",
+    src: "/assets/project-images/Brindavana/vibrant-tropical-garden-nursery.webp",
     alt: "Vibrant Tropical Garden Nursery",
   },
 ];
@@ -340,7 +340,7 @@ export default function Brindavana() {
               }}
             >
               <img
-                src="/assets/project-images/Brindavana/Sunlit Garden Orchard with Cottage.webp"
+                src="/assets/project-images/Brindavana/sunlit-garden-orchard-with-cottage.webp"
                 alt="BRINDAVANA"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />

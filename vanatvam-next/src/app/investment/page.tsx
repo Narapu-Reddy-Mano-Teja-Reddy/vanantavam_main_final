@@ -432,7 +432,7 @@ export default function Investment() {
               }}
             >
               <Image
-                src="/assets/images/Global Asset Allocation Infographic.webp"
+                src="/assets/images/global-asset-allocation-infographic.webp"
                 alt="Market Volatility and Diversification Analytics"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -593,7 +593,7 @@ export default function Investment() {
                 }}
               >
                 <Image
-                  src="/assets/images/Global Ripple Effects.webp"
+                  src="/assets/images/global-ripple-effects.webp"
                   alt="Market Volatility and Land Diversification"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"

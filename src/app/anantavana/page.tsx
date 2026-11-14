@@ -414,7 +414,7 @@ function SpaceBand() {
     >
       <motion.div style={{ position: "absolute", inset: "-15% 0", y }}>
         <img
-          src="/assets/project-images/Ananthavana/hero_image_2.webp"
+          src="/assets/project-images/Ananthavana/hero-image-2.webp"
           alt=""
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
@@ -531,18 +531,18 @@ const amenities = [
   },
 
   {
-    image: "/assets/project-images/Ananthavana/hero_image.webp",
+    image: "/assets/project-images/Ananthavana/hero-image.webp",
     name: "Heritage Farmhouse",
      
   },
   {
-    image: "/assets/project-images/Ananthavana/AV Tree House.webp",
+    image: "/assets/project-images/Ananthavana/av-tree-house.webp",
     name: "Tree House",
     
   },
   {
     image:
-      "/assets/project-images/Ananthavana/b242b80b-0580-4b54-8c15-02001d35bacf.webp",
+      "/assets/project-images/Ananthavana/bteam-avatar.webp",
     name: "Herbal Gardens",
      
   },
@@ -578,22 +578,22 @@ export default function Anantavana() {
 
   const galleryItems = [
     {
-      img: "/assets/project-images/Ananthavana/hero_image.webp",
+      img: "/assets/project-images/Ananthavana/hero-image.webp",
       title: "Wildlife Corridor",
       desc: "Acting as a gentle buffer for the Bandipur and Nagarhole sanctuaries.",
     },
     {
-      img: "/assets/project-images/Ananthavana/AV Tree House.webp",
+      img: "/assets/project-images/Ananthavana/av-tree-house.webp",
       title: "Tree House Retreats",
       desc: "Experience the magic of living amidst the canopy.",
     },
     {
-      img: "/assets/project-images/Ananthavana/hero_image_2.webp",
+      img: "/assets/project-images/Ananthavana/hero-image-2.webp",
       title: "Native Biodiversity",
       desc: "Over 80% of the land is planted with rare & endangered tree species.",
     },
     {
-      img: "/assets/project-images/Ananthavana/b242b80b-0580-4b54-8c15-02001d35bacf.webp",
+      img: "/assets/project-images/Ananthavana/bteam-avatar.webp",
       title: "Low-Impact Design",
       desc: "Extremely low density footprints ensuring nature remains the dominant force.",
     },
@@ -656,7 +656,7 @@ export default function Anantavana() {
             }}
           >
             <img
-              src="/assets/project-images/Ananthavana/hero_image_2.webp"
+              src="/assets/project-images/Ananthavana/hero-image-2.webp"
               alt="ANANTAVANA"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
@@ -910,7 +910,7 @@ export default function Anantavana() {
                 }}
               >
                 <motion.img
-                  src="/assets/project-images/Ananthavana/Golden Treehouse Garden Retreat (1).png"
+                  src="/assets/project-images/Ananthavana/golden-treehouse-garden-retreat-1.webp"
                   alt="Native forest landscape at AnantaVana"
                   initial={{ scale: 1.3 }}
                   whileInView={{ scale: 1 }}
@@ -1166,7 +1166,7 @@ export default function Anantavana() {
           {
             id: "herbal",
             name: "B-Herbal & Healing Flora",
-            img: "/assets/project-images/Ananthavana/b242b80b-0580-4b54-8c15-02001d35bacf.webp",
+            img: "/assets/project-images/Ananthavana/bteam-avatar.webp",
           },
           {
             id: "cottage",
@@ -1181,7 +1181,7 @@ export default function Anantavana() {
           {
             id: "tree-house",
             name: "E-Tree House Deck",
-            img: "/assets/project-images/Ananthavana/AV Tree House.webp",
+            img: "/assets/project-images/Ananthavana/av-tree-house.webp",
           },
           {
             id: "roads",
@@ -1214,7 +1214,7 @@ export default function Anantavana() {
           }}
         >
           <img
-            src="/assets/images/C (1).webp"
+            src="/assets/images/c-1.webp"
             alt="AnantaVana Concept Master Plan Layout"
             style={{
               width: "100%",

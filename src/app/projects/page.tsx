@@ -54,7 +54,7 @@ export default function Projects() {
       logo: '/assets/images/Project-Logos/Anantavana.webp',
       location: 'NEAR KABINI · 34 ACRES',
       desc: 'A nature-rich ecosystem nestled in Kabini’s thriving biodiversity belt, surrounded by pristine forests and abundant wildlife. A peaceful forest community offering thoughtfully planned farm parcels where life unfolds closer to nature.',
-      img: '/assets/project-images/Ananthavana/hero_image_2.webp',
+      img: '/assets/project-images/Ananthavana/hero-image-2.webp',
       brochure: '/assets/project-images/AnantaVana%20Brochure.pdf',
        
       badgeBg: '#2D6A4F',
@@ -65,7 +65,7 @@ export default function Projects() {
       id: 'ishavana',
       category: 'riverfront',
       name: 'ISHAVANA',
-      logo: '/assets/images/Project-Logos/Ishavaanalogo.png',
+      logo: '/assets/images/Project-Logos/ishavaanalogo.webp',
       location: 'KOLLEGALA - 10 Acres',
       desc: 'Our premier riverfront community set along the banks of the sacred Kaveri river. Designed around the deep relationship between people, riparian ecology, and water.',
       img: '/assets/project-images/Esahavana/EV.webp',
@@ -96,7 +96,7 @@ export default function Projects() {
 
       <section className="hero" style={{ height: '100vh', minHeight: '600px', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <img src="/assets/project-images/Brindavana/Tropical Garden Pathway Tunnel.webp" alt="Projects Background" fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src="/assets/project-images/Brindavana/tropical-garden-pathway-tunnel.webp" alt="Projects Background" fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(18, 34, 23, 0.35) 0%, rgba(18, 34, 23, 0.8) 100%)' }}></div>
         </div>
 

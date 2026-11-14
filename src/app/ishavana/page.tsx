@@ -344,7 +344,7 @@ const stats = [
 
 const galleryImages = [
   {
-    src: "/assets/project-images/Esahavana/EV River View 1.webp",
+    src: "/assets/project-images/Esahavana/ev-river-view-1.webp",
     alt: "River landscape near Ishavana",
   },
   {
@@ -592,12 +592,7 @@ export default function Ishavana() {
                    loading="lazy"
                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                  />
-                 <span className="ishavana-image-caption">
-                   The Ishavana idea
-                 </span>
-               </motion.div>
-
-               {/* Floating Acreage Badge */}
+                  {/* Floating Acreage Badge */}
                <motion.div
                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -605,7 +600,7 @@ export default function Ishavana() {
                  transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
                  style={{
                    position: "absolute",
-                   left: -16,
+                   left: 10,
                    bottom: 32,
                    background: FOREST,
                    color: "#FFF",
@@ -639,6 +634,9 @@ export default function Ishavana() {
                    Shivanasamudhra · Kaveri River
                  </span>
                </motion.div>
+               </motion.div>
+
+               
              </div>
              <div className="ishavana-idea-copy">
                <Kicker>A premium Kaveri riverfront farm community by Vanatvam</Kicker>
@@ -873,12 +871,12 @@ export default function Ishavana() {
                   {
                     id: "amphitheatre",
                     name: "Amphitheatre",
-                    img: "/assets/project-images/Esahavana/Sunlit Riverside Amphitheatre Retreat.webp",
+                    img: "/assets/project-images/Esahavana/sunlit-riverside-amphitheatre-retreat.webp",
                   },
                   {
                     id: "Outdoor Mandir",
                     name: "Outdoor Mandir",
-                    img: "/assets/project-images/Esahavana/Golden-Hour Ganesha Shrine in Tropical Garden.png",
+                    img: "/assets/project-images/Esahavana/golden-hour-ganesha-shrine-in-tropical-garden.webp",
                   },
                 ]}
               />

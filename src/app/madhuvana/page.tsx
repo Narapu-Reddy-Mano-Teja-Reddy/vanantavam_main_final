@@ -294,7 +294,7 @@ function FloatingOrb({
 
 const galleryImages = [
   {
-    src: "/assets/project-images/Maduvana/Tropical Garden Pond Oasis.webp",
+    src: "/assets/project-images/Maduvana/tropical-garden-pond-oasis.webp",
     alt: "Tropical Garden Pond Oasis at MadhuVana",
   },
   {
@@ -302,11 +302,11 @@ const galleryImages = [
     alt: "Serene Tropical Garden Pond Retreat",
   },
   {
-    src: "/assets/project-images/Maduvana/Sunlit Terracotta Cottage and Lush Garden.webp",
+    src: "/assets/project-images/Maduvana/sunlit-terracotta-cottage-and-lush-garden.webp",
     alt: "Sunlit Terracotta Cottage and Lush Garden",
   },
   {
-    src: "/assets/project-images/Maduvana/Rustic Tropical Garden Gateway.webp",
+    src: "/assets/project-images/Maduvana/rustic-tropical-garden-gateway.webp",
     alt: "Rustic Tropical Garden Gateway",
   },
 ];
@@ -535,7 +535,7 @@ export default function Madhuvana() {
                   }}
                 >
                   <img
-                    src="/assets/project-images/Maduvana/Rustic Tropical Garden Gateway.webp"
+                    src="/assets/project-images/Maduvana/rustic-tropical-garden-gateway.webp"
                     alt="A view of the MadhuVana landscape"
                     loading="lazy"
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
@@ -845,12 +845,12 @@ export default function Madhuvana() {
                 eyebrow="Master Plan Highlights"
                 title="Common Amenities (A – G)"
                 items={[
-                  { id: "kitchen-dining", name: "A-Entrance", img: "/assets/project-images/Maduvana/Rustic Tropical Garden Gateway.webp" },
-                  { id: "ashoka-vana", name: "B-Children's Pool", img: "/assets/project-images/Maduvana/Tropical Garden Pond Oasis.webp" },
-                  { id: "event-space", name: "C-Vinayaka Vana", img: "/assets/project-images/Maduvana/Aerial Spiral Garden in Bloom.webp" },
-                  { id: "gateway", name: "D-Gazebo", img: "/assets/project-images/Maduvana/gazebo.jpeg" },
-                  { id: "tree-house", name: "E-Tree House Deck", img: "/assets/project-images/Maduvana/MV Tree House.webp" },
-                  { id: "cottages", name: "F-Cottage", img: "/assets/project-images/Maduvana/cottege.png" },
+                  { id: "kitchen-dining", name: "A-Entrance", img: "/assets/project-images/Maduvana/rustic-tropical-garden-gateway.webp" },
+                  { id: "ashoka-vana", name: "B-Children's Pool", img: "/assets/project-images/Maduvana/tropical-garden-pond-oasis.webp" },
+                  { id: "event-space", name: "C-Vinayaka Vana", img: "/assets/project-images/Maduvana/aerial-spiral-garden-in-bloom.webp" },
+                  { id: "gateway", name: "D-Gazebo", img: "/assets/project-images/Maduvana/gazebo.webp" },
+                  { id: "tree-house", name: "E-Tree House Deck", img: "/assets/project-images/Maduvana/mv-tree-house.webp" },
+                  { id: "cottages", name: "F-Cottage", img: "/assets/project-images/Maduvana/cottege.webp" },
                   { id: "pond", name: "G-Pond", img: "/assets/project-images/Maduvana/pond.webp" },
                   // { id: "kitchen-dining", name: "Kitchen & Dining", img: "/assets/project-images/Maduvana/hero.webp" },
                   // { id: "vinayaka-vana", name: "Vinayaka & Shivapanchayatha Vana", img: "/assets/project-images/Maduvana/a114d324-c066-402d-8ebe-32f8f8a65bc4.webp" },
@@ -880,7 +880,7 @@ export default function Madhuvana() {
                   }}
                 >
                   <img
-                    src="/assets/project-images/Maduvana/MV MAsterplan1.webp"
+                    src="/assets/project-images/Maduvana/mv-masterplan1.webp"
                     alt="MadhuVana Concept Master Plan Layout"
                     style={{
                       width: "100%",

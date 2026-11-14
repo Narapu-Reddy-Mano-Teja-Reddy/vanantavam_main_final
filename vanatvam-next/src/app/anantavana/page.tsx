@@ -409,7 +409,7 @@ function SpaceBand() {
     >
       <motion.div style={{ position: "absolute", inset: "-15% 0", y }}>
         <img
-          src="/assets/project-images/Ananthavana/hero_image_2.webp"
+          src="/assets/project-images/Ananthavana/hero-image-2.webp"
           alt=""
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
@@ -526,18 +526,18 @@ const amenities = [
   },
 
   {
-    image: "/assets/project-images/Ananthavana/hero_image.webp",
+    image: "/assets/project-images/Ananthavana/hero-image.webp",
     name: "Heritage Farmhouse",
     desc: "Traditional cottages and mud houses.",
   },
   {
-    image: "/assets/project-images/Ananthavana/AV Tree House.webp",
+    image: "/assets/project-images/Ananthavana/av-tree-house.webp",
     name: "Tree House",
     desc: "A raised retreat amidst nature.",
   },
   {
     image:
-      "/assets/project-images/Ananthavana/b242b80b-0580-4b54-8c15-02001d35bacf.webp",
+      "/assets/project-images/Ananthavana/bteam-avatar.webp",
     name: "Herbal Gardens",
     desc: "Inspired by ancient wisdom.",
   },
@@ -573,22 +573,22 @@ export default function Anantavana() {
 
   const galleryItems = [
     {
-      img: "/assets/project-images/Ananthavana/hero_image.webp",
+      img: "/assets/project-images/Ananthavana/hero-image.webp",
       title: "Wildlife Corridor",
       desc: "Acting as a gentle buffer for the Bandipur and Nagarhole sanctuaries.",
     },
     {
-      img: "/assets/project-images/Ananthavana/AV Tree House.webp",
+      img: "/assets/project-images/Ananthavana/av-tree-house.webp",
       title: "Tree House Retreats",
       desc: "Experience the magic of living amidst the canopy.",
     },
     {
-      img: "/assets/project-images/Ananthavana/hero_image_2.webp",
+      img: "/assets/project-images/Ananthavana/hero-image-2.webp",
       title: "Native Biodiversity",
       desc: "Over 80% of the land is planted with rare & endangered tree species.",
     },
     {
-      img: "/assets/project-images/Ananthavana/b242b80b-0580-4b54-8c15-02001d35bacf.webp",
+      img: "/assets/project-images/Ananthavana/bteam-avatar.webp",
       title: "Low-Impact Design",
       desc: "Extremely low density footprints ensuring nature remains the dominant force.",
     },
@@ -651,7 +651,7 @@ export default function Anantavana() {
             }}
           >
             <img
-              src="/assets/project-images/Ananthavana/hero_image.webp"
+              src="/assets/project-images/Ananthavana/hero-image.webp"
               alt="ANANTAVANA"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
@@ -995,7 +995,7 @@ export default function Anantavana() {
                 }}
               >
                 <motion.img
-                  src="/assets/project-images/Ananthavana/hero_image_2.webp"
+                  src="/assets/project-images/Ananthavana/hero-image-2.webp"
                   alt="Native forest landscape at AnantaVana"
                   initial={{ scale: 1.3 }}
                   whileInView={{ scale: 1 }}

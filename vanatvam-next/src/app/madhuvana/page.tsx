@@ -289,7 +289,7 @@ function FloatingOrb({
 
 const galleryImages = [
   {
-    src: "/assets/project-images/Maduvana/Tropical Garden Pond Oasis.webp",
+    src: "/assets/project-images/Maduvana/tropical-garden-pond-oasis.webp",
     alt: "Tropical Garden Pond Oasis at MadhuVana",
   },
   {
@@ -297,11 +297,11 @@ const galleryImages = [
     alt: "Serene Tropical Garden Pond Retreat",
   },
   {
-    src: "/assets/project-images/Maduvana/Sunlit Terracotta Cottage and Lush Garden.webp",
+    src: "/assets/project-images/Maduvana/sunlit-terracotta-cottage-and-lush-garden.webp",
     alt: "Sunlit Terracotta Cottage and Lush Garden",
   },
   {
-    src: "/assets/project-images/Maduvana/Rustic Tropical Garden Gateway.webp",
+    src: "/assets/project-images/Maduvana/rustic-tropical-garden-gateway.webp",
     alt: "Rustic Tropical Garden Gateway",
   },
 ];
@@ -310,12 +310,12 @@ const amenities = [
   {
     letter: "A",
     name: "Entrance Arch",
-    img: "/assets/project-images/Maduvana/Rustic Tropical Garden Gateway.webp",
+    img: "/assets/project-images/Maduvana/rustic-tropical-garden-gateway.webp",
   },
   {
     letter: "B",
     name: "Sacred Groves",
-    img: "/assets/project-images/Maduvana/Aerial Spiral Garden in Bloom.webp",
+    img: "/assets/project-images/Maduvana/aerial-spiral-garden-in-bloom.webp",
   },
   {
     letter: "C",
@@ -325,17 +325,17 @@ const amenities = [
   {
     letter: "D",
     name: "Eco friendly Cottage ",
-    img: "/assets/project-images/Maduvana/Sunlit Terracotta Cottage and Lush Garden.webp",
+    img: "/assets/project-images/Maduvana/sunlit-terracotta-cottage-and-lush-garden.webp",
   },
   {
     letter: "E",
     name: "Children's Pool",
-    img: "/assets/project-images/Maduvana/Tropical Garden Pond Oasis.webp",
+    img: "/assets/project-images/Maduvana/tropical-garden-pond-oasis.webp",
   },
   {
     letter: "F",
     name: "Tree House",
-    img: "/assets/project-images/Maduvana/MV Tree House.webp",
+    img: "/assets/project-images/Maduvana/mv-tree-house.webp",
   },
   {
     letter: "G",
@@ -618,7 +618,7 @@ export default function Madhuvana() {
                   }}
                 >
                   <motion.img
-                    src="/assets/project-images/Maduvana/Rustic Tropical Garden Gateway.webp"
+                    src="/assets/project-images/Maduvana/rustic-tropical-garden-gateway.webp"
                     alt="A view of the MadhuVana landscape"
                     loading="lazy"
                     initial={reduce ? false : { scale: 1.2 }}
@@ -1255,7 +1255,7 @@ export default function Madhuvana() {
                   }}
                 >
                   <img
-                    src="/assets/project-images/Maduvana/Master Plan.webp"
+                    src="/assets/project-images/Maduvana/master-plan.webp"
                     alt="MadhuVana Concept Master Plan Layout"
                     style={{
                       width: "100%",

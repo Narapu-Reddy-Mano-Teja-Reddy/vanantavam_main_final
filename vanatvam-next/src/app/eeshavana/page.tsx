@@ -343,7 +343,7 @@ const stats = [
 
 const galleryImages = [
   {
-    src: "/assets/project-images/Esahavana/EV River View 1.webp",
+    src: "/assets/project-images/Esahavana/ev-river-view-1.webp",
     alt: "River landscape near Eeshavana",
   },
   {
@@ -406,7 +406,7 @@ export default function Eeshavana() {
               }}
             >
               <img
-                src="/assets/project-images/Esahavana/EV River View 1.webp"
+                src="/assets/project-images/Esahavana/ev-river-view-1.webp"
                 alt="EESHAVANA"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
@@ -1079,7 +1079,7 @@ export default function Eeshavana() {
                 {
                   name: "Amphitheatre",
                   desc: "Open-air eco amphitheatre designed for cultural gatherings and starlit evenings.",
-                  image: "/assets/project-images/Esahavana/Sunlit Riverside Amphitheatre Retreat.webp",
+                  image: "/assets/project-images/Esahavana/sunlit-riverside-amphitheatre-retreat.webp",
                 },
                 {
                   name: "Dining Deck",

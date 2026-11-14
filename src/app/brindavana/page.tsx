@@ -277,19 +277,19 @@ function FloatingOrb({
 
 const galleryImages = [
   {
-    src: "/assets/project-images/Brindavana/image.png",
+    src: "/assets/project-images/Brindavana/image.webp",
     alt: "Sunlit Garden Orchard with Cottage at Brindavana",
   },
   {
-    src: "/assets/project-images/Brindavana/image1.png",
+    src: "/assets/project-images/Brindavana/image1.webp",
     alt: "Rainy Countryside Pond Reflections",
   },
   {
-    src: "/assets/project-images/Brindavana/Tropical Garden Pathway Tunnel.webp",
+    src: "/assets/project-images/Brindavana/tropical-garden-pathway-tunnel.webp",
     alt: "Tropical Garden Pathway Tunnel",
   },
   {
-    src: "/assets/project-images/Brindavana/Vibrant Tropical Garden Nursery.webp",
+    src: "/assets/project-images/Brindavana/vibrant-tropical-garden-nursery.webp",
     alt: "Vibrant Tropical Garden Nursery",
   },
 ];

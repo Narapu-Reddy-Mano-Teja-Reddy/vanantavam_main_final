@@ -4,7 +4,7 @@ import Link from "next/link";
 import Magnetic from "@/components/premium/Magnetic";
 
 /* 👉 Footer artwork (green hills / sunrise / hut / leaves) */
-const FOOTER_BG = "/assets/images/footer_bg.jpeg";
+const FOOTER_BG = "/assets/images/footer-bg.webp";
 
 type NavChild = { label: string; href: string };
 type NavItem = {

@@ -54,7 +54,7 @@ export default function Projects() {
       logo: '/assets/images/Project-Logos/Anantavana.webp',
       location: 'NEAR KABINI · 34 ACRES',
       desc: 'Where the Forest Leads. Set in Kabini’s rich ecological belt. With dense forests and thriving biodiversity, Anantavana invites you to step into nature. Farm parcels from 10,000 sq. ft.',
-      img: '/assets/project-images/Ananthavana/hero_image.webp',
+      img: '/assets/project-images/Ananthavana/hero-image.webp',
       brochure: '/assets/project-images/AnantaVana%20Brochure.pdf',
        
       badgeBg: '#2D6A4F',
@@ -96,7 +96,7 @@ export default function Projects() {
 
       <section className="hero" style={{ height: '70vh', minHeight: '500px', position: 'relative' }}>
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <img src="/assets/project-images/Brindavana/Tropical Garden Pathway Tunnel.webp" alt="Projects Background" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src="/assets/project-images/Brindavana/tropical-garden-pathway-tunnel.webp" alt="Projects Background" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(18, 34, 23, 0.4) 0%, rgba(18, 34, 23, 0.9) 100%)' }}></div>
         </div>
 

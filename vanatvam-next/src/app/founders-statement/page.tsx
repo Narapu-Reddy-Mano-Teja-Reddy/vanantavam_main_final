@@ -208,7 +208,7 @@ const PROJECTS = [
     logo: "/assets/images/Project-Logos/Anantavana.webp",
     location: "NEAR KABINI · 34 ACRES",
     desc: "Set in Kabini’s rich ecological belt, Anantavana brings together dense forests and thriving biodiversity, with farm parcels from 10,000 sq. ft.",
-    img: "/assets/project-images/Ananthavana/hero_image.webp",
+    img: "/assets/project-images/Ananthavana/hero-image.webp",
     badge: "Wildlife Corridor",
     badgeBg: "#2D6A4F",
     pills: ["Bandipur Corridor", "Heritage Cottages"],

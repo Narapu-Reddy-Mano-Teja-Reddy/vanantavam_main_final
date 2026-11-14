@@ -126,7 +126,7 @@ const heroSlides = [
     name: "ANANTAVANA",
      
     tagline: "An Extensive Eco Conservation project to restore Bio Diversity.",
-    img: "/assets/project-images/Ananthavana/hero_image_2.webp",
+    img: "/assets/project-images/Ananthavana/hero-image-2.webp",
   },
   
   {
@@ -1037,7 +1037,7 @@ WHO WE ARE
                   id: "anantavana",
                   name: "ANANTAVANA",
                   badge: "NEAR KABINI · 34 ACRES",
-                  img: "/assets/project-images/Ananthavana/hero_image_2.webp",
+                  img: "/assets/project-images/Ananthavana/hero-image-2.webp",
                    
                 },
                 {

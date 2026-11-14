@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Vanatvam",
     images: [
       {
-        url: "/assets/project-images/Brindavana/Sunny Tropical Banana Orchard.webp",
+        url: "/assets/project-images/Brindavana/sunny-tropical-banana-orchard.webp",
         width: 1200,
         height: 630,
         alt: "Vanatvam Nature Communities",
