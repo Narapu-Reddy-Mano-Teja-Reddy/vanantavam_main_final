@@ -92,15 +92,6 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
       "Tranquil walking pathways winding through living bamboo clusters and bird-friendly flora.",
     img: "/assets/life/vanatvam2.webp",
   },
-  {
-    id: "community-harvest",
-    title: "Community Harvest",
-    caption: "Harvest Days",
-    subtitle:
-      "Families and children reconnecting directly with the earth, gathering fresh seasonal produce.",
-    img: "/Event%20images/WhatsApp%20Image%202024-04-02%20at%202.37.57%20PM%20(2)%20(1).webp",
-  },
-
     {
     id: "green-tunnel-2",
     title: "Canopy Trail Pathways",
