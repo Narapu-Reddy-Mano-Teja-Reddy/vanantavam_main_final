@@ -1,0 +1,1752 @@
+'use client';
+
+import React, { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import {
+  Info,
+  ArrowRight,
+  ArrowUpRight,
+  ShieldCheck,
+  TrendingUp,
+  Clock,
+  Coins,
+  Quote,
+  Sparkles,
+  Globe,
+  TrendingDown,
+  CheckCircle2,
+  Building2,
+  Leaf,
+  Lock,
+} from 'lucide-react';
+import Navigation from '@/app/components/Navigation';
+import Footer from '@/app/components/Footer';
+import RevealText from '@/components/premium/RevealText';
+import Magnetic from '@/components/premium/Magnetic';
+
+export default function Investment() {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    email: '',
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+          source: 'investment',
+        }),
+      });
+      if (!res.ok) throw new Error('Submission failed');
+      setFormSubmitted(true);
+    } catch (err) {
+      console.error('Investment form submission error:', err);
+      setError('Something went wrong. Please call or WhatsApp us directly.');
+    }
+
+    setSubmitting(false);
+  };
+
+  return (
+    <>
+      <Navigation />
+
+      {/* ================= HERO SECTION ================= */}
+      <section
+        className="hero"
+        style={{
+          minHeight: '88vh',
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '140px 20px 90px',
+          overflow: 'hidden',
+          backgroundColor: 'var(--bg-dark-forest, #122217)',
+        }}
+      >
+        <motion.div
+          initial={{ scale: 1.1, opacity: 0.7 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.6, ease: [0.25, 1, 0.5, 1] }}
+          style={{ position: 'absolute', inset: 0, zIndex: 0 }}
+        >
+          <Image
+            src="/assets/images/Investment.webp"
+            alt="Alternative Investment Opportunities with Vanatvam"
+            fill
+            priority
+            style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'linear-gradient(180deg, rgba(18, 34, 23, 0.65) 0%, rgba(18, 34, 23, 0.88) 70%, #122217 100%)',
+            }}
+          />
+        </motion.div>
+
+        <div
+          className="container"
+          style={{
+            position: 'relative',
+            zIndex: 1,
+            textAlign: 'center',
+            maxWidth: '960px',
+            margin: '0 auto',
+          }}
+        >
+          {/* Section Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '12px',
+              marginBottom: '24px',
+            }}
+          >
+            <span style={{ width: '28px', height: '1px', background: 'var(--accent-gold)' }} />
+            <span
+              style={{
+                color: 'var(--accent-gold)',
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
+              }}
+            >
+              Alternative Investment Opportunities
+            </span>
+            <span style={{ width: '28px', height: '1px', background: 'var(--accent-gold)' }} />
+          </motion.div>
+
+          <h1
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: 'clamp(2.8rem, 5.8vw, 5rem)',
+              color: '#FFFFFF',
+              lineHeight: 1.1,
+              marginBottom: '26px',
+              letterSpacing: '-0.02em',
+              fontWeight: 500,
+            }}
+          >
+            <RevealText>Invest with Purpose.</RevealText>{' '}
+            <RevealText
+              delay={0.15}
+              style={{
+                display: 'block',
+                color: 'var(--accent-gold)',
+                fontStyle: 'italic',
+                fontWeight: 400,
+              }}
+            >
+              Grow with Nature.
+            </RevealText>
+          </h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            style={{
+              fontSize: 'clamp(1.1rem, 2vw, 1.32rem)',
+              color: 'rgba(249, 248, 246, 0.88)',
+              lineHeight: 1.7,
+              fontWeight: 300,
+              maxWidth: '740px',
+              margin: '0 auto 40px',
+            }}
+          >
+            Explore curated investment opportunities in nature-first development with Vanatvam.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '16px',
+              flexWrap: 'wrap',
+            }}
+          >
+            <Magnetic strength={0.2}>
+              <a href="#connect-form" className="btn-pill btn-pill-gold" style={{ padding: '16px 36px', fontSize: '0.92rem' }}>
+                REQUEST A DISCUSSION
+                <ArrowRight className="size-4" />
+              </a>
+            </Magnetic>
+            <Magnetic strength={0.2}>
+              <a href="#market-perspective" className="btn-pill btn-pill-outline" style={{ padding: '16px 32px', fontSize: '0.92rem' }}>
+                Market Insights
+                <ArrowUpRight className="size-4" />
+              </a>
+            </Magnetic>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ================= QUOTE BANNER ================= */}
+      <section
+        style={{
+          background: 'linear-gradient(135deg, #122217 0%, #1A2E20 100%)',
+          color: '#FFFFFF',
+          padding: '64px 20px',
+          borderTop: '1px solid rgba(198, 162, 101, 0.25)',
+          borderBottom: '1px solid rgba(198, 162, 101, 0.25)',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '600px',
+            height: '250px',
+            background: 'radial-gradient(circle, rgba(198,162,101,0.08), transparent 70%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        <div
+          className="container"
+          style={{
+            maxWidth: '1000px',
+            margin: '0 auto',
+            textAlign: 'center',
+            position: 'relative',
+            zIndex: 1,
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div
+              style={{
+                width: '48px',
+                height: '48px',
+                borderRadius: '50%',
+                background: 'rgba(198, 162, 101, 0.15)',
+                border: '1px solid rgba(198, 162, 101, 0.3)',
+                color: 'var(--accent-gold)',
+                display: 'grid',
+                placeItems: 'center',
+                margin: '0 auto 20px',
+              }}
+            >
+              <Quote size={22} />
+            </div>
+
+            <blockquote
+              style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: 'clamp(1.4rem, 2.5vw, 2.1rem)',
+                fontStyle: 'italic',
+                fontWeight: 400,
+                lineHeight: 1.45,
+                color: '#F9F8F6',
+                margin: '0 auto 20px',
+                maxWidth: '860px',
+              }}
+            >
+              &ldquo;In uncertain times, diversification is your most prudent move.&rdquo;
+            </blockquote>
+
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+              }}
+            >
+              <span style={{ width: '20px', height: '1px', background: 'var(--accent-gold)' }} />
+              <p
+                style={{
+                  fontSize: '0.88rem',
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  color: 'var(--accent-gold)',
+                  fontWeight: 600,
+                  margin: 0,
+                }}
+              >
+                Jean Lombard, Financial Adviser
+              </p>
+              <span style={{ width: '20px', height: '1px', background: 'var(--accent-gold)' }} />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ================= SECTION 1: PORTFOLIO STRATEGY ================= */}
+      <section
+        id="market-perspective"
+        style={{
+          padding: 'clamp(80px, 10vh, 120px) 20px',
+          backgroundColor: 'var(--bg-cream, #F9F8F6)',
+        }}
+      >
+        <div
+          className="container"
+          style={{
+            maxWidth: '1240px',
+            margin: '0 auto',
+          }}
+        >
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: 'clamp(40px, 6vw, 80px)',
+              alignItems: 'center',
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  marginBottom: '16px',
+                }}
+              >
+                <span style={{ width: '24px', height: '1px', background: 'var(--accent-gold)' }} />
+                <span
+                  style={{
+                    color: 'var(--accent-gold)',
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Portfolio Strategy
+                </span>
+              </div>
+
+              <h2
+                style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: 'clamp(2.2rem, 4vw, 3.4rem)',
+                  color: 'var(--bg-dark-forest, #122217)',
+                  lineHeight: 1.15,
+                  letterSpacing: '-0.02em',
+                  marginBottom: '24px',
+                  fontWeight: 500,
+                }}
+              >
+                Diversify During <br />
+                <span style={{ color: 'var(--accent-gold)', fontStyle: 'italic', fontWeight: 400 }}>
+                  Uncertain Times
+                </span>
+              </h2>
+
+              <p
+                style={{
+                  fontSize: '1.18rem',
+                  color: '#344037',
+                  lineHeight: 1.85,
+                  marginBottom: '28px',
+                  fontWeight: 300,
+                }}
+              >
+                Diversify your investment portfolio during uncertain times. Spreading capital across
+                different asset classes is one of the oldest ways to protect it when markets turn.
+              </p>
+
+              <div
+                style={{
+                  padding: '28px 32px',
+                  background: '#FFFFFF',
+                  borderRadius: '20px',
+                  borderLeft: '4px solid var(--accent-gold, #C6A265)',
+                  borderTop: '1px solid rgba(18, 34, 23, 0.06)',
+                  borderRight: '1px solid rgba(18, 34, 23, 0.06)',
+                  borderBottom: '1px solid rgba(18, 34, 23, 0.06)',
+                  boxShadow: '0 12px 36px rgba(18, 34, 23, 0.04)',
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: '1.02rem',
+                    color: '#4B554D',
+                    lineHeight: 1.75,
+                    margin: 0,
+                    fontWeight: 400,
+                  }}
+                >
+                  Physical assets such as land have long been valued for their tangible nature and
+                  long-term potential. As with all investments, values and liquidity can vary. Land has
+                  historically held up well through uncertain periods.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              style={{
+                position: 'relative',
+                borderRadius: '28px',
+                overflow: 'hidden',
+                boxShadow: '0 25px 60px rgba(18, 34, 23, 0.12)',
+                border: '1px solid rgba(198, 162, 101, 0.3)',
+                aspectRatio: '16/10',
+                backgroundColor: '#1B2B1F',
+              }}
+            >
+              <Image
+                src="/assets/images/Global Asset Allocation Infographic.webp"
+                alt="Market Volatility and Diversification Analytics"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ objectFit: 'cover' }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background:
+                    'linear-gradient(to top, rgba(14, 26, 18, 0.75) 0%, transparent 60%)',
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '24px',
+                  left: '24px',
+                  right: '24px',
+                  color: '#FFFFFF',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '14px 20px',
+                  borderRadius: '16px',
+                  background: 'rgba(18, 34, 23, 0.85)',
+                  backdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(198, 162, 101, 0.3)',
+                }}
+              >
+                <div
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '10px',
+                    background: 'rgba(198, 162, 101, 0.2)',
+                    color: 'var(--accent-gold)',
+                    display: 'grid',
+                    placeItems: 'center',
+                    flexShrink: 0,
+                  }}
+                >
+                  <TrendingUp size={20} />
+                </div>
+                <p
+                  style={{
+                    fontSize: '0.98rem',
+                    fontWeight: 500,
+                    margin: 0,
+                    color: '#F9F8F6',
+                  }}
+                >
+                  Markets fluctuate. Land endures.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= SECTION 2: MARKET VOLATILITY ================= */}
+      <section
+        style={{
+          padding: 'clamp(80px, 10vh, 120px) 20px',
+          backgroundColor: '#FFFFFF',
+          borderTop: '1px solid var(--border-light, rgba(40, 44, 39, 0.08))',
+          borderBottom: '1px solid var(--border-light, rgba(40, 44, 39, 0.08))',
+        }}
+      >
+        <div
+          className="container"
+          style={{
+            maxWidth: '1240px',
+            margin: '0 auto',
+          }}
+        >
+          {/* Layout: Left Sticky Header with Image, Right Stacking Feature Cards */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 460px), 1fr))',
+              gap: 'clamp(36px, 5vw, 80px)',
+              alignItems: 'start',
+              position: 'relative',
+            }}
+          >
+            {/* LEFT COLUMN: Sticky Header + Featured Showcase Frame */}
+            <div
+              style={{
+                position: 'sticky',
+                top: '120px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '28px',
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    marginBottom: '14px',
+                  }}
+                >
+                  <span style={{ width: '24px', height: '1px', background: 'var(--accent-gold)' }} />
+                  <span
+                    style={{
+                      color: 'var(--accent-gold)',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.2em',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    Global &amp; Domestic Trends
+                  </span>
+                </div>
+
+                <h2
+                  style={{
+                    fontFamily: 'var(--font-serif)',
+                    fontSize: 'clamp(2rem, 3.2vw, 2.8rem)',
+                    color: 'var(--bg-dark-forest, #122217)',
+                    lineHeight: 1.18,
+                    letterSpacing: '-0.02em',
+                    marginBottom: '14px',
+                    fontWeight: 500,
+                  }}
+                >
+                  Market Volatility at <br />
+                  <span style={{ color: 'var(--accent-gold)', fontStyle: 'italic' }}>
+                    Home and Abroad
+                  </span>
+                </h2>
+              </motion.div>
+
+              {/* Showcase Image Frame */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.97 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: '300px',
+                  borderRadius: '24px',
+                  overflow: 'hidden',
+                  background: '#122217',
+                  boxShadow: '0 16px 40px rgba(18, 34, 23, 0.1)',
+                  border: '1px solid rgba(198, 162, 101, 0.25)',
+                }}
+              >
+                <Image
+                  src="/assets/images/Global Ripple Effects.webp"
+                  alt="Market Volatility and Land Diversification"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: 'contain', padding: '12px' }}
+                />
+              </motion.div>
+            </div>
+
+            {/* RIGHT COLUMN: Overlapping Stacking Cards */}
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                marginTop: '20px',
+                gap: '24px',
+                position: 'relative',
+                paddingBottom: '40px',
+              }}
+            >
+              {[
+                {
+                  kicker: 'Global Ripple Effects',
+                  title: 'Cross-Market Interconnectedness',
+                  desc: 'Global markets add a further layer of uncertainty. Shifts in US interest rates, trade policy and geopolitical events have been sending ripples through every major market at once, which is why diversification across asset classes matters.',
+                  icon: Globe,
+                },
+                {
+                  kicker: 'Early 2026 Downturn',
+                  title: '15–16% Benchmark Declines',
+                  desc: 'The numbers since January 2026 show how sharp and divergent that volatility has been. After the US and Israeli strikes on Iran began in late February, both Indian and global markets fell hard: the Nifty 50 dropped from a January 5 record of 26,373 to a March 30 closing low of 22,331, and the Sensex fell from its December 2025 peak of 86,159 to a March 30 low near 71,948 — declines of roughly 15–16% (NSE/BSE data via Business Standard).',
+                  icon: TrendingDown,
+                },
+                {
+                  kicker: 'Market Divergence',
+                  title: 'Divergent Paths Across Borders',
+                  desc: 'The Nasdaq Composite confirmed its own correction on March 26, down about 11% from its October 2025 record, as Iran war fears, a Meta Platforms selloff and doubts over AI spending weighed on US tech stocks. By October 1, the S&P 500 and Nasdaq recovered to new highs, up roughly 12% and over 15% YTD. Indian markets, by contrast, remained down ~14% to 16% from their peaks, pressured by rising US 10-year yields, a weaker rupee and foreign investor selling.',
+                  icon: Coins,
+                },
+              ].map((card, i) => {
+                const IconComponent = card.icon;
+                return (
+                  <motion.div
+                    key={card.kicker}
+                    initial={{ opacity: 0, y: 40, scale: 0.97 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{
+                      duration: 0.6,
+                      ease: [0.25, 1, 0.5, 1],
+                      delay: 0.08 * i,
+                    }}
+                    style={{
+                      position: 'sticky',
+                      top: `${140 + i * 24}px`,
+                      background: '#FFFFFF',
+                      border: '1px solid rgba(18, 34, 23, 0.08)',
+                      borderRadius: '24px',
+                      padding: 'clamp(28px, 3.5vw, 40px)',
+                      boxShadow: '0 12px 36px rgba(18, 34, 23, 0.07)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      zIndex: i + 1,
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+                      <div
+                        style={{
+                          width: '36px',
+                          height: '36px',
+                          borderRadius: '10px',
+                          background: 'rgba(198, 162, 101, 0.15)',
+                          color: 'var(--accent-gold)',
+                          display: 'grid',
+                          placeItems: 'center',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <IconComponent size={18} />
+                      </div>
+                      <span
+                        style={{
+                          fontSize: '0.8rem',
+                          color: 'var(--accent-gold, #C6A265)',
+                          letterSpacing: '0.18em',
+                          textTransform: 'uppercase',
+                          fontWeight: 700,
+                        }}
+                      >
+                        {card.kicker}
+                      </span>
+                    </div>
+
+                    <h3
+                      style={{
+                        fontFamily: 'var(--font-serif)',
+                        fontSize: 'clamp(1.35rem, 2vw, 1.65rem)',
+                        color: 'var(--bg-dark-forest, #122217)',
+                        fontWeight: 600,
+                        lineHeight: 1.25,
+                        marginBottom: '14px',
+                      }}
+                    >
+                      {card.title}
+                    </h3>
+
+                    <p
+                      style={{
+                        fontSize: '1rem',
+                        color: '#5A685E',
+                        lineHeight: 1.7,
+                        margin: 0,
+                        fontWeight: 300,
+                      }}
+                    >
+                      {card.desc}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Full Narrative Banner: The Vanatvam Model */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            style={{
+              background: 'linear-gradient(135deg, #122217 0%, #1A2E20 100%)',
+              color: '#FFFFFF',
+              borderRadius: '28px',
+              padding: 'clamp(40px, 6vw, 64px)',
+              marginTop: '60px',
+              position: 'relative',
+              overflow: 'hidden',
+              boxShadow: '0 24px 60px rgba(18, 34, 23, 0.25)',
+              border: '1px solid rgba(198, 162, 101, 0.3)',
+            }}
+          >
+            <div
+              style={{
+                position: 'absolute',
+                top: '-60px',
+                right: '-60px',
+                width: '320px',
+                height: '320px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(198, 162, 101, 0.18) 0%, transparent 70%)',
+                pointerEvents: 'none',
+              }}
+            />
+
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+              <span style={{ width: '24px', height: '1px', background: 'var(--accent-gold)' }} />
+              <span
+                style={{
+                  color: 'var(--accent-gold)',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                The Vanatvam Model
+              </span>
+            </div>
+
+            <h3
+              style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: 'clamp(1.9rem, 3.2vw, 2.7rem)',
+                color: '#FFFFFF',
+                lineHeight: 1.25,
+                marginBottom: '24px',
+                maxWidth: '860px',
+                fontWeight: 500,
+              }}
+            >
+              Curated Opportunities in Land for Nature-First Projects
+            </h3>
+
+            <p
+              style={{
+                fontSize: '1.18rem',
+                color: 'rgba(249, 248, 246, 0.92)',
+                lineHeight: 1.85,
+                fontWeight: 300,
+                maxWidth: '960px',
+                marginBottom: '20px',
+              }}
+            >
+              Vanatvam offers the curated opportunities to invest in land for nature-first projects,
+              where planning starts with the land, its ecology and its community, and returns follow
+              long-term stewardship.
+            </p>
+
+            <p
+              style={{
+                fontSize: '1.18rem',
+                color: 'rgba(249, 248, 246, 0.92)',
+                lineHeight: 1.85,
+                fontWeight: 300,
+                maxWidth: '960px',
+                marginBottom: '36px',
+              }}
+            >
+              Vanatvam will develop the land parcels into Nature led projects and distribute the
+              profits amongst its investors. Please reach out for further details by filling the details
+              below if you are interested to know more.
+            </p>
+
+            <Magnetic strength={0.2}>
+              <a href="#connect-form" className="btn-pill btn-pill-gold" style={{ padding: '16px 36px', fontSize: '0.92rem' }}>
+                EXPLORE OPPORTUNITIES
+                <ArrowRight className="size-4" />
+              </a>
+            </Magnetic>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ================= SECTION 3: INVESTMENT FRAMEWORK ================= */}
+      <section
+        style={{
+          padding: 'clamp(80px, 10vh, 120px) 20px',
+          background: 'var(--bg-cream, #F9F8F6)',
+          borderBottom: '1px solid rgba(18, 34, 23, 0.08)',
+        }}
+      >
+        <div
+          className="container"
+          style={{
+            maxWidth: '1240px',
+            margin: '0 auto',
+          }}
+        >
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            style={{ textAlign: 'center', maxWidth: '840px', margin: '0 auto 60px' }}
+          >
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                marginBottom: '14px',
+              }}
+            >
+              <span style={{ width: '24px', height: '1px', background: 'var(--accent-gold)' }} />
+              <span
+                style={{
+                  color: 'var(--accent-gold)',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Investment Framework
+              </span>
+              <span style={{ width: '24px', height: '1px', background: 'var(--accent-gold)' }} />
+            </div>
+
+            <h2
+              style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: 'clamp(2.4rem, 4vw, 3.4rem)',
+                color: 'var(--bg-dark-forest, #122217)',
+                lineHeight: 1.15,
+                letterSpacing: '-0.02em',
+                marginBottom: '20px',
+                fontWeight: 500,
+              }}
+            >
+              Key Investment Terms &amp; Structure
+            </h2>
+
+            <p
+              style={{
+                fontSize: '1.12rem',
+                color: '#4B554D',
+                lineHeight: 1.8,
+                margin: 0,
+                fontWeight: 300,
+              }}
+            >
+              A structured, transparent capital deployment model backed by high-potential physical land assets, professional ecological master planning, and shared long-term capital growth.
+            </p>
+          </motion.div>
+
+          {/* 3 Metric Cards Grid */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '24px',
+              marginBottom: '60px',
+            }}
+          >
+            {/* Metric Card 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ y: -4, boxShadow: '0 16px 36px rgba(18, 34, 23, 0.2)' }}
+              style={{
+                background: 'linear-gradient(135deg, #122217 0%, #1A2E20 100%)',
+                borderRadius: '24px',
+                padding: '36px 30px 30px',
+                border: '1px solid rgba(198, 162, 101, 0.3)',
+                boxShadow: '0 10px 30px rgba(18, 34, 23, 0.12)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: '180px',
+                transition: 'all 0.3s ease',
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: 'var(--font-sans, system-ui, sans-serif)',
+                  fontSize: 'clamp(2.1rem, 3.8vw, 2.7rem)',
+                  fontWeight: 700,
+                  color: '#FFFFFF',
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.1,
+                  marginBottom: '24px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <span>~ ₹10 Lakh</span>
+                <Coins size={28} style={{ color: 'var(--accent-gold)', opacity: 0.8 }} />
+              </div>
+
+              <div>
+                <div
+                  style={{
+                    fontSize: '0.95rem',
+                    fontWeight: 500,
+                    color: '#F9F8F6',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                >
+                  <span>Minimum Investment Threshold</span>
+                  <Info size={15} style={{ opacity: 0.7, color: 'var(--accent-gold)' }} />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Metric Card 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -4, boxShadow: '0 16px 36px rgba(18, 34, 23, 0.2)' }}
+              style={{
+                background: 'linear-gradient(135deg, #122217 0%, #1A2E20 100%)',
+                borderRadius: '24px',
+                padding: '36px 30px 30px',
+                border: '1px solid rgba(198, 162, 101, 0.3)',
+                boxShadow: '0 10px 30px rgba(18, 34, 23, 0.12)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: '180px',
+                transition: 'all 0.3s ease',
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: 'var(--font-sans, system-ui, sans-serif)',
+                  fontSize: 'clamp(2.1rem, 3.8vw, 2.7rem)',
+                  fontWeight: 700,
+                  color: '#FFFFFF',
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.1,
+                  marginBottom: '24px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <span>~ 15%</span>
+                <TrendingUp size={28} style={{ color: 'var(--accent-gold)', opacity: 0.8 }} />
+              </div>
+
+              <div>
+                <div
+                  style={{
+                    fontSize: '0.95rem',
+                    fontWeight: 500,
+                    color: '#F9F8F6',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                >
+                  <span>Indicative Return Range (p.a.)</span>
+                  <Info size={15} style={{ opacity: 0.7, color: 'var(--accent-gold)' }} />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Metric Card 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ y: -4, boxShadow: '0 16px 36px rgba(18, 34, 23, 0.2)' }}
+              style={{
+                background: 'linear-gradient(135deg, #122217 0%, #1A2E20 100%)',
+                borderRadius: '24px',
+                padding: '36px 30px 30px',
+                border: '1px solid rgba(198, 162, 101, 0.3)',
+                boxShadow: '0 10px 30px rgba(18, 34, 23, 0.12)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: '180px',
+                transition: 'all 0.3s ease',
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: 'var(--font-sans, system-ui, sans-serif)',
+                  fontSize: 'clamp(2.1rem, 3.8vw, 2.7rem)',
+                  fontWeight: 700,
+                  color: '#FFFFFF',
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.1,
+                  marginBottom: '24px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <span>~ 2–3 Years</span>
+                <Clock size={28} style={{ color: 'var(--accent-gold)', opacity: 0.8 }} />
+              </div>
+
+              <div>
+                <div
+                  style={{
+                    fontSize: '0.95rem',
+                    fontWeight: 500,
+                    color: '#F9F8F6',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                >
+                  <span>Proposed Investment Tenure</span>
+                  <Info size={15} style={{ opacity: 0.7, color: 'var(--accent-gold)' }} />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Detailed Structural Explanation Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            style={{
+              background: '#122217',
+              color: '#FFFFFF',
+              borderRadius: '28px',
+              padding: 'clamp(36px, 5vw, 56px)',
+              boxShadow: '0 22px 60px rgba(18, 34, 23, 0.25)',
+              border: '1px solid rgba(198, 162, 101, 0.35)',
+            }}
+          >
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '40px',
+                alignItems: 'center',
+              }}
+            >
+              <div>
+                <span
+                  style={{
+                    color: 'var(--accent-gold, #C6A265)',
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    display: 'block',
+                    marginBottom: '12px',
+                  }}
+                >
+                  HOW IT WORKS
+                </span>
+
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-serif)',
+                    fontSize: 'clamp(1.8rem, 3vw, 2.4rem)',
+                    color: '#FFFFFF',
+                    lineHeight: 1.25,
+                    marginBottom: '20px',
+                    fontWeight: 500,
+                  }}
+                >
+                  Detailed Investment Explanation
+                </h3>
+
+                <p
+                  style={{
+                    fontSize: '1.05rem',
+                    color: 'rgba(255, 255, 255, 0.85)',
+                    lineHeight: 1.8,
+                    fontWeight: 300,
+                    margin: 0,
+                  }}
+                >
+                  Vanatvam acquires strategic, ecologically rich land parcels near key corridors in Karnataka. By combining architect-led master planning, organic soil revitalization, and community infrastructure, the underlying land value appreciates significantly. Investors participate directly in this value creation and receive profit distributions upon project completion.
+                </p>
+              </div>
+
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '24px',
+                  borderLeft: '1px solid rgba(255, 255, 255, 0.15)',
+                  paddingLeft: 'clamp(20px, 4vw, 40px)',
+                }}
+              >
+                <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                  <div
+                    style={{
+                      width: '38px',
+                      height: '38px',
+                      borderRadius: '50%',
+                      background: 'rgba(198, 162, 101, 0.2)',
+                      border: '1px solid rgba(198, 162, 101, 0.5)',
+                      color: 'var(--accent-gold, #C6A265)',
+                      display: 'grid',
+                      placeItems: 'center',
+                      fontWeight: 700,
+                      fontSize: '0.9rem',
+                      flexShrink: 0,
+                    }}
+                  >
+                    1
+                  </div>
+                  <div>
+                    <h4 style={{ color: '#FFF', margin: '0 0 4px', fontSize: '1.05rem', fontWeight: 600 }}>
+                      Asset-Backed Security
+                    </h4>
+                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.92rem', margin: 0, lineHeight: 1.6 }}>
+                      Your capital is directly backed by physical agricultural and eco-restoration land parcels with clear, unencumbered titles.
+                    </p>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                  <div
+                    style={{
+                      width: '38px',
+                      height: '38px',
+                      borderRadius: '50%',
+                      background: 'rgba(198, 162, 101, 0.2)',
+                      border: '1px solid rgba(198, 162, 101, 0.5)',
+                      color: 'var(--accent-gold, #C6A265)',
+                      display: 'grid',
+                      placeItems: 'center',
+                      fontWeight: 700,
+                      fontSize: '0.9rem',
+                      flexShrink: 0,
+                    }}
+                  >
+                    2
+                  </div>
+                  <div>
+                    <h4 style={{ color: '#FFF', margin: '0 0 4px', fontSize: '1.05rem', fontWeight: 600 }}>
+                      Turnkey Management
+                    </h4>
+                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.92rem', margin: 0, lineHeight: 1.6 }}>
+                      Vanatvam handles all on-ground operations including legal approvals, soil enrichment, water body creation, and ongoing estate upkeep.
+                    </p>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                  <div
+                    style={{
+                      width: '38px',
+                      height: '38px',
+                      borderRadius: '50%',
+                      background: 'rgba(198, 162, 101, 0.2)',
+                      border: '1px solid rgba(198, 162, 101, 0.5)',
+                      color: 'var(--accent-gold, #C6A265)',
+                      display: 'grid',
+                      placeItems: 'center',
+                      fontWeight: 700,
+                      fontSize: '0.9rem',
+                      flexShrink: 0,
+                    }}
+                  >
+                    3
+                  </div>
+                  <div>
+                    <h4 style={{ color: '#FFF', margin: '0 0 4px', fontSize: '1.05rem', fontWeight: 600 }}>
+                      Profit Distribution
+                    </h4>
+                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.92rem', margin: 0, lineHeight: 1.6 }}>
+                      At the end of the 2–3 year tenure, developed land proceeds and project returns are distributed among investors.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ================= SECTION 4: LET'S CONNECT / FORM ================= */}
+      <section
+        id="connect-form"
+        style={{
+          padding: 'clamp(80px, 10vh, 130px) 20px',
+          backgroundColor: 'var(--bg-cream, #F9F8F6)',
+          position: 'relative',
+        }}
+      >
+        <div
+          className="container"
+          style={{
+            maxWidth: '1180px',
+            margin: '0 auto',
+          }}
+        >
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+              gap: 'clamp(40px, 6vw, 70px)',
+              alignItems: 'center',
+            }}
+          >
+            {/* Left Column Intro */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  marginBottom: '14px',
+                }}
+              >
+                <span style={{ width: '24px', height: '1px', background: 'var(--accent-gold)' }} />
+                <span
+                  style={{
+                    color: 'var(--accent-gold)',
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.22em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  LET’S CONNECT
+                </span>
+              </div>
+
+              <h2
+                style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: 'clamp(2.4rem, 4.2vw, 3.4rem)',
+                  color: 'var(--bg-dark-forest, #122217)',
+                  lineHeight: 1.15,
+                  letterSpacing: '-0.02em',
+                  marginBottom: '22px',
+                  fontWeight: 500,
+                }}
+              >
+                Explore an Investment <br />
+                <span style={{ color: 'var(--accent-gold)', fontStyle: 'italic' }}>
+                  Opportunity
+                </span>
+              </h2>
+
+              <p
+                style={{
+                  fontSize: '1.18rem',
+                  color: '#4B554D',
+                  lineHeight: 1.8,
+                  marginBottom: '36px',
+                  fontWeight: 300,
+                }}
+              >
+                Share your details to request an initial discussion with our team. We look forward to
+                walking you through our upcoming land parcels, stewardship timelines, and value creation models.
+              </p>
+
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '20px',
+                  borderTop: '1px solid rgba(0, 0, 0, 0.08)',
+                  paddingTop: '32px',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+                  <div
+                    style={{
+                      width: '36px',
+                      height: '36px',
+                      borderRadius: '50%',
+                      backgroundColor: 'rgba(198, 162, 101, 0.18)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'var(--accent-gold)',
+                      fontWeight: 700,
+                      fontSize: '0.9rem',
+                      flexShrink: 0,
+                    }}
+                  >
+                    1
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#122217', margin: '0 0 4px' }}>
+                      Confidential Advisory
+                    </h4>
+                    <p style={{ fontSize: '0.94rem', color: '#687B63', margin: 0, lineHeight: 1.5 }}>
+                      Direct consultation with our executive team on project economics and land curation.
+                    </p>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+                  <div
+                    style={{
+                      width: '36px',
+                      height: '36px',
+                      borderRadius: '50%',
+                      backgroundColor: 'rgba(198, 162, 101, 0.18)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'var(--accent-gold)',
+                      fontWeight: 700,
+                      fontSize: '0.9rem',
+                      flexShrink: 0,
+                    }}
+                  >
+                    2
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#122217', margin: '0 0 4px' }}>
+                      Nature-First Profit Distribution
+                    </h4>
+                    <p style={{ fontSize: '0.94rem', color: '#687B63', margin: 0, lineHeight: 1.5 }}>
+                      Transparent models designed for shared long-term capital growth and ecological equity.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Form Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              style={{
+                backgroundColor: '#FFFFFF',
+                borderRadius: '28px',
+                padding: 'clamp(36px, 5vw, 48px)',
+                boxShadow: '0 20px 50px rgba(18, 34, 23, 0.08)',
+                border: '1px solid rgba(18, 34, 23, 0.08)',
+                position: 'relative',
+              }}
+            >
+              {formSubmitted ? (
+                <div style={{ textAlign: 'center', padding: '40px 10px' }}>
+                  <div
+                    style={{
+                      width: '64px',
+                      height: '64px',
+                      borderRadius: '50%',
+                      backgroundColor: 'rgba(82, 183, 136, 0.15)',
+                      color: '#2D6A4F',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '1.8rem',
+                      margin: '0 auto 20px',
+                    }}
+                  >
+                    <CheckCircle2 size={32} />
+                  </div>
+                  <h3
+                    style={{
+                      fontFamily: 'var(--font-serif)',
+                      fontSize: '1.85rem',
+                      color: 'var(--bg-dark-forest, #122217)',
+                      marginBottom: '12px',
+                    }}
+                  >
+                    Thank You
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: '1.05rem',
+                      color: '#4B554D',
+                      lineHeight: 1.7,
+                      marginBottom: '24px',
+                    }}
+                  >
+                    We have received your details. A Vanatvam investment advisor will reach out to schedule your initial discussion.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setFormSubmitted(false);
+                      setFormData({ fullName: '', phone: '', email: '' });
+                    }}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: 'var(--accent-gold, #C6A265)',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      fontSize: '0.9rem',
+                      textDecoration: 'underline',
+                    }}
+                  >
+                    Submit another request
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <div style={{ marginBottom: '24px' }}>
+                    <h3
+                      style={{
+                        fontFamily: 'var(--font-serif)',
+                        fontSize: '1.85rem',
+                        color: 'var(--bg-dark-forest, #122217)',
+                        marginBottom: '8px',
+                        fontWeight: 500,
+                      }}
+                    >
+                      Request an Initial Discussion
+                    </h3>
+                    <p style={{ fontSize: '0.95rem', color: '#687B63', margin: 0 }}>
+                      Share your details to connect directly with our investment team.
+                    </p>
+                  </div>
+
+                  {error && (
+                    <p
+                      style={{
+                        margin: '0 0 20px',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
+                        background: 'rgba(200, 60, 60, 0.08)',
+                        border: '1px solid rgba(200, 60, 60, 0.25)',
+                        color: '#8A3030',
+                        fontSize: '0.88rem',
+                      }}
+                    >
+                      {error}
+                    </p>
+                  )}
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+                    {/* Full Name */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <label
+                        htmlFor="fullName"
+                        style={{
+                          fontSize: '0.88rem',
+                          fontWeight: 600,
+                          color: '#26352B',
+                          letterSpacing: '0.02em',
+                        }}
+                      >
+                        Full name
+                      </label>
+                      <input
+                        id="fullName"
+                        type="text"
+                        required
+                        placeholder="Enter your full name"
+                        value={formData.fullName}
+                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                        style={{
+                          width: '100%',
+                          minHeight: '52px',
+                          padding: '12px 18px',
+                          border: '1px solid #DCE1DA',
+                          borderRadius: '14px',
+                          background: '#FDFCFB',
+                          color: '#26352B',
+                          fontSize: '1rem',
+                          outline: 'none',
+                          transition: 'all 0.25s ease',
+                          fontFamily: 'inherit',
+                        }}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--accent-gold, #C6A265)';
+                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(198, 162, 101, 0.18)';
+                          e.currentTarget.style.background = '#FFFFFF';
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = '#DCE1DA';
+                          e.currentTarget.style.boxShadow = 'none';
+                          e.currentTarget.style.background = '#FDFCFB';
+                        }}
+                      />
+                    </div>
+
+                    {/* Phone Number */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <label
+                        htmlFor="phone"
+                        style={{
+                          fontSize: '0.88rem',
+                          fontWeight: 600,
+                          color: '#26352B',
+                          letterSpacing: '0.02em',
+                        }}
+                      >
+                        Phone number
+                      </label>
+                      <input
+                        id="phone"
+                        type="tel"
+                        required
+                        placeholder="+91 98765 43210"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        style={{
+                          width: '100%',
+                          minHeight: '52px',
+                          padding: '12px 18px',
+                          border: '1px solid #DCE1DA',
+                          borderRadius: '14px',
+                          background: '#FDFCFB',
+                          color: '#26352B',
+                          fontSize: '1rem',
+                          outline: 'none',
+                          transition: 'all 0.25s ease',
+                          fontFamily: 'inherit',
+                        }}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--accent-gold, #C6A265)';
+                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(198, 162, 101, 0.18)';
+                          e.currentTarget.style.background = '#FFFFFF';
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = '#DCE1DA';
+                          e.currentTarget.style.boxShadow = 'none';
+                          e.currentTarget.style.background = '#FDFCFB';
+                        }}
+                      />
+                    </div>
+
+                    {/* Email Address */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <label
+                        htmlFor="email"
+                        style={{
+                          fontSize: '0.88rem',
+                          fontWeight: 600,
+                          color: '#26352B',
+                          letterSpacing: '0.02em',
+                        }}
+                      >
+                        Email address
+                      </label>
+                      <input
+                        id="email"
+                        type="email"
+                        required
+                        placeholder="yourname@domain.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        style={{
+                          width: '100%',
+                          minHeight: '52px',
+                          padding: '12px 18px',
+                          border: '1px solid #DCE1DA',
+                          borderRadius: '14px',
+                          background: '#FDFCFB',
+                          color: '#26352B',
+                          fontSize: '1rem',
+                          outline: 'none',
+                          transition: 'all 0.25s ease',
+                          fontFamily: 'inherit',
+                        }}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--accent-gold, #C6A265)';
+                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(198, 162, 101, 0.18)';
+                          e.currentTarget.style.background = '#FFFFFF';
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = '#DCE1DA';
+                          e.currentTarget.style.boxShadow = 'none';
+                          e.currentTarget.style.background = '#FDFCFB';
+                        }}
+                      />
+                    </div>
+
+                    <Magnetic strength={0.15}>
+                      <button
+                        type="submit"
+                        disabled={submitting}
+                        className="btn-pill btn-pill-gold"
+                        style={{
+                          width: '100%',
+                          minHeight: '56px',
+                          marginTop: '8px',
+                          justifyContent: 'center',
+                          fontSize: '0.92rem',
+                          fontWeight: 700,
+                          letterSpacing: '0.06em',
+                          textTransform: 'uppercase',
+                          border: 'none',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {submitting ? 'SENDING...' : 'REQUEST AN INVESTMENT DISCUSSION'}
+                        <ArrowRight className="size-4" />
+                      </button>
+                    </Magnetic>
+
+                    <p
+                      style={{
+                        margin: '6px 0 0',
+                        textAlign: 'center',
+                        color: '#7B857D',
+                        fontSize: '0.78rem',
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      Your information is held in strict confidence and used solely to coordinate your consultation.
+                    </p>
+                  </div>
+                </form>
+              )}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= DISCLAIMERS & SOURCES SECTION ================= */}
+      <section
+        style={{
+          backgroundColor: 'var(--bg-dark-forest, #122217)',
+          color: '#95A599',
+          padding: '60px 20px 80px',
+          borderTop: '1px solid rgba(198, 162, 101, 0.2)',
+          fontSize: '0.85rem',
+          lineHeight: 1.7,
+        }}
+      >
+        <div
+          className="container"
+          style={{
+            maxWidth: '1180px',
+            margin: '0 auto',
+          }}
+        >
+          {/* Regulatory Disclaimer */}
+          <div
+            style={{
+              padding: '22px 28px',
+              borderRadius: '16px',
+              backgroundColor: 'rgba(255, 255, 255, 0.03)',
+              border: '1px solid rgba(198, 162, 101, 0.2)',
+              marginBottom: '28px',
+              display: 'flex',
+              gap: '16px',
+              alignItems: 'flex-start',
+            }}
+          >
+            <div
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '8px',
+                background: 'rgba(198, 162, 101, 0.15)',
+                color: 'var(--accent-gold)',
+                display: 'grid',
+                placeItems: 'center',
+                flexShrink: 0,
+                marginTop: '2px',
+              }}
+            >
+              <ShieldCheck size={18} />
+            </div>
+            <p
+              style={{
+                color: '#DCE1DA',
+                fontSize: '0.88rem',
+                margin: 0,
+                lineHeight: 1.7,
+              }}
+            >
+              <strong style={{ color: 'var(--accent-gold)' }}>Disclaimer: </strong>
+              Land investments carry risk, and returns are not guaranteed. This page is for
+              information only and is not investment advice. Please consult a qualified financial
+              advisor before you decide.
+            </p>
+          </div>
+
+          {/* Sources */}
+          <div>
+            <p
+              style={{
+                color: 'rgba(255, 255, 255, 0.65)',
+                fontSize: '0.82rem',
+                margin: 0,
+                lineHeight: 1.8,
+              }}
+            >
+              <strong style={{ color: '#F9F8F6' }}>Sources: </strong>
+              Jean Lombard, &ldquo;The Best Investment Move in Uncertain Times&rdquo; (cover.co.za);
+              FarmTogether, &ldquo;Farmland: A Historically Stable Asset During Uncertain Times&rdquo;;
+              Robert Shiller interview, reported by HousingWire (2013); Nifty/Sensex 2026 performance,
+              Business Standard / NSE / BSE data; Nasdaq correction, Reuters via StreetInsider (26 Mar
+              2026); S&P 500 and Nasdaq YTD levels, Tapeboard Market Pulse (1 Oct 2026) and ChartRow (22
+              Oct 2026); India 10-year yield, Trading Economics.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  );
+}
