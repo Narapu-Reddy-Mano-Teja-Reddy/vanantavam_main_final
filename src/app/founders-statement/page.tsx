@@ -842,12 +842,7 @@ function ProjectGallery() {
       </div>
 
       <style jsx>{`
-        @media (max-width: 1050px) {
-          .founder-projects-row {
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          }
-        }
-        @media (max-width: 600px) {
+        @media (max-width: 850px) {
           .founder-projects-row {
             grid-template-columns: minmax(0, 1fr) !important;
           }

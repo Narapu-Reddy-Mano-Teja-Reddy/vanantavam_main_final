@@ -188,24 +188,19 @@ export default function Projects() {
         </div>
         <style jsx>{`
           .project-list-container {
-            padding-right: 0px !important;
-            padding-left: 0px !important;
+            padding-right: 20px !important;
+            padding-left: 20px !important;
           }
 
-          @media (max-width: 1100px) {
-            .project-cards-grid {
-              grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-            }
-          }
-
-          @media (max-width: 600px) {
+          @media (max-width: 850px) {
             .project-cards-grid {
               grid-template-columns: minmax(0, 1fr) !important;
+              gap: 28px !important;
             }
 
             .project-list-container {
-              padding-right: 0px !important;
-              padding-left: 0px !important;
+              padding-right: 20px !important;
+              padding-left: 20px !important;
             }
           }
         `}</style>

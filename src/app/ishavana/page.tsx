@@ -2611,13 +2611,13 @@ export default function Ishavana() {
           }
 
           .ishavana-amenities-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: minmax(0, 1fr) !important;
           }
         }
 
         @media (max-width: 700px) {
           .ishavana-stats-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: minmax(0, 1fr) !important;
           }
 
           .ishavana-stat:nth-child(2) {

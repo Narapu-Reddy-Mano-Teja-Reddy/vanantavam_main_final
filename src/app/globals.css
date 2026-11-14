@@ -3754,9 +3754,9 @@ body.at-top .kenyt-bot-container {
     border-radius: 18px !important;
   }
 
-  /* Metric cards */
+  /* Metric cards - single column on mobile */
   .metrics-2x2-grid {
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: 1fr !important;
     gap: 14px !important;
   }
 
@@ -3771,10 +3771,6 @@ body.at-top .kenyt-bot-container {
 @media (max-width: 480px) {
   .hero-content h1 {
     font-size: 2.1rem !important;
-  }
-
-  .metrics-2x2-grid {
-    grid-template-columns: 1fr !important;
   }
 
   .hero-quick-actions {
@@ -3801,14 +3797,27 @@ body.at-top .kenyt-bot-container {
 }
 
 @media (max-width: 900px) {
-  .anantavana-amenities-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .anantavana-amenities-grid,
+  .ishavana-amenities-grid,
+  .brindavana-amenities-grid,
+  .madhuvana-amenities-grid,
+  .amenities-grid-12,
+  .birds-grid-6,
+  .ishavana-stats-grid,
+  .projects-grid,
+  .project-cards-grid,
+  .founder-projects-row {
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 }
 
-@media (max-width: 560px) {
-  .anantavana-amenities-grid {
-    grid-template-columns: minmax(0, 1fr);
+/* Enforce 1 item per row on mobile view across all content grids */
+@media (max-width: 768px) {
+  .grid,
+  [class*="grid-cols-"],
+  [class*="-grid"],
+  [class*="-layout"] {
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 }
 
