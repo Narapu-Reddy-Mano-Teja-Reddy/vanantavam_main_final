@@ -463,7 +463,7 @@ export default function Navigation() {
                +91 80470 95111
               </a>
               <a
-                href="mailto:hello@vanatvam.com"
+                href="mailto:info@vanatvam.com"
                 style={{
                   color: "var(--text-muted)",
                   textDecoration: "none",
@@ -474,7 +474,7 @@ export default function Navigation() {
                   className="fa-solid fa-envelope"
                   style={{ marginRight: "8px" }}
                 ></i>
-                hello@vanatvam.com
+                info@vanatvam.com
               </a>
             </motion.div>
           </motion.div>
