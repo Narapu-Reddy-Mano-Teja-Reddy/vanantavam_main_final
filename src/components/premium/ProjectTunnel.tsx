@@ -170,8 +170,10 @@ function TunnelCard({
     ["blur(7px)", "blur(0px)", "blur(0px)", "blur(1px)"],
   );
 
-  const baseX = Math.cos(card.angle) * width * card.radiusX;
-  const baseY = Math.sin(card.angle) * height * card.radiusY;
+  const radiusXFactor = isMobile ? 0.65 : 1;
+  const radiusYFactor = isMobile ? 0.72 : 1;
+  const baseX = Math.cos(card.angle) * width * card.radiusX * radiusXFactor;
+  const baseY = Math.sin(card.angle) * height * card.radiusY * radiusYFactor;
   const panStrength = isMobile ? 8 : 22;
   const tiltStrength = isMobile ? 0 : 5;
 
@@ -183,7 +185,7 @@ function TunnelCard({
 
   const staticTransform = `translate3d(calc(-50% + ${baseX}px), calc(-50% + ${baseY}px), 0) rotateZ(${card.rotation}deg)`;
   const cardWidth = isMobile
-    ? Math.max(116, Math.min(170, width * 0.39))
+    ? Math.max(105, Math.min(145, width * 0.34))
     : Math.max(170, Math.min(260, width * 0.19));
 
   const floatStyle = {
@@ -854,46 +856,9 @@ export default function ProjectTunnel({ items }: { items: ProjectItem[] }) {
           }
         }
 
-        @media (max-width: 767px) {
+        @media (max-width: 900px) {
           .project-tunnel-section {
-            height: 230svh;
-          }
-          .project-tunnel-stage {
-            min-height: 480px;
-          }
-          .project-tunnel-title {
-            padding: 22px 14px;
-          }
-          .project-tunnel-title h2 {
-            font-size: clamp(3rem, 15vw, 5.6rem);
-            letter-spacing: -0.045em;
-            margin-block: 24px 18px;
-          }
-          .project-tunnel-eyebrow {
-            gap: 10px;
-          }
-          .project-tunnel-eyebrow span {
-            font-size: 0.64rem;
-            letter-spacing: 0.15em;
-          }
-          .project-tunnel-eyebrow i {
-            flex-basis: 22px;
-          }
-          .project-tunnel-title p {
-            max-width: 30ch;
-            font-size: 0.95rem;
-          }
-          .project-tunnel-prompt {
-            bottom: 22px;
-            font-size: 0.6rem;
-          }
-          .project-tunnel-card-float {
-            border-radius: 12px;
-          }
-          .project-tunnel-card-float span {
-            padding: 38px 8px 14px;
-            font-size: 0.72rem;
-            letter-spacing: 0.07em;
+            display: none !important;
           }
         }
 
