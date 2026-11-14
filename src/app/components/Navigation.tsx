@@ -449,7 +449,7 @@ export default function Navigation() {
               }}
             >
               <a
-                href="tel:+919999999999"
+                href="tel:+918047095111"
                 style={{
                   color: "var(--text-muted)",
                   textDecoration: "none",
@@ -460,7 +460,7 @@ export default function Navigation() {
                   className="fa-solid fa-phone"
                   style={{ marginRight: "8px" }}
                 ></i>
-                +91 99999 99999
+               +91 80470 95111
               </a>
               <a
                 href="mailto:hello@vanatvam.com"

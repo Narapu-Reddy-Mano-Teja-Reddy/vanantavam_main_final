@@ -626,16 +626,18 @@ WHO WE ARE
   >
     {/* Main Grid Layout: Left Sticky Header, Right Scrolling Overlap Stack */}
     <div
+      className="projects-sticky-layout"
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-        gap: "clamp(48px, 6vw, 96px)",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
+        gap: "clamp(36px, 6vw, 96px)",
         alignItems: "start",
         position: "relative",
       }}
     >
       {/* LEFT COLUMN: Sticky Header Content */}
       <div
+        className="projects-sticky-header"
         style={{
           position: "sticky",
           top: "120px",
@@ -743,6 +745,7 @@ WHO WE ARE
         ].map((card, i) => (
           <motion.div
             key={card.num}
+            className="projects-sticky-card"
             initial={{ opacity: 0, y: 40, scale: 0.97 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -826,7 +829,7 @@ WHO WE ARE
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 140px), 1fr))",
               gap: "clamp(20px, 3vw, 32px)",
               textAlign: "center",
             }}
@@ -1364,8 +1367,8 @@ WHO WE ARE
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))",
-              gap: "60px",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 310px), 1fr))",
+              gap: "clamp(32px, 5vw, 60px)",
               alignItems: "center",
             }}
           >
