@@ -523,12 +523,7 @@ export default function Brindavana() {
                     loading="lazy"
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                   />
-                  <span className="ishavana-image-caption">
-                    The Brindavana idea
-                  </span>
-                </motion.div>
-
-                {/* Floating Acreage Badge */}
+                   {/* Floating Acreage Badge */}
                 <motion.div
                   initial={{ opacity: 0, y: 30, scale: 0.9 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -536,7 +531,7 @@ export default function Brindavana() {
                   transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
                   style={{
                     position: "absolute",
-                    left: -16,
+                    left: 10,
                     bottom: 32,
                     background: FOREST,
                     color: "#FFF",
@@ -570,6 +565,9 @@ export default function Brindavana() {
                     Pavagada · Krishnapura
                   </span>
                 </motion.div>
+                </motion.div>
+
+                
               </div>
               <div className="ishavana-idea-copy">
                 <Kicker>The BrindaVana Story</Kicker> 

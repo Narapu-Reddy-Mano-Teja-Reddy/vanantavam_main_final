@@ -542,7 +542,7 @@ const amenities = [
   },
   {
     image:
-      "/assets/project-images/Ananthavana/bteam-avatar.webp",
+      "/assets/project-images/Ananthavana/Herbal.webp",
     name: "Herbal Gardens",
      
   },
@@ -1166,7 +1166,7 @@ export default function Anantavana() {
           {
             id: "herbal",
             name: "B-Herbal & Healing Flora",
-            img: "/assets/project-images/Ananthavana/bteam-avatar.webp",
+            img: "/assets/project-images/Ananthavana/Herbal.webp",
           },
           {
             id: "cottage",
