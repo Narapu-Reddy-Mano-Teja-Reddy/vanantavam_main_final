@@ -72,6 +72,10 @@ export default function Investment() {
             padding-top: clamp(140px, 20vh, 180px) !important;
             padding-bottom: clamp(60px, 10vh, 90px) !important;
           }
+          .inv-hero-container {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
           .inv-steps-col {
             border-left: none !important;
             padding-left: 0 !important;
@@ -119,13 +123,14 @@ export default function Investment() {
         </motion.div>
 
         <div
-          className="container"
+          className="container inv-hero-container"
           style={{
             position: 'relative',
             zIndex: 1,
             textAlign: 'left',
             maxWidth: '960px',
             margin: '0 auto 0 0',
+            paddingLeft: 'clamp(58px, 10vw, 180px)',
           }}
         >
           {/* Section Badge */}
@@ -431,7 +436,7 @@ export default function Investment() {
               }}
             >
               <Image
-                src="/assets/images/Global Asset Allocation Infographic.webp"
+                src="/assets/images/global-asset-allocation-infographic.webp"
                 alt="Market Volatility and Diversification Analytics"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -594,7 +599,7 @@ export default function Investment() {
                 }}
               >
                 <Image
-                  src="/assets/images/Global Ripple Effects.webp"
+                  src="/assets/images/global-ripple-effects.webp"
                   alt="Market Volatility and Land Diversification"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
