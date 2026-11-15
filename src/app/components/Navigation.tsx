@@ -307,7 +307,7 @@ export default function Navigation() {
                   display: "block",
                   width: "24px",
                   height: "2px",
-                  backgroundColor: barColor,
+                  backgroundColor: "var(--accent-gold, #C6A265)",
                   transition: "background-color 0.3s ease",
                 }}
               />
@@ -316,7 +316,7 @@ export default function Navigation() {
                   display: "block",
                   width: "24px",
                   height: "2px",
-                  backgroundColor: barColor,
+                  backgroundColor: "var(--accent-gold, #C6A265)",
                   transition: "background-color 0.3s ease",
                 }}
               />

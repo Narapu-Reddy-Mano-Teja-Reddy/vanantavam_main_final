@@ -349,10 +349,11 @@ export default function Home() {
         </div>
 
         <div
+          className="hero-carousel-nav"
           style={{
             position: "absolute",
             bottom: "40px",
-            right: "40px",
+            right: "100px",
             display: "flex",
             gap: "15px",
             zIndex: 15,
@@ -364,7 +365,7 @@ export default function Home() {
               position: "relative",
               top: "auto",
               left: "auto",
-              right: "100px",
+              right: "auto",
               transform: "none",
             }}
             onClick={prevSlide}
@@ -378,7 +379,7 @@ export default function Home() {
               position: "relative",
               top: "auto",
               left: "auto",
-              right: "70px",
+              right: "auto",
               transform: "none",
             }}
             onClick={nextSlide}
@@ -737,26 +738,18 @@ WHO WE ARE
           <motion.div
             key={card.num}
             className="projects-sticky-card"
-            initial={{ opacity: 0, y: 40, scale: 0.97 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
             transition={{
-              duration: 0.6,
+              duration: 0.5,
               ease: [0.25, 1, 0.5, 1],
-              delay: 0.05 * i,
+              delay: 0.04 * i,
             }}
             style={{
-              position: "sticky",
-              top: `${140 + i * 22}px`, // Stacks cleanly one over another with an offset
-              background: "#FFFFFF",
-              border: "1px solid rgba(0,0,0,0.06)",
-              borderRadius: "20px",
-              padding: "clamp(32px, 4vw, 44px)",
-              boxShadow: "0 12px 36px rgba(45, 55, 48, 0.07)",
-              display: "flex",
-              flexDirection: "column",
+              "--sticky-top": `${140 + i * 22}px`,
               zIndex: i + 1,
-            }}
+            } as React.CSSProperties}
           >
             <span
               style={{
@@ -882,6 +875,7 @@ WHO WE ARE
 
 
 
+      
       {/* Section 9: Four Unique Expressions of Nature's Abundance with Sticky Left Header and Overlapping Scrolling Cards */}
       <section
         className="projects-section projects-sticky-section"
@@ -1056,17 +1050,20 @@ WHO WE ARE
               ].map((proj, i) => (
                 <motion.div
                   key={proj.id}
-                  initial={{ opacity: 0, y: 40, scale: 0.97 }}
+                  className="project-showcase-card"
+                  initial={{ opacity: 0, y: 35, scale: 0.98 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, margin: "-80px" }}
+                  viewport={{ once: true, margin: "-60px" }}
                   transition={{
                     duration: 0.6,
                     ease: [0.25, 1, 0.5, 1],
                     delay: 0.05 * i,
                   }}
                   whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                  className="projects-sticky-card"
-                  style={{ top: `${140 + i * 20}px`, zIndex: i + 1 }}
+                  style={{
+                    top: `${140 + i * 20}px`,
+                    zIndex: i + 1,
+                  }}
                 >
                   <Link
                     href={`/${proj.id}`}
@@ -1085,7 +1082,7 @@ WHO WE ARE
                         width: "100%",
                         height: "100%",
                         objectFit: "cover",
-                        transition: "transform 0.6s ease",
+                        transition: "transform 0.7s cubic-bezier(0.2, 0.9, 0.2, 1)",
                       }}
                     />
                     <div
@@ -1093,27 +1090,29 @@ WHO WE ARE
                         position: "absolute",
                         inset: 0,
                         background:
-                          "linear-gradient(to top, rgba(14,26,18,0.92) 0%, rgba(14,26,18,0.3) 45%, rgba(0,0,0,0.05) 100%)",
+                          "linear-gradient(to top, rgba(12,22,15,0.92) 0%, rgba(12,22,15,0.35) 45%, transparent 100%)",
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "flex-end",
-                        padding: "36px 32px",
+                        padding: "clamp(24px, 4vw, 36px) clamp(20px, 4vw, 32px)",
                       }}
                     >
-                      <div style={{ marginBottom: "14px" }}>
+                      <div style={{ marginBottom: "12px" }}>
                         <span
                           style={{
                             display: "inline-block",
-                            background: "rgba(0,0,0,0.45)",
-                            backdropFilter: "blur(8px)",
-                            color: "rgba(255,255,255,0.9)",
-                            padding: "6px 14px",
-                            borderRadius: "20px",
-                            fontSize: "0.72rem",
-                            letterSpacing: "0.12em",
-                            fontWeight: 600,
+                            background: "rgba(18, 32, 22, 0.82)",
+                            backdropFilter: "blur(12px)",
+                            WebkitBackdropFilter: "blur(12px)",
+                            color: "#E2C48D",
+                            padding: "8px 18px",
+                            borderRadius: "999px",
+                            fontSize: "0.78rem",
+                            letterSpacing: "0.15em",
+                            fontWeight: 700,
                             textTransform: "uppercase",
-                            border: "1px solid rgba(255,255,255,0.18)",
+                            border: "1px solid rgba(198, 162, 101, 0.35)",
+                            boxShadow: "0 4px 14px rgba(0,0,0,0.3)",
                           }}
                         >
                           {proj.badge}
@@ -1123,18 +1122,17 @@ WHO WE ARE
                       <h3
                         style={{
                           color: "#FFFFFF",
-                          fontFamily: "'Cinzel', var(--font-serif), serif",
-                          fontSize: "2.1rem",
+                          fontFamily: "'Cinzel', var(--font-serif), Georgia, serif",
+                          fontSize: "clamp(2.1rem, 3.8vw, 3.2rem)",
                           fontWeight: 600,
-                          letterSpacing: "0.06em",
-                          margin: "0 0 8px 0",
-                          textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+                          letterSpacing: "0.08em",
+                          margin: 0,
+                          textShadow: "0 3px 12px rgba(0,0,0,0.6)",
+                          lineHeight: 1.1,
                         }}
                       >
                         {proj.name}
                       </h3>
-
-                       
                     </div>
                   </Link>
                 </motion.div>

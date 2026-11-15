@@ -154,8 +154,8 @@ export default function BlogClient({ initialBlogs }: BlogClientProps) {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-                gap: '36px',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 290px), 1fr))',
+                gap: 'clamp(24px, 4vw, 36px)',
               }}
             >
               {filteredBlogs.map((blog, i) => (

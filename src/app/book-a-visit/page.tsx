@@ -114,7 +114,7 @@ export default function BookAVisit() {
                   {error}
                 </p>
               )}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px', marginBottom: '25px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '20px', marginBottom: '25px' }}>
                 <div className="form-group" style={{ marginBottom: 0 }}>
                   <label>Full Name</label>
                   <input type="text" name="name" className="form-control" placeholder="Enter your full name" required />
