@@ -413,7 +413,7 @@ export default function Navigation() {
               style={{ marginTop: "40px", width: "100%", maxWidth: "300px" }}
             >
               <Link
-                href="/book-a-visit"
+                href="/contact"
                 onClick={closeDrawer}
                 style={{
                   display: "flex",

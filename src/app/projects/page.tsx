@@ -148,11 +148,21 @@ export default function Projects() {
                     <span style={{ color: 'var(--accent-gold)', fontSize: '0.85rem', letterSpacing: '0.15em', fontWeight: 600, marginBottom: '15px', display: 'block', textTransform: 'uppercase' }}>{proj.location}</span>
                     
                     {proj.logo ? (
-                      <div style={{ marginBottom: '15px', height: '60px', display: 'flex', alignItems: 'center' }}>
-                        <img src={proj.logo} alt={proj.name} style={{ maxHeight: '100%', maxWidth: '200px', objectFit: 'contain' }} />
+                      <div style={{ marginBottom: '18px', height: '56px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                        <img
+                          src={proj.logo}
+                          alt={proj.name}
+                          style={{
+                            height: proj.id === 'madhuvana' ? '44px' : '48px',
+                            width: 'auto',
+                            maxWidth: '180px',
+                            objectFit: 'contain',
+                            display: 'block',
+                          }}
+                        />
                       </div>
                     ) : (
-                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', color: 'var(--bg-dark-forest)', marginBottom: '15px' }}>{proj.name}</h3>
+                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', color: 'var(--bg-dark-forest)', marginBottom: '18px' }}>{proj.name}</h3>
                     )}
 
                     <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '25px', flex: 1 }}>{proj.desc}</p>

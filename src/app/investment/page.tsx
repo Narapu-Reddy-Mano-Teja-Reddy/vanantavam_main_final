@@ -72,10 +72,6 @@ export default function Investment() {
             padding-top: clamp(140px, 20vh, 180px) !important;
             padding-bottom: clamp(60px, 10vh, 90px) !important;
           }
-          .inv-hero-container {
-            padding-left: 20px !important;
-            padding-right: 20px !important;
-          }
           .inv-steps-col {
             border-left: none !important;
             padding-left: 0 !important;
@@ -123,7 +119,7 @@ export default function Investment() {
         </motion.div>
 
         <div
-          className="container inv-hero-container"
+          className="container"
           style={{
             position: 'relative',
             zIndex: 1,
@@ -254,13 +250,14 @@ export default function Investment() {
         />
 
         <div
-          className="container"
+          className="container inv-hero-container"
           style={{
-            maxWidth: '1000px',
-            margin: '0 auto',
+            maxWidth: '100%',
+            margin: '0 auto 0 0',
             textAlign: 'left',
             position: 'relative',
             zIndex: 1,
+            paddingLeft: 'clamp(48px, 8vw, 140px)',
           }}
         >
           <motion.div
@@ -280,7 +277,7 @@ export default function Investment() {
                 lineHeight: 1.45,
                 color: '#F9F8F6',
                 margin: '0 0 20px',
-                maxWidth: '860px',
+                maxWidth: '990px',
               }}
             >
               &ldquo;In uncertain times, diversification is your most prudent move.&rdquo;
@@ -450,49 +447,9 @@ export default function Investment() {
                     'linear-gradient(to top, rgba(14, 26, 18, 0.75) 0%, transparent 60%)',
                 }}
               />
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: '24px',
-                  left: '24px',
-                  right: '24px',
-                  color: '#FFFFFF',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  padding: '14px 20px',
-                  borderRadius: '16px',
-                  background: 'rgba(18, 34, 23, 0.85)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(198, 162, 101, 0.3)',
-                }}
-              >
-                <div
-                  style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '10px',
-                    background: 'rgba(198, 162, 101, 0.2)',
-                    color: 'var(--accent-gold)',
-                    display: 'grid',
-                    placeItems: 'center',
-                    flexShrink: 0,
-                  }}
-                >
-                  <TrendingUp size={20} />
-                </div>
-                <p
-                  style={{
-                    fontSize: '0.98rem',
-                    fontWeight: 500,
-                    margin: 0,
-                    color: '#F9F8F6',
-                  }}
-                >
-                  Markets fluctuate. Land endures.
-                </p>
-              </div>
+              
             </motion.div>
+            
           </div>
         </div>
       </section>
