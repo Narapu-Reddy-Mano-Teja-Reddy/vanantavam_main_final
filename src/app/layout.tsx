@@ -65,8 +65,8 @@ const structuredData = {
   url: "https://www.vanatvam.com/",
   logo: "https://www.vanatvam.com/assets/images/logos/vanatvam.webp",
   description: "Vanatvam Private Limited is a Bengaluru-based company developing Natural Sustainable Farm Communities across Karnataka.",
-  telephone: "+91-9999999999",
-  email: "hello@vanatvam.com",
+  telephone: "+91 80 4709 5111",
+  email: "info@vanatvam.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "#5, Anjanadri Plaza, 2nd Floor, Girinagar 1st Phase",

@@ -49,7 +49,7 @@ export default function TermsAndConditions() {
                 <strong>Vanatvam Private Limited</strong><br />
                 #5, Anjanadri Plaza, 2nd Floor, Girinagar 1st Phase,<br />
                 Bengaluru – 560085<br />
-                Email: hello@vanatvam.com<br />
+                Email: info@vanatvam.com<br />
                 CIN: U01100KA2022PTC159587
               </p>
             </div>
