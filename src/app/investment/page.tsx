@@ -86,7 +86,6 @@ export default function Investment() {
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
           padding: 'clamp(100px, 14vh, 140px) 20px clamp(50px, 8vh, 90px)',
           overflow: 'hidden',
           backgroundColor: 'var(--bg-dark-forest, #122217)',
@@ -120,9 +119,9 @@ export default function Investment() {
           style={{
             position: 'relative',
             zIndex: 1,
-            textAlign: 'center',
+            textAlign: 'left',
             maxWidth: '960px',
-            margin: '0 auto',
+            margin: '0 auto 0 0',
           }}
         >
           {/* Section Badge */}
@@ -149,7 +148,6 @@ export default function Investment() {
             >
               Alternative Investment Opportunities
             </span>
-            <span style={{ width: '28px', height: '1px', background: 'var(--accent-gold)' }} />
           </motion.div>
 
           <h1
@@ -187,7 +185,7 @@ export default function Investment() {
               lineHeight: 1.7,
               fontWeight: 300,
               maxWidth: '740px',
-              margin: '0 auto 40px',
+              margin: '0 0 40px',
             }}
           >
             Explore curated investment opportunities in nature-first development with Vanatvam.
@@ -199,7 +197,7 @@ export default function Investment() {
             transition={{ duration: 0.8, delay: 0.3 }}
             style={{
               display: 'flex',
-              justifyContent: 'center',
+              justifyContent: 'flex-start',
               gap: '16px',
               flexWrap: 'wrap',
             }}
@@ -251,7 +249,7 @@ export default function Investment() {
           style={{
             maxWidth: '1000px',
             margin: '0 auto',
-            textAlign: 'center',
+            textAlign: 'left',
             position: 'relative',
             zIndex: 1,
           }}
@@ -262,7 +260,7 @@ export default function Investment() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-             
+
 
             <blockquote
               style={{
@@ -272,7 +270,7 @@ export default function Investment() {
                 fontWeight: 400,
                 lineHeight: 1.45,
                 color: '#F9F8F6',
-                margin: '0 auto 20px',
+                margin: '0 0 20px',
                 maxWidth: '860px',
               }}
             >
@@ -299,7 +297,6 @@ export default function Investment() {
               >
                 Jean Lombard, Financial Adviser
               </p>
-              <span style={{ width: '20px', height: '1px', background: 'var(--accent-gold)' }} />
             </div>
           </motion.div>
         </div>
@@ -430,7 +427,7 @@ export default function Investment() {
               }}
             >
               <Image
-                src="/assets/images/global-asset-allocation-infographic.webp"
+                src="/assets/images/Global Asset Allocation Infographic.webp"
                 alt="Market Volatility and Diversification Analytics"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -593,7 +590,7 @@ export default function Investment() {
                 }}
               >
                 <Image
-                  src="/assets/images/global-ripple-effects.webp"
+                  src="/assets/images/Global Ripple Effects.webp"
                   alt="Market Volatility and Land Diversification"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -838,7 +835,7 @@ export default function Investment() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            style={{ textAlign: 'center', maxWidth: '840px', margin: '0 auto 60px' }}
+            style={{ textAlign: 'left', maxWidth: '840px', margin: '0 0 50px' }}
           >
             <div
               style={{
@@ -860,7 +857,6 @@ export default function Investment() {
               >
                 Investment Framework
               </span>
-              <span style={{ width: '24px', height: '1px', background: 'var(--accent-gold)' }} />
             </div>
 
             <h2
@@ -1394,7 +1390,7 @@ export default function Investment() {
               }}
             >
               {formSubmitted ? (
-                <div style={{ textAlign: 'center', padding: '40px 10px' }}>
+                <div style={{ textAlign: 'left', padding: '20px 10px' }}>
                   <div
                     style={{
                       width: '64px',
@@ -1406,7 +1402,7 @@ export default function Investment() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontSize: '1.8rem',
-                      margin: '0 auto 20px',
+                      margin: '0 0 20px',
                     }}
                   >
                     <CheckCircle2 size={32} />
@@ -1649,7 +1645,7 @@ export default function Investment() {
                     <p
                       style={{
                         margin: '6px 0 0',
-                        textAlign: 'center',
+                        textAlign: 'left',
                         color: '#7B857D',
                         fontSize: '0.78rem',
                         lineHeight: 1.5,
