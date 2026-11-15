@@ -42,7 +42,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Deepotsava",
     subtitle:
       "Hundreds of earthen lamps lovingly lit across pathways, courtyards, and sacred groves.",
-    img: "/Event%20images/DSC08963.webp",
+    img: "/Event images/DSC08963.webp",
   },
   {
     id: "banana-orchard",
@@ -58,7 +58,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Vasantotsava",
     subtitle:
       "Joyous spring celebration with music, guided forest walks, and organic farm feasts.",
-    img: "/Event%20images/DSC08964%20(1).webp",
+    img: "/assets/project-images/Brindavana/sunny-tropical-banana-orchard.webp",
   },
   {
     id: "brick-courtyard",
@@ -82,7 +82,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Bonfire Nights",
     subtitle:
       "Stargazing, storytelling, and communal cooking around gentle twilight farm fires.",
-    img: "/Event%20images/DSC09025.webp",
+    img: "/Event images/DSC09025.webp",
   },
   {
     id: "green-tunnel",
@@ -461,7 +461,7 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="/assets/project-images/Ananthavana/ChatGPT%20Image%20Aug%203,%202026,%2001_16_33%20PM%20(2).webp"
+                  src="/assets/project-images/Ananthavana/ananthavana-hero.webp"
                   alt="Ancient tall forest grove canopy"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
@@ -486,7 +486,7 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="/assets/project-images/Maduvana/Rustic%20Tropical%20Garden%20Gateway.webp"
+                  src="/assets/project-images/Maduvana/rustic-tropical-garden-gateway.webp"
                   alt="Living landscape gateway"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
