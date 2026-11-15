@@ -60,7 +60,21 @@ export default function BookAVisit() {
       <Navigation />
       <section className="hero hero-about" style={{ height: '60vh', minHeight: '500px' }}>
         <div className="hero-bg-wrapper">
-          <img src="/assets/project-images/Brindavana/sunny-tropical-banana-orchard.webp" alt="Book a Visit toVanaTvam" className="hero-bg-img" fetchPriority="high" />
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcSet="/assets/project-images/Brindavana/sunny-tropical-banana-orchard-mobile.webp"
+              type="image/webp"
+            />
+            <img
+              src="/assets/project-images/Brindavana/sunny-tropical-banana-orchard.webp"
+              alt="Book a Visit to VanaTvam"
+              className="hero-bg-img"
+              fetchPriority="high"
+              loading="eager"
+              decoding="sync"
+            />
+          </picture>
         </div>
         <div className="hero-overlay" style={{ background: 'linear-gradient(180deg, rgba(18, 34, 23, 0.4) 0%, rgba(18, 34, 23, 0.9) 100%)' }}></div>
         <div className="container relative z-10">

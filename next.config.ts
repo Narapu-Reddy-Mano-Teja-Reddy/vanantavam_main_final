@@ -3,6 +3,19 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
+  reactStrictMode: true,
+  experimental: {
+    optimizePackageImports: [
+      "lucide-react",
+      "framer-motion",
+      "clsx",
+      "tailwind-merge",
+    ],
+  },
+  compiler: {
+    removeConsole:
+      process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
+  },
   allowedDevOrigins: [
     "192.168.1.13",
     "10.139.56.82",
@@ -10,9 +23,6 @@ const nextConfig: NextConfig = {
     "127.0.0.1",
     "localhost",
   ],
-  turbopack: {
-    root: process.cwd(),
-  },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],

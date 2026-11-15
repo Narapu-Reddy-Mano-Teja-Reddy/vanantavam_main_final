@@ -96,7 +96,21 @@ export default function Projects() {
 
       <section className="hero" style={{ height: '100vh', minHeight: '600px', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <img src="/assets/project-images/Brindavana/tropical-garden-pathway-tunnel.webp" alt="Projects Background" fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcSet="/assets/project-images/Brindavana/tropical-garden-pathway-tunnel-mobile.webp"
+              type="image/webp"
+            />
+            <img
+              src="/assets/project-images/Brindavana/tropical-garden-pathway-tunnel.webp"
+              alt="Projects Background"
+              fetchPriority="high"
+              loading="eager"
+              decoding="sync"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </picture>
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(18, 34, 23, 0.35) 0%, rgba(18, 34, 23, 0.8) 100%)' }}></div>
         </div>
 
@@ -145,18 +159,32 @@ export default function Projects() {
 
                   </TiltCard>
                   <div style={{ padding: '28px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ color: 'var(--accent-gold)', fontSize: '0.85rem', letterSpacing: '0.15em', fontWeight: 600, marginBottom: '15px', display: 'block', textTransform: 'uppercase' }}>{proj.location}</span>
+                    <span style={{ color: 'var(--accent-gold)', fontSize: '0.85rem', letterSpacing: '0.15em', fontWeight: 600, marginBottom: '10px', display: 'block', textTransform: 'uppercase' }}>{proj.location}</span>
                     
                     {proj.logo ? (
-                      <div style={{ marginBottom: '18px', height: '56px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                      <div
+                        className="project-card-logo-container"
+                        style={{
+                          margin: '8px 0 20px 0',
+                          padding: '6px 0',
+                          minHeight: '60px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'flex-start',
+                        }}
+                      >
                         <img
                           src={proj.logo}
                           alt={proj.name}
+                          loading="lazy"
+                          decoding="async"
                           style={{
-                            height: proj.id === 'madhuvana' ? '44px' : '48px',
+                            height: 'auto',
+                            maxHeight: proj.id === 'madhuvana' ? '46px' : '52px',
                             width: 'auto',
-                            maxWidth: '180px',
+                            maxWidth: '190px',
                             objectFit: 'contain',
+                            objectPosition: 'left center',
                             display: 'block',
                           }}
                         />
@@ -211,6 +239,12 @@ export default function Projects() {
             .project-list-container {
               padding-right: 20px !important;
               padding-left: 20px !important;
+            }
+
+            .project-card-logo-container {
+              margin: 10px 0 20px 0 !important;
+              padding: 8px 0 !important;
+              min-height: 58px !important;
             }
           }
         `}</style>

@@ -3,8 +3,11 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import Navigation from "@/app/components/Navigation";
-import Footer from "@/app/components/Footer";
+import LiteYouTube from "@/components/ui/LiteYouTube";
+
+const Footer = dynamic(() => import("@/app/components/Footer"), { ssr: true });
 import {
   TreePine,
   Leaf,
@@ -19,12 +22,12 @@ import {
   ArrowRight,
   CheckCircle2,
   MoveLeft,
+  ChevronLeft,
+  ChevronRight,
+  PlayCircle,
 } from "lucide-react";
-import { FeatureCard } from "@/components/ui/grid-feature-cards";
-import RevealText from "@/components/premium/RevealText";
 import Magnetic from "@/components/premium/Magnetic";
 import Counter from "@/components/premium/Counter";
-import TiltCard from "@/components/premium/TiltCard";
 import { useLenis } from "@/components/premium/SmoothScroll";
 
 type PolaroidItem = {
@@ -42,7 +45,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Deepotsava",
     subtitle:
       "Hundreds of earthen lamps lovingly lit across pathways, courtyards, and sacred groves.",
-    img: "/Event images/DSC08963.webp",
+    img: "/Event images/DSC08963-thumb.webp",
   },
   {
     id: "banana-orchard",
@@ -50,7 +53,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Banana Grove",
     subtitle:
       "Vibrant multi-canopy banana and fruit orchards nurtured through chemical-free living soil.",
-    img: "/assets/life/vanatvam3.webp",
+    img: "/assets/life/vanatvam3-thumb.webp",
   },
   {
     id: "vasantotsava",
@@ -58,7 +61,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Vasantotsava",
     subtitle:
       "Joyous spring celebration with music, guided forest walks, and organic farm feasts.",
-    img: "/assets/project-images/Brindavana/sunny-tropical-banana-orchard.webp",
+    img: "/assets/project-images/Brindavana/sunny-tropical-banana-orchard-thumb.webp",
   },
   {
     id: "brick-courtyard",
@@ -66,7 +69,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Brick Courtyard",
     subtitle:
       "Vernacular sustainable architecture embracing terracotta courtyards and open breeze pavilions.",
-    img: "/assets/life/vanatvam.webp",
+    img: "/assets/life/vanatvam-thumb.webp",
   },
   {
     id: "nursery-saplings",
@@ -74,7 +77,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Native Nursery",
     subtitle:
       "Propagating indigenous forestry saplings to restore ancient biodiversity and sacred groves.",
-    img: "/assets/life/vanatvam1.webp",
+    img: "/assets/life/vanatvam1-thumb.webp",
   },
   {
     id: "bonfire-nights",
@@ -82,7 +85,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Bonfire Nights",
     subtitle:
       "Stargazing, storytelling, and communal cooking around gentle twilight farm fires.",
-    img: "/Event images/DSC09025.webp",
+    img: "/Event images/DSC09025-thumb.webp",
   },
   {
     id: "green-tunnel",
@@ -90,7 +93,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Canopy Trails",
     subtitle:
       "Tranquil walking pathways winding through living bamboo clusters and bird-friendly flora.",
-    img: "/assets/life/vanatvam2.webp",
+    img: "/assets/life/vanatvam2-thumb.webp",
   },
     {
     id: "green-tunnel-2",
@@ -98,7 +101,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Canopy Trails",
     subtitle:
       "Tranquil walking pathways winding through living bamboo clusters and bird-friendly flora.",
-    img: "/assets/life/vanatvam4.webp",
+    img: "/assets/life/vanatvam4-thumb.webp",
   },
   
 ];
@@ -107,54 +110,57 @@ const heroSlides = [
   {
     id: "ishavana",
     name: "ISHAVANA",
-    
     tagline: "A premium riverfront community on the sacred Kaveri.",
     img: "/assets/project-images/Esahavana/EV.webp",
+    mobileImg: "/assets/project-images/Esahavana/EV-mobile.webp",
   },
-  
   {
     id: "anantavana",
     name: "ANANTAVANA",
-     
     tagline: "An Extensive Eco Conservation project to restore Bio Diversity.",
     img: "/assets/project-images/Ananthavana/hero-image-2.webp",
+    mobileImg: "/assets/project-images/Ananthavana/hero-image-2-mobile.webp",
   },
-  
   {
     id: "madhuvana",
     name: "MADHUVANA",
-   
     tagline: "A dense water-forest ecosystem built around 250+ native trees.",
     img: "/assets/project-images/Maduvana/hero.webp",
+    mobileImg: "/assets/project-images/Maduvana/hero-mobile.webp",
   },
-  
   {
     id: "brindavana",
     name: "BRINDAVANA",
-     
-    tagline:
-      "Barren semi-arid land turned into a thriving ecosystem.",
+    tagline: "Barren semi-arid land turned into a thriving ecosystem.",
     img: "/assets/project-images/Brindavana/brindavanaaa.webp",
+    mobileImg: "/assets/project-images/Brindavana/brindavanaaa-mobile.webp",
   },
 ];
 
 export default function Home() {
   const lenisRef = useLenis();
   const [activeSlide, setActiveSlide] = useState(0);
+  const [slideChanged, setSlideChanged] = useState(false);
   const pausedRef = useRef(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
       if (!pausedRef.current) {
+        setSlideChanged(true);
         setActiveSlide((prev) => (prev + 1) % heroSlides.length);
       }
     }, 6000);
     return () => clearInterval(timer);
   }, []);
 
-  const nextSlide = () => setActiveSlide((p) => (p + 1) % heroSlides.length);
-  const prevSlide = () =>
+  const nextSlide = () => {
+    setSlideChanged(true);
+    setActiveSlide((p) => (p + 1) % heroSlides.length);
+  };
+  const prevSlide = () => {
+    setSlideChanged(true);
     setActiveSlide((p) => (p - 1 + heroSlides.length) % heroSlides.length);
+  };
   const slide = heroSlides[activeSlide];
 
   const scrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -204,21 +210,27 @@ export default function Home() {
           <motion.div
             key={slide.id}
             className="hero-bg-wrapper"
-            initial={{ opacity: 0 }}
+            initial={slideChanged ? { opacity: 0 } : false}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.1, ease: "easeInOut" }}
           >
-            <motion.img
-              src={slide.img}
-              alt={slide.name}
-              fetchPriority={slide.id === heroSlides[0].id ? "high" : "auto"}
-              loading={slide.id === heroSlides[0].id ? "eager" : "lazy"}
-              initial={{ scale: 1 }}
-              animate={{ scale: 1.08 }}
-              transition={{ duration: 6.5, ease: "linear" }}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcSet={slide.mobileImg}
+                type="image/webp"
+              />
+              <img
+                src={slide.img}
+                alt={slide.name}
+                fetchPriority={slide.id === heroSlides[0].id ? "high" : "auto"}
+                loading={slide.id === heroSlides[0].id ? "eager" : "lazy"}
+                decoding="sync"
+                className="hero-bg-img"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </picture>
           </motion.div>
         </AnimatePresence>
         <div
@@ -229,97 +241,34 @@ export default function Home() {
           }}
         ></div>
 
-        <div
-          className="container relative"
-          style={{
-            zIndex: 10,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            height: "100%",
-            paddingTop: "80px",
-          }}
-        >
-          <motion.div
+        <div className="container relative hero-container">
+          <div
             className="hero-content"
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
             style={{ maxWidth: "800px" }}
           >
-            <motion.span
-              variants={fadeIn}
-              style={{
-                display: "inline-block",
-                border: "1px solid rgba(255,255,255,0.4)",
-                padding: "6px 16px",
-                borderRadius: "30px",
-                fontSize: "1.3rem",
-                fontWeight: 900,
-                letterSpacing: "0.15em",
-                color: "#FFF",
-                textTransform: "uppercase",
-                marginBottom: "24px",
-              }}
-            >
+            <span className="hero-badge">
               Nature-First Farm Communities
-            </motion.span>
+            </span>
 
             <AnimatePresence mode="wait">
               <motion.div
                 key={slide.id}
-                initial={{ opacity: 0, y: 18 }}
+                initial={slideChanged ? { opacity: 0, y: 18 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -18 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
               >
-                 
-                <h1
-                  style={{
-                    fontFamily: "var(--font-serif)",
-                    fontWeight: 700,
-                    fontSize: "clamp(3rem, 6.0vw, 5.8rem)",
-                    lineHeight: 1.05,
-                    color: "#FFFFFF",
-                    marginBottom: "20px",
-                    letterSpacing: "0.04em",
-                    textShadow: "0 4px 24px rgba(0,0,0,0.65)",
-                  }}
-                >
+                <h1 className="hero-heading">
                   {slide.name}
                 </h1>
-                <p
-                  style={{
-                    fontSize: "1.3rem",
-                    color: "#FFFFFF",
-                    textShadow: "0 2px 12px rgba(0,0,0,0.7)",
-                    lineHeight: 1.6,
-                    maxWidth: "640px",
-                    marginBottom: "36px",
-                    fontWeight: 400,
-                  }}
-                >
+                <p className="hero-tagline">
                   {slide.tagline}
                 </p>
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "28px",
-                    alignItems: "center",
-                    flexWrap: "wrap",
-                  }}
-                >
+                <div className="hero-cta-group">
                   <Magnetic strength={0.4}>
                     <Link
                       href={`/${slide.id}`}
-                      className="btn-pill btn-pill-gold"
-                      style={{
-                        padding: "16px 36px",
-                        fontSize: "1.1rem",
-                        fontWeight: 700,
-                        letterSpacing: "0.02em",
-                        boxShadow: "0 8px 30px rgba(198, 162, 101, 0.4)",
-                      }}
+                      className="btn-pill btn-pill-gold hero-cta-btn"
                     >
                       Explore{" "}
                       {slide.name.charAt(0) + slide.name.slice(1).toLowerCase()}
@@ -328,16 +277,7 @@ export default function Home() {
                   <Magnetic strength={0.4}>
                     <a
                       href="/projects"
-                      style={{
-                        color: "#FFFFFF",
-                        textDecoration: "none",
-                        fontSize: "1.1rem",
-                        fontWeight: 600,
-                        borderBottom: "2px solid rgba(255,255,255,0.7)",
-                        paddingBottom: "4px",
-                        transition: "border-color 0.3s",
-                        textShadow: "0 2px 8px rgba(0,0,0,0.5)",
-                      }}
+                      className="hero-secondary-link"
                     >
                       View All Communities
                     </a>
@@ -345,20 +285,10 @@ export default function Home() {
                 </div>
               </motion.div>
             </AnimatePresence>
-          </motion.div>
+          </div>
         </div>
 
-        <div
-          className="hero-carousel-nav"
-          style={{
-            position: "absolute",
-            bottom: "64px",
-            right: "160px",
-            display: "flex",
-            gap: "15px",
-            zIndex: 15,
-          }}
-        >
+        <div className="hero-carousel-nav">
           <button
             className="hero-carousel-arrow"
             style={{
@@ -371,7 +301,7 @@ export default function Home() {
             onClick={prevSlide}
             aria-label="Previous community"
           >
-            <i className="fa-solid fa-chevron-left"></i>
+            <ChevronLeft size={22} />
           </button>
           <button
             className="hero-carousel-arrow"
@@ -385,14 +315,11 @@ export default function Home() {
             onClick={nextSlide}
             aria-label="Next community"
           >
-            <i className="fa-solid fa-chevron-right"></i>
+            <ChevronRight size={22} />
           </button>
         </div>
 
-        <div
-          className="hero-carousel-dots"
-          style={{ left: "40px", transform: "none" }}
-        >
+        <div className="hero-carousel-dots">
           {heroSlides.map((s, i) => (
             <button
               key={s.id}
@@ -461,8 +388,12 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="/assets/project-images/Ananthavana/ananthavana-hero.webp"
+                  src="/assets/project-images/Ananthavana/ananthavana-hero-opt.webp"
                   alt="Ancient tall forest grove canopy"
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="460"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </motion.div>
@@ -486,8 +417,12 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="/assets/project-images/Maduvana/rustic-tropical-garden-gateway.webp"
+                  src="/assets/project-images/Maduvana/rustic-tropical-garden-gateway-opt.webp"
                   alt="Living landscape gateway"
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="240"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </motion.div>
@@ -1034,28 +969,28 @@ WHO WE ARE
                   id: "anantavana",
                   name: "ANANTAVANA",
                   badge: "NEAR KABINI · 34 ACRES",
-                  img: "/assets/project-images/Ananthavana/hero-image-2.webp",
+                  img: "/assets/project-images/Ananthavana/hero-image-2-card.webp",
                    
                 },
                 {
                   id: "ishavana",
                   name: "ISHAVANA",
                   badge: "Shivanasamudhra ·10 Acres",
-                  img: "/assets/project-images/Esahavana/EV.webp",
+                  img: "/assets/project-images/Esahavana/EV-card.webp",
                    
                 },
                 {
                   id: "madhuvana",
                   name: "MADHUVANA",
                   badge: "MADDUR · 17 ACRES",
-                  img: "/assets/project-images/Maduvana/hero.webp",
+                  img: "/assets/project-images/Maduvana/hero-card.webp",
                    
                 },
                 {
                   id: "brindavana",
                   name: "BRINDAVANA",
                   badge: "PAVAGADA · 30 ACRES",
-                  img: "/assets/project-images/Brindavana/brindavanaaa.webp",
+                  img: "/assets/project-images/Brindavana/brindavanaaa-card.webp",
                    
                 },
                 
@@ -1090,6 +1025,10 @@ WHO WE ARE
                     <img
                       src={proj.img}
                       alt={proj.name}
+                      loading="lazy"
+                      decoding="async"
+                      width="600"
+                      height="400"
                       style={{
                         width: "100%",
                         height: "100%",
@@ -1294,6 +1233,9 @@ WHO WE ARE
                       src={item.img}
                       alt={item.title}
                       loading="lazy"
+                      decoding="async"
+                      width="360"
+                      height="250"
                       whileHover={{ scale: 1.06 }}
                       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                       style={{
@@ -1493,9 +1435,14 @@ By bringing together ecological restoration, India’s cultural heritage, and th
                 <img
                   src="/Event images/award.webp"
                   alt="Vanatvam's natural forest landscape"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="500"
                   style={{
                     width: "100%",
                     height: "100%",
+                    objectFit: "contain",
                   }}
                 />
               </motion.div>
@@ -1606,15 +1553,7 @@ By bringing together ecological restoration, India’s cultural heritage, and th
                       }}
                     >
                       <div style={{ aspectRatio: "16/9" }}>
-                        <iframe
-                          width="100%"
-                          height="100%"
-                          src={`https://www.youtube.com/embed/${id}?modestbranding=1&rel=0`}
-                          title="Client Review"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowFullScreen
-                        ></iframe>
+                        <LiteYouTube videoId={id} title="Client Review" />
                       </div>
                       <div
                         style={{
@@ -1624,13 +1563,12 @@ By bringing together ecological restoration, India’s cultural heritage, and th
                           gap: "10px",
                         }}
                       >
-                        <i
-                          className="fa-solid fa-circle-play"
+                        <PlayCircle
+                          size={16}
                           style={{
                             color: "var(--accent-gold)",
-                            fontSize: "0.85rem",
                           }}
-                        ></i>
+                        />
                         <span
                           style={{
                             fontSize: "0.8rem",

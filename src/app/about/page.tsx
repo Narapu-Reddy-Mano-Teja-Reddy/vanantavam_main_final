@@ -37,11 +37,21 @@ export default function About() {
           transition={{ duration: 1.8, ease: [0.25, 1, 0.5, 1] }}
           style={{ position: "absolute", inset: 0, zIndex: 0 }}
         >
-          <img
-            src="/assets/project-images/Brindavana/sunny-tropical-banana-orchard.webp"
-            alt="Vanatvam Vision"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcSet="/assets/project-images/Brindavana/sunny-tropical-banana-orchard-mobile.webp"
+              type="image/webp"
+            />
+            <img
+              src="/assets/project-images/Brindavana/sunny-tropical-banana-orchard.webp"
+              alt="Vanatvam Vision"
+              fetchPriority="high"
+              loading="eager"
+              decoding="sync"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </picture>
           <div
             style={{
               position: "absolute",
@@ -199,8 +209,10 @@ export default function About() {
               <motion.img
                 whileHover={{ scale: 1.025 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
-                src="/assets/images/ourstory.png"
+                src="/assets/images/ourstory.webp"
                 alt="A family walking through a green landscape at sunrise"
+                loading="lazy"
+                decoding="async"
                 style={{
                   display: "block",
                   width: "100%",

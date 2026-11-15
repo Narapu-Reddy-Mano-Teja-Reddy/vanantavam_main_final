@@ -655,11 +655,21 @@ export default function Anantavana() {
               repeatType: "reverse",
             }}
           >
-            <img
-              src="/assets/project-images/Ananthavana/hero-image-2.webp"
-              alt="ANANTAVANA"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcSet="/assets/project-images/Ananthavana/hero-image-2-mobile.webp"
+                type="image/webp"
+              />
+              <img
+                src="/assets/project-images/Ananthavana/hero-image-2.webp"
+                alt="ANANTAVANA"
+                fetchPriority="high"
+                loading="eager"
+                decoding="sync"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </picture>
           </motion.div>
           <div
             style={{

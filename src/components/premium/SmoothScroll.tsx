@@ -19,12 +19,12 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
 
-    if (prefersReduced) return;
+    // Skip custom smooth scroll on reduced motion or touch devices so mobile devices use native 120Hz/60Hz hardware scrolling
+    if (prefersReduced || isCoarsePointer) return;
 
     const instance = new Lenis({
-      duration: isCoarsePointer ? 0.9 : 1.15,
+      duration: 1.15,
       smoothWheel: true,
-      touchMultiplier: 1.1,
       wheelMultiplier: 1,
     });
 

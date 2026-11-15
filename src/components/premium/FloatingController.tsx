@@ -7,28 +7,39 @@ import { Calendar } from 'lucide-react';
 
 export default function FloatingController() {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY < 380) {
-        document.body.classList.add('at-top');
-      } else {
-        document.body.classList.remove('at-top');
-      }
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile, { passive: true });
 
-      setScrolled(window.scrollY > 380);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 250);
     };
 
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
+
+  // Completely unmount on mobile devices so there is zero DOM presence, zero ghost clicking, and zero overlap
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <AnimatePresence>
       {scrolled && (
         <motion.div
           key="enquire-tab"
+          className="floating-enquire-tab"
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: 100, opacity: 0 }}

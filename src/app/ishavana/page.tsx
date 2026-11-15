@@ -386,14 +386,21 @@ export default function Ishavana() {
           }}
         >
           <div className="hero-bg-wrapper" style={{ position: "absolute", inset: 0 }}>
-            <motion.img
-              src="/assets/project-images/Esahavana/EV.webp"
-              alt="ISHAVANA"
-              initial={{ scale: 1 }}
-              animate={{ scale: 1.08 }}
-              transition={{ duration: 6.5, ease: "linear" }}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcSet="/assets/project-images/Esahavana/EV-mobile.webp"
+                type="image/webp"
+              />
+              <img
+                src="/assets/project-images/Esahavana/EV.webp"
+                alt="ISHAVANA"
+                fetchPriority="high"
+                loading="eager"
+                decoding="sync"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </picture>
           </div>
           <div
             className="hero-overlay"

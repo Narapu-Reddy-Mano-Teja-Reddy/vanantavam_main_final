@@ -319,14 +319,21 @@ export default function Brindavana() {
           }}
         >
           <div className="hero-bg-wrapper" style={{ position: "absolute", inset: 0 }}>
-            <motion.img
-              src="/assets/project-images/Brindavana/brindavanaaa.webp"
-              alt="BRINDAVANA"
-              initial={{ scale: 1 }}
-              animate={{ scale: 1.08 }}
-              transition={{ duration: 6.5, ease: "linear" }}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcSet="/assets/project-images/Brindavana/brindavanaaa-mobile.webp"
+                type="image/webp"
+              />
+              <img
+                src="/assets/project-images/Brindavana/brindavanaaa.webp"
+                alt="BRINDAVANA"
+                fetchPriority="high"
+                loading="eager"
+                decoding="sync"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </picture>
           </div>
           <div
             className="hero-overlay"
@@ -518,9 +525,10 @@ export default function Brindavana() {
                   }}
                 >
                   <img
-                    src="/assets/project-images/Brindavana/coconuttree.png"
+                    src="/assets/project-images/Brindavana/coconuttree.webp"
                     alt="A view of Brindavana landscape"
                     loading="lazy"
+                    decoding="async"
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                   />
                    {/* Floating Acreage Badge */}

@@ -10,6 +10,8 @@ import {
   Sprout,
   Coins,
   BookOpen,
+  Phone,
+  Mail,
   type LucideIcon,
 } from "lucide-react";
 
@@ -125,20 +127,21 @@ export default function Navigation() {
               display: "flex",
               alignItems: "center",
               textDecoration: "none",
-              height: "100px",
             }}
           >
             <motion.img
               src="/assets/images/vanatvamlogo.webp"
               alt="Vanatvam Logo"
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, ease: EASE_PREMIUM }}
               whileHover={{ scale: 1.04 }}
+              width="260"
+              height="115"
+              fetchPriority="high"
+              decoding="async"
+              className="header-logo-img"
               style={{
-                height: "115px",
-                width: "auto",
-                maxWidth: "260px",
                 filter: "drop-shadow(0 2px 10px rgba(0,0,0,0.4))",
                 objectFit: "contain",
                 display: "block",
@@ -450,12 +453,11 @@ export default function Navigation() {
                   color: "var(--text-muted)",
                   textDecoration: "none",
                   fontSize: "0.95rem",
+                  display: "inline-flex",
+                  alignItems: "center",
                 }}
               >
-                <i
-                  className="fa-solid fa-phone"
-                  style={{ marginRight: "8px" }}
-                ></i>
+                <Phone size={15} style={{ marginRight: "8px" }} />
                +91 80470 95111
               </a>
               <a
@@ -464,12 +466,11 @@ export default function Navigation() {
                   color: "var(--text-muted)",
                   textDecoration: "none",
                   fontSize: "0.95rem",
+                  display: "inline-flex",
+                  alignItems: "center",
                 }}
               >
-                <i
-                  className="fa-solid fa-envelope"
-                  style={{ marginRight: "8px" }}
-                ></i>
+                <Mail size={15} style={{ marginRight: "8px" }} />
                 info@vanatvam.com
               </a>
             </motion.div>

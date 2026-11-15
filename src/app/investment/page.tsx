@@ -63,21 +63,155 @@ export default function Investment() {
   };
 
   return (
-    <>
+    <div className="investment-page-root">
       <Navigation />
 
       <style>{`
         @media (max-width: 900px) {
+          .investment-page-root section {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            padding-top: clamp(48px, 6vh, 80px) !important;
+            padding-bottom: clamp(48px, 6vh, 80px) !important;
+          }
+          .investment-page-root .container {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            max-width: 100% !important;
+            width: 100% !important;
+          }
           .inv-hero-section {
-            padding-top: clamp(140px, 20vh, 180px) !important;
-            padding-bottom: clamp(60px, 10vh, 90px) !important;
+            padding-top: clamp(170px, 22vh, 210px) !important;
+            padding-bottom: 50px !important;
+            min-height: auto !important;
+          }
+          .inv-hero-container {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            max-width: 100% !important;
+          }
+          .inv-quote-container {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+          .inv-hero-badge {
+            margin-bottom: 18px !important;
+            flex-wrap: wrap !important;
+          }
+          .inv-hero-badge span:last-child {
+            font-size: 0.75rem !important;
+            letter-spacing: 0.12em !important;
+            white-space: normal !important;
+            line-height: 1.4 !important;
+          }
+          .inv-hero-h1 {
+            font-size: clamp(2.2rem, 7.5vw, 3.8rem) !important;
+            line-height: 1.15 !important;
+            margin-bottom: 18px !important;
+          }
+          .inv-hero-desc {
+            font-size: 1.05rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 28px !important;
+          }
+          .inv-hero-buttons {
+            flex-direction: column !important;
+            width: 100% !important;
+            gap: 12px !important;
+          }
+          .inv-hero-buttons a {
+            width: 100% !important;
+            justify-content: center !important;
+            text-align: center !important;
+            padding: 14px 24px !important;
+            box-sizing: border-box !important;
           }
           .inv-steps-col {
             border-left: none !important;
             padding-left: 0 !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            padding-top: 24px;
-            margin-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+            padding-top: 24px !important;
+            margin-top: 20px !important;
+            gap: 20px !important;
+          }
+          .inv-showcase-frame {
+            height: 220px !important;
+          }
+          .projects-sticky-layout {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+          .projects-sticky-header {
+            position: relative !important;
+            top: 0 !important;
+            max-width: 100% !important;
+            margin-bottom: 0 !important;
+          }
+          .projects-sticky-card {
+            position: relative !important;
+            top: 0 !important;
+            padding: 24px 18px !important;
+            border-radius: 20px !important;
+            margin-bottom: 16px !important;
+          }
+          .inv-metric-card {
+            padding: 24px 20px !important;
+            min-height: auto !important;
+            border-radius: 20px !important;
+          }
+          .inv-form-card {
+            padding: 26px 18px !important;
+            border-radius: 22px !important;
+          }
+          .inv-explanation-card {
+            padding: 26px 18px !important;
+            border-radius: 22px !important;
+          }
+          .inv-narrative-banner {
+            padding: 32px 20px !important;
+            border-radius: 22px !important;
+            margin-top: 32px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+          }
+          .inv-narrative-banner h3 {
+            font-size: clamp(1.6rem, 5.5vw, 2.2rem) !important;
+            line-height: 1.25 !important;
+            margin-bottom: 16px !important;
+          }
+          .inv-narrative-banner p {
+            font-size: 1.02rem !important;
+            line-height: 1.65 !important;
+            margin-bottom: 16px !important;
+          }
+          .inv-narrative-btn {
+            display: flex !important;
+            width: 100% !important;
+            justify-content: center !important;
+            text-align: center !important;
+            padding: 14px 20px !important;
+            box-sizing: border-box !important;
+          }
+          .inv-disclaimer-box {
+            padding: 18px 16px !important;
+            border-radius: 14px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .investment-page-root section {
+            padding-left: 18px !important;
+            padding-right: 18px !important;
+          }
+          .inv-hero-section {
+            padding-top: clamp(170px, 22vh, 205px) !important;
+            padding-bottom: 40px !important;
+          }
+          .inv-hero-h1 {
+            font-size: 2.15rem !important;
+          }
+          .inv-narrative-banner {
+            padding: 26px 16px !important;
+            border-radius: 18px !important;
           }
         }
       `}</style>
@@ -101,13 +235,21 @@ export default function Investment() {
           transition={{ duration: 1.6, ease: [0.25, 1, 0.5, 1] }}
           style={{ position: 'absolute', inset: 0, zIndex: 0 }}
         >
-          <Image
-            src="/assets/images/Investment.webp"
-            alt="Alternative Investment Opportunities with Vanatvam"
-            fill
-            priority
-            style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
-          />
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcSet="/assets/images/Investment-mobile.webp"
+              type="image/webp"
+            />
+            <img
+              src="/assets/images/Investment.webp"
+              alt="Alternative Investment Opportunities with Vanatvam"
+              fetchPriority="high"
+              loading="eager"
+              decoding="sync"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }}
+            />
+          </picture>
           <div
             style={{
               position: 'absolute',
@@ -119,7 +261,7 @@ export default function Investment() {
         </motion.div>
 
         <div
-          className="container"
+          className="container inv-hero-container"
           style={{
             position: 'relative',
             zIndex: 1,
@@ -131,6 +273,7 @@ export default function Investment() {
         >
           {/* Section Badge */}
           <motion.div
+            className="inv-hero-badge"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
@@ -156,6 +299,7 @@ export default function Investment() {
           </motion.div>
 
           <h1
+            className="inv-hero-h1"
             style={{
               fontFamily: 'var(--font-serif)',
               fontSize: 'clamp(2.8rem, 5.8vw, 5rem)',
@@ -181,6 +325,7 @@ export default function Investment() {
           </h1>
 
           <motion.p
+            className="inv-hero-desc"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -197,6 +342,7 @@ export default function Investment() {
           </motion.p>
 
           <motion.div
+            className="inv-hero-buttons"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -250,7 +396,7 @@ export default function Investment() {
         />
 
         <div
-          className="container inv-hero-container"
+          className="container inv-quote-container"
           style={{
             maxWidth: '100%',
             margin: '0 auto 0 0',
@@ -540,6 +686,7 @@ export default function Investment() {
 
               {/* Showcase Image Frame */}
               <motion.div
+                className="inv-showcase-frame"
                 initial={{ opacity: 0, scale: 0.97 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -687,6 +834,7 @@ export default function Investment() {
 
           {/* Full Narrative Banner: The Vanatvam Model */}
           <motion.div
+            className="inv-narrative-banner"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -776,7 +924,7 @@ export default function Investment() {
             </p>
 
             <Magnetic strength={0.2}>
-              <a href="#connect-form" className="btn-pill btn-pill-gold" style={{ padding: '16px 36px', fontSize: '0.92rem' }}>
+              <a href="#connect-form" className="btn-pill btn-pill-gold inv-narrative-btn" style={{ padding: '16px 36px', fontSize: '0.92rem' }}>
                 EXPLORE OPPORTUNITIES
                 <ArrowRight className="size-4" />
               </a>
@@ -868,6 +1016,7 @@ export default function Investment() {
           >
             {/* Metric Card 1 */}
             <motion.div
+              className="inv-metric-card"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -923,6 +1072,7 @@ export default function Investment() {
 
             {/* Metric Card 2 */}
             <motion.div
+              className="inv-metric-card"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -978,6 +1128,7 @@ export default function Investment() {
 
             {/* Metric Card 3 */}
             <motion.div
+              className="inv-metric-card"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1034,6 +1185,7 @@ export default function Investment() {
 
           {/* Detailed Structural Explanation Card */}
           <motion.div
+            className="inv-explanation-card"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1347,6 +1499,7 @@ export default function Investment() {
 
             {/* Right Form Card */}
             <motion.div
+              className="inv-form-card"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -1652,6 +1805,7 @@ export default function Investment() {
         >
           {/* Regulatory Disclaimer */}
           <div
+            className="inv-disclaimer-box"
             style={{
               padding: '22px 28px',
               borderRadius: '16px',
@@ -1716,6 +1870,6 @@ export default function Investment() {
       </section>
 
       <Footer />
-    </>
+    </div>
   );
 }

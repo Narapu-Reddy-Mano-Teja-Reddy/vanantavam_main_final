@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 import MarketingShell from "@/app/components/MarketingShell";
 
@@ -90,28 +91,75 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <head>
-        {/* Resource Hints for Ultra-Fast Handshakes */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
-        <link rel="dns-prefetch" href="https://india.kenyt.ai" />
-
-        {/* Google Fonts loaded asynchronously in parallel */}
+        {/* Preload critical LCP hero image responsively for ultra-fast First Paint */}
         <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+          rel="preload"
+          as="image"
+          href="/assets/project-images/Esahavana/EV-mobile.webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+          type="image/webp"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/project-images/Esahavana/EV.webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+          type="image/webp"
         />
 
-        {/* Font Awesome Icons */}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        {/* Preload critical local body and hero serif fonts for sub-50ms font availability */}
+        <link
+          rel="preload"
+          href="/fonts/plus-jakarta-sans.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/playfair-display.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+
+        {/* Meta Pixel (ID: 533734545131272) loaded during idle time */}
+        <Script
+          id="fb-pixel"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '533734545131272');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
       </head>
       <body>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=533734545131272&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
         <MarketingShell>{children}</MarketingShell>
       </body>
     </html>
