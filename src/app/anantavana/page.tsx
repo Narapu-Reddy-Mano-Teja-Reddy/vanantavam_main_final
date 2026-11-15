@@ -855,6 +855,7 @@ export default function Anantavana() {
                   color: "var(--text-dark)",
                   fontSize: "1.08rem",
                   lineHeight: 1.8,
+                  textAlign: "justify",
                 }}
               >
                 <Reveal delay={0.1}>

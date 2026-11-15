@@ -570,7 +570,7 @@ export default function Brindavana() {
                 
               </div>
               <div className="ishavana-idea-copy">
-                <Kicker>The BrindaVana Story</Kicker> 
+                <Kicker>The BrindaVana Story</Kicker>
                 <Words
                   text="Brindavana — A Journey of Persistence"
                   style={{
@@ -589,6 +589,7 @@ export default function Brindavana() {
                     color: "#4d594d",
                     fontSize: "1.04rem",
                     lineHeight: 1.8,
+                    textAlign: "justify",
                   }}
                 >
                   <Reveal delay={0.1}>

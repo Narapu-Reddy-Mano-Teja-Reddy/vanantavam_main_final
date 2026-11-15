@@ -658,6 +658,7 @@ export default function Ishavana() {
                    color: "#4d594d",
                    fontSize: "1.05rem",
                    lineHeight: 1.8,
+                   textAlign: "justify",
                  }}
                >
                 

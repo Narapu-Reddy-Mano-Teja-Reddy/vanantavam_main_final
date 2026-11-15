@@ -606,6 +606,7 @@ export default function Madhuvana() {
                     color: "#4d594d",
                     fontSize: "1.08rem",
                     lineHeight: 1.8,
+                    textAlign: "justify",
                   }}
                 >
                   <Reveal delay={0.1}>
