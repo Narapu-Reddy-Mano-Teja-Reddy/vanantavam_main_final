@@ -10,13 +10,13 @@ export default function FloatingController() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY < 50) {
+      if (window.scrollY < 380) {
         document.body.classList.add('at-top');
       } else {
         document.body.classList.remove('at-top');
       }
 
-      setScrolled(window.scrollY > 120);
+      setScrolled(window.scrollY > 380);
     };
 
     handleScroll();

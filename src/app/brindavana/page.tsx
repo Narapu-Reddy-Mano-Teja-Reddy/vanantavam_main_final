@@ -518,7 +518,7 @@ export default function Brindavana() {
                   }}
                 >
                   <img
-                    src="/assets/project-images/Brindavana/Sunlit Tropical Garden with Yellow Macramé Swing.webp"
+                    src="/assets/project-images/Brindavana/coconuttree.png"
                     alt="A view of Brindavana landscape"
                     loading="lazy"
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
@@ -575,8 +575,8 @@ export default function Brindavana() {
                   text="Brindavana — A Journey of Persistence"
                   style={{
                     fontFamily: "var(--font-serif)",
-                    fontSize: "clamp(2.2rem, 4vw, 3.6rem)",
-                    lineHeight: 1.12,
+                    fontSize: "clamp(2.2rem, 4.2vw, 4rem)",
+                    lineHeight: 1.1,
                     color: FOREST,
                     marginBottom: "28px",
                   }}

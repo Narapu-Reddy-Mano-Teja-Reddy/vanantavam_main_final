@@ -352,8 +352,8 @@ export default function Home() {
           className="hero-carousel-nav"
           style={{
             position: "absolute",
-            bottom: "40px",
-            right: "100px",
+            bottom: "64px",
+            right: "160px",
             display: "flex",
             gap: "15px",
             zIndex: 15,
@@ -747,49 +747,61 @@ WHO WE ARE
               delay: 0.04 * i,
             }}
             style={{
-              "--sticky-top": `${140 + i * 22}px`,
+              "--sticky-top": `${130 + i * 26}px`,
+              minHeight: "fit-content",
+              height: "auto",
+              background: "#FFFFFF",
+              border: "1px solid rgba(18,34,23,0.08)",
+              borderRadius: "24px",
+              padding: "clamp(28px, 4vw, 40px)",
+              boxShadow: "0 12px 36px rgba(18, 34, 23, 0.06)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
               zIndex: i + 1,
             } as React.CSSProperties}
           >
-            <span
-              style={{
-                fontSize: "0.8rem",
-                color: "var(--accent-gold)",
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-                fontWeight: 700,
-                display: "block",
-                marginBottom: "16px",
-              }}
-            >
-              {card.num}
-            </span>
+            <div>
+              <span
+                style={{
+                  fontSize: "0.8rem",
+                  color: "var(--accent-gold)",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                  display: "block",
+                  marginBottom: "14px",
+                }}
+              >
+                {card.num}
+              </span>
 
-            <h3
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "clamp(1.4rem, 2.2vw, 1.7rem)",
-                color: "var(--bg-dark-forest)",
-                fontWeight: 600,
-                lineHeight: 1.25,
-                marginBottom: "14px",
-              }}
-            >
-              {card.title}
-            </h3>
+              <h3
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  fontSize: "clamp(1.4rem, 2.2vw, 1.75rem)",
+                  color: "var(--bg-dark-forest)",
+                  fontWeight: 600,
+                  lineHeight: 1.3,
+                  marginBottom: "14px",
+                }}
+              >
+                {card.title}
+              </h3>
 
-            <p
-              style={{
-                fontSize: "1.02rem",
-                color: "#687B63",
-                lineHeight: 1.7,
-                margin: 0,
-                fontWeight: 400,
-                maxWidth: "92%",
-              }}
-            >
-              {card.desc}
-            </p>
+              <p
+                style={{
+                  fontSize: "1.02rem",
+                  color: "#5A685E",
+                  lineHeight: 1.75,
+                  margin: 0,
+                  fontWeight: 400,
+                  width: "100%",
+                }}
+              >
+                {card.desc}
+              </p>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -1879,6 +1891,7 @@ By bringing together ecological restoration, India’s cultural heritage, and th
             }}
             action="/api/contact"
             method="POST"
+            suppressHydrationWarning
             style={{
               position: "relative",
               background: "linear-gradient(145deg, #F9FBF9 0%, #F3F7F4 100%)",
@@ -2017,6 +2030,7 @@ By bringing together ecological restoration, India’s cultural heritage, and th
                     placeholder={field.placeholder}
                     autoComplete={field.autoComplete}
                     required
+                    suppressHydrationWarning
                     style={{
                       width: "100%",
                       minHeight: "52px",
@@ -2076,6 +2090,7 @@ By bringing together ecological restoration, India’s cultural heritage, and th
                   name="project"
                   required
                   defaultValue=""
+                  suppressHydrationWarning
                   style={{
                     width: "100%",
                     minHeight: "52px",
@@ -2124,6 +2139,7 @@ By bringing together ecological restoration, India’s cultural heritage, and th
             {/* Submit button */}
             <motion.button
               type="submit"
+              suppressHydrationWarning
               whileHover={{
                 y: -2,
                 boxShadow: "0 12px 26px rgba(116,53,31,0.25)",

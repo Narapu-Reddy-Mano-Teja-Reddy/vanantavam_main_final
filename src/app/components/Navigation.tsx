@@ -281,7 +281,9 @@ export default function Navigation() {
 
           {/* Mobile menu toggle */}
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            <div
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.94 }}
               className={`menu-toggle-btn ${isDrawerOpen ? "open" : ""}`}
               onClick={() => setIsDrawerOpen((open) => !open)}
               aria-label="Toggle navigation menu"
@@ -297,30 +299,24 @@ export default function Navigation() {
               style={{
                 cursor: "pointer",
                 display: "none", // shown via CSS media query on mobile
+                width: "46px",
+                height: "46px",
+                borderRadius: "50%",
+                background: "#122217",
+                border: "1px solid rgba(198, 162, 101, 0.4)",
+                boxShadow: "0 6px 20px rgba(18, 34, 23, 0.35)",
                 flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
                 gap: "5px",
-                padding: "8px",
+                padding: "0",
+                position: "relative",
               }}
             >
-              <span
-                style={{
-                  display: "block",
-                  width: "24px",
-                  height: "2px",
-                  backgroundColor: "var(--accent-gold, #C6A265)",
-                  transition: "background-color 0.3s ease",
-                }}
-              />
-              <span
-                style={{
-                  display: "block",
-                  width: "24px",
-                  height: "2px",
-                  backgroundColor: "var(--accent-gold, #C6A265)",
-                  transition: "background-color 0.3s ease",
-                }}
-              />
-            </div>
+              <span />
+              <span />
+              <span />
+            </motion.div>
           </div>
         </div>
       </motion.header>

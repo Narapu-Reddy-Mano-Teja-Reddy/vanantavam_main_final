@@ -68,6 +68,10 @@ export default function Investment() {
 
       <style>{`
         @media (max-width: 900px) {
+          .inv-hero-section {
+            padding-top: clamp(140px, 20vh, 180px) !important;
+            padding-bottom: clamp(60px, 10vh, 90px) !important;
+          }
           .inv-steps-col {
             border-left: none !important;
             padding-left: 0 !important;
@@ -80,13 +84,13 @@ export default function Investment() {
 
       {/* ================= HERO SECTION ================= */}
       <section
-        className="hero"
+        className="hero inv-hero-section"
         style={{
           minHeight: '88vh',
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
-          padding: 'clamp(100px, 14vh, 140px) 20px clamp(50px, 8vh, 90px)',
+          padding: 'clamp(120px, 16vh, 160px) 20px clamp(50px, 8vh, 90px)',
           overflow: 'hidden',
           backgroundColor: 'var(--bg-dark-forest, #122217)',
         }}
@@ -635,79 +639,84 @@ export default function Investment() {
                   <motion.div
                     key={card.kicker}
                     className="projects-sticky-card"
-                    initial={{ opacity: 0, y: 40, scale: 0.97 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true, margin: '-60px' }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
                     transition={{
-                      duration: 0.6,
+                      duration: 0.5,
                       ease: [0.25, 1, 0.5, 1],
-                      delay: 0.08 * i,
+                      delay: 0.05 * i,
                     }}
                     style={{
-                      position: 'sticky',
-                      top: `${140 + i * 24}px`,
+                      '--sticky-top': `${130 + i * 26}px`,
+                      minHeight: 'fit-content',
+                      height: 'auto',
                       background: '#FFFFFF',
                       border: '1px solid rgba(18, 34, 23, 0.08)',
                       borderRadius: '24px',
-                      padding: 'clamp(24px, 3.5vw, 40px)',
+                      padding: 'clamp(28px, 4vw, 40px)',
                       boxShadow: '0 12px 36px rgba(18, 34, 23, 0.07)',
                       display: 'flex',
                       flexDirection: 'column',
+                      justifyContent: 'space-between',
                       zIndex: i + 1,
-                    }}
+                    } as React.CSSProperties}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
-                      <div
-                        style={{
-                          width: '36px',
-                          height: '36px',
-                          borderRadius: '10px',
-                          background: 'rgba(198, 162, 101, 0.15)',
-                          color: 'var(--accent-gold)',
-                          display: 'grid',
-                          placeItems: 'center',
-                          flexShrink: 0,
-                        }}
-                      >
-                        <IconComponent size={18} />
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+                        <div
+                          style={{
+                            width: '36px',
+                            height: '36px',
+                            borderRadius: '10px',
+                            background: 'rgba(198, 162, 101, 0.15)',
+                            color: 'var(--accent-gold)',
+                            display: 'grid',
+                            placeItems: 'center',
+                            flexShrink: 0,
+                          }}
+                        >
+                          <IconComponent size={18} />
+                        </div>
+                        <span
+                          style={{
+                            fontSize: '0.8rem',
+                            color: 'var(--accent-gold, #C6A265)',
+                            letterSpacing: '0.18em',
+                            textTransform: 'uppercase',
+                            fontWeight: 700,
+                          }}
+                        >
+                          {card.kicker}
+                        </span>
                       </div>
-                      <span
+
+                      <h3
                         style={{
-                          fontSize: '0.8rem',
-                          color: 'var(--accent-gold, #C6A265)',
-                          letterSpacing: '0.18em',
-                          textTransform: 'uppercase',
-                          fontWeight: 700,
+                          fontFamily: 'var(--font-serif)',
+                          fontSize: 'clamp(1.35rem, 2vw, 1.65rem)',
+                          color: 'var(--bg-dark-forest, #122217)',
+                          fontWeight: 600,
+                          lineHeight: 1.3,
+                          marginBottom: '14px',
                         }}
                       >
-                        {card.kicker}
-                      </span>
+                        {card.title}
+                      </h3>
+
+                      <p
+                        style={{
+                          fontSize: '1rem',
+                          color: '#5A685E',
+                          lineHeight: 1.75,
+                          margin: 0,
+                          fontWeight: 300,
+                          width: '100%',
+                        }}
+                      >
+                        {card.desc}
+                      </p>
                     </div>
-
-                    <h3
-                      style={{
-                        fontFamily: 'var(--font-serif)',
-                        fontSize: 'clamp(1.35rem, 2vw, 1.65rem)',
-                        color: 'var(--bg-dark-forest, #122217)',
-                        fontWeight: 600,
-                        lineHeight: 1.25,
-                        marginBottom: '14px',
-                      }}
-                    >
-                      {card.title}
-                    </h3>
-
-                    <p
-                      style={{
-                        fontSize: '1rem',
-                        color: '#5A685E',
-                        lineHeight: 1.7,
-                        margin: 0,
-                        fontWeight: 300,
-                      }}
-                    >
-                      {card.desc}
-                    </p>
                   </motion.div>
                 );
               })}

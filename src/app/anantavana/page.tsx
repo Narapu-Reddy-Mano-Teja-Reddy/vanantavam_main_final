@@ -752,7 +752,7 @@ export default function Anantavana() {
                 fontWeight: 400,
               }}
             >
-            
+
               An Extensive Eco Conservation project to restore Bio Diversity.
             </motion.p>
 
@@ -841,10 +841,10 @@ export default function Anantavana() {
                 text="Kabini – The land of spectacular landscapes."
                 style={{
                   fontFamily: "var(--font-serif)",
-                  fontSize: "clamp(1.2rem, 3.2vw, 3rem)",
+                  fontSize: "clamp(2.2rem, 4.2vw, 4rem)",
                   lineHeight: 1.1,
                   color: FOREST,
-                  marginBottom: "30px",
+                  marginBottom: "28px",
                 }}
               />
               <div

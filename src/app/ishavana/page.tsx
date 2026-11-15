@@ -466,7 +466,7 @@ export default function Ishavana() {
                   textShadow: "0 4px 24px rgba(0,0,0,0.65)",
                 }}
               >
-                ISHAVANA 
+                ISHAVANA
               </motion.h1>
 
               <motion.p
@@ -644,8 +644,8 @@ export default function Ishavana() {
                  text="Where the river becomes part of everyday life"
                  style={{
                    fontFamily: "var(--font-serif)",
-                   fontSize: "clamp(1.5rem, 3vw, 2.6rem)",
-                   lineHeight: 1.12,
+                   fontSize: "clamp(2.2rem, 4.2vw, 4rem)",
+                   lineHeight: 1.1,
                    color: FOREST,
                    marginBottom: "28px",
                  }}

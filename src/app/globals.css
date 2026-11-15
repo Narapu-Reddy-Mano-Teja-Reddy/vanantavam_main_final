@@ -472,21 +472,27 @@ ul {
 }
 
 .menu-toggle-btn span {
-  width: 24px;
+  display: block;
+  width: 20px;
   height: 2px;
   background-color: var(--accent-gold, #C6A265) !important;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background-color 0.3s ease;
   border-radius: 2px;
   transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1), opacity 0.25s ease, background-color 0.3s ease;
 }
 
 /* Animated X when drawer is open */
 .menu-toggle-btn.open span:nth-child(1) {
-  transform: translateY(3.5px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 
 .menu-toggle-btn.open span:nth-child(2) {
-  transform: translateY(-3.5px) rotate(-45deg);
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-toggle-btn.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 
@@ -584,8 +590,8 @@ ul {
 @media (max-width: 768px) {
   .hero-carousel-nav {
     position: absolute !important;
-    bottom: 24px !important;
-    right: 20px !important;
+    bottom: 46px !important;
+    right: 25px !important;
     left: auto !important;
     display: flex !important;
     gap: 10px !important;
@@ -3614,8 +3620,8 @@ body.at-top div[class*="kenyt"],
 body.at-top .kenyt-bot-container {
   opacity: 0 !important;
   pointer-events: none !important;
-  transform: translateY(20px) !important;
-  transition: opacity 0.3s ease, transform 0.3s ease !important;
+  transform: translateY(30px) !important;
+  transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s !important;
 }
 
 /* ==========================================================================
@@ -4204,7 +4210,7 @@ body.admin-mode {
   }
 }
 
-/* Kenyt AI & WhatsApp Widget Custom Size Scaling */
+/* Kenyt AI & WhatsApp Widget Custom Size & Window Styling */
 #kenyt-bot-launcher img[src*="whatsapp"],
 .kenyt-whatsapp-btn,
 div[id*="kenyt"] img[src*="whatsapp"],
@@ -4212,4 +4218,45 @@ div[class*="whatsapp"],
 div[id*="whatsapp"] {
   transform: scale(1.35) !important;
   transform-origin: center center !important;
+}
+
+/* Kenyt AI Chatbot Window Custom Styling (Desktop & Mobile) */
+iframe[src*="kenyt"],
+iframe[id*="kenyt"],
+#kenyt-bot-window,
+.kenyt-bot-container,
+div[id*="kenyt-bot-container"],
+div[class*="kenyt-chat-window"] {
+  border-radius: 20px !important;
+  box-shadow: 0 20px 60px rgba(18, 34, 23, 0.3), 0 0 0 1px rgba(198, 162, 101, 0.3) !important;
+  overflow: hidden !important;
+  z-index: 999999 !important;
+}
+
+@media (min-width: 769px) {
+  iframe[src*="kenyt"]:not([style*="display: none"]),
+  iframe[id*="kenyt"]:not([style*="display: none"]) {
+    max-width: 390px !important;
+    max-height: 640px !important;
+    border-radius: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  iframe[src*="kenyt"],
+  iframe[id*="kenyt"],
+  #kenyt-bot-window,
+  .kenyt-bot-container,
+  div[id*="kenyt-bot-container"] {
+    width: min(360px, calc(100vw - 24px)) !important;
+    max-width: 360px !important;
+    height: min(580px, 80vh) !important;
+    max-height: 580px !important;
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 12px !important;
+    left: auto !important;
+    border-radius: 22px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(198, 162, 101, 0.4) !important;
+  }
 }
