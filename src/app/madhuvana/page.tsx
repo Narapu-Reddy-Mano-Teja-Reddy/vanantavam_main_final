@@ -1084,8 +1084,9 @@ export default function Madhuvana() {
             .av-nearby-map iframe {
               position: absolute;
               inset: 0;
-              width: 100%;
-              height: 100%;
+              width: 100% !important;
+              height: 100% !important;
+              aspect-ratio: auto !important;
               border: 0;
             }
             .av-nearby-map-header {
@@ -1199,9 +1200,11 @@ export default function Madhuvana() {
                 font-size: 0.75rem;
               }
               .av-nearby-map-link {
-                top: 14px;
-                right: 14px;
-                padding: 9px 14px;
+                top: 56px;
+                left: 14px;
+                right: auto;
+                padding: 8px 14px;
+                font-size: 0.75rem;
               }
               .av-nearby-map-label {
                 bottom: 14px;
