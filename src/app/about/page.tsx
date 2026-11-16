@@ -196,7 +196,7 @@ export default function About() {
               <motion.img
                 whileHover={{ scale: 1.025 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
-                src="/assets/images/ourstory1.webp"
+                src="/assets/images/ourstory.webp"
                 alt="A family walking through a green landscape at sunrise"
                 loading="lazy"
                 decoding="async"
