@@ -24,6 +24,8 @@ const nextConfig: NextConfig = {
     "localhost",
   ],
   images: {
+    // Host (Catalyst/Slate) returns 500 for /_next/image; serve files directly in production.
+    unoptimized: process.env.NODE_ENV === "production",
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
