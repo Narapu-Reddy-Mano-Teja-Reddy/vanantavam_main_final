@@ -788,14 +788,6 @@ export default function Anantavana() {
           background: "var(--bg-cream)",
         }}
       >
-        <FloatingOrb size={260} top="-60px" right="-60px" />
-        <FloatingOrb
-          size={180}
-          top="60%"
-          left="-50px"
-          delay={3}
-          color="rgba(198,162,101,0.25)"
-        />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <div
             style={{
