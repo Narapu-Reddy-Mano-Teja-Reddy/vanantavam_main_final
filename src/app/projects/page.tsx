@@ -15,7 +15,7 @@ export default function Projects() {
   const [isBrochureOpen, setIsBrochureOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState({
     name: 'AnantaVana',
-    brochureUrl: '/assets/project-images/AnantaVana%20Brochure.pdf',
+    brochureUrl: '/assets/project-images/AnantaVana-Brochure.pdf',
   });
 
   const projects = [
@@ -41,7 +41,7 @@ export default function Projects() {
       location: 'MADDUR - 17 Acres',
       desc: 'A pristine channel bound ecosystem built around 200+ rare & endangered tree species. Features sacred groves like Vinayaka Vana, and cozy cottages designed for peaceful living for our community owners.',
       img: '/assets/project-images/Maduvana/hero.webp',
-      brochure: '/assets/project-images/MadhuVana%20Brochure.pdf',
+      brochure: '/assets/project-images/MadhuVana-Brochure.pdf',
        
       badgeBg: 'var(--accent-gold)',
      
@@ -55,7 +55,7 @@ export default function Projects() {
       location: 'NEAR KABINI · 34 ACRES',
       desc: 'A nature-rich ecosystem nestled in Kabini’s thriving biodiversity belt, surrounded by pristine forests and abundant wildlife. A peaceful forest community offering thoughtfully planned farm parcels where life unfolds closer to nature.',
       img: '/assets/project-images/Ananthavana/hero-image-2.webp',
-      brochure: '/assets/project-images/AnantaVana%20Brochure.pdf',
+      brochure: '/assets/project-images/AnantaVana-Brochure.pdf',
        
       badgeBg: '#2D6A4F',
        
@@ -69,7 +69,7 @@ export default function Projects() {
       location: 'KOLLEGALA - 10 Acres',
       desc: 'Our premier riverfront community set along the banks of the sacred Kaveri river. Designed around the deep relationship between people, riparian ecology, and water.',
       img: '/assets/project-images/Esahavana/EV.webp',
-      brochure: '/assets/project-images/Eeshavana%20Brochure.pdf',
+      brochure: '/assets/project-images/Eeshavana-Brochure.pdf',
       
       badgeBg: '#1B4965',
        
@@ -108,6 +108,8 @@ export default function Projects() {
               fetchPriority="high"
               loading="eager"
               decoding="sync"
+              width={1920}
+              height={1080}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </picture>
@@ -178,6 +180,8 @@ export default function Projects() {
                           alt={proj.name}
                           loading="lazy"
                           decoding="async"
+                          width={190}
+                          height={52}
                           style={{
                             height: 'auto',
                             maxHeight: proj.id === 'madhuvana' ? '46px' : '52px',
@@ -208,7 +212,7 @@ export default function Projects() {
                         onClick={() => {
                           setSelectedProject({
                             name: proj.name,
-                            brochureUrl: proj.brochure || '/assets/project-images/AnantaVana%20Brochure.pdf',
+                            brochureUrl: proj.brochure || '/assets/project-images/AnantaVana-Brochure.pdf',
                           });
                           setIsBrochureOpen(true);
                         }}

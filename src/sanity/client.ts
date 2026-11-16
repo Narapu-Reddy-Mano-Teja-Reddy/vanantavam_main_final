@@ -6,6 +6,7 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: false, // Set to true if you don't need real-time fresh content on cache misses
+  token: process.env.SANITY_API_READ_TOKEN || process.env.SANITY,
 })
 
 // Authenticated client for mutations (migrations, server actions)

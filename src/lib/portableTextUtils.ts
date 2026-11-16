@@ -1,4 +1,5 @@
 import type { ContentBlock } from '@/data/blogs';
+import { urlForImage } from '@/sanity/image';
 
 export interface PortableTextSpan {
   _key: string;
@@ -22,6 +23,8 @@ export interface PortableTextBlock {
   markDefs?: PortableTextMarkDef[];
   children?: PortableTextSpan[];
   alt?: string;
+  url?: string;
+  src?: string;
   asset?: { _type: 'reference'; _ref: string };
 }
 
@@ -207,9 +210,29 @@ export function portableTextToContentBlocks(body: PortableTextBlock[]): ContentB
 
   for (const item of body) {
     if (item._type === 'image') {
+      let resolvedSrc = item.url || item.src || '';
+      if (!resolvedSrc && item.asset) {
+        try {
+          resolvedSrc = urlForImage(item)?.url() || '';
+        } catch {
+          resolvedSrc = '';
+        }
+      }
+      // Normalize any legacy spaced paths
+      if (resolvedSrc.includes('/Blogs-content/May 2022/') || resolvedSrc.includes('/Blogs-content/May%202022/')) {
+        resolvedSrc = resolvedSrc.replace(/\/Blogs-content\/May(%20| )2022\//g, '/Blogs-content/May-2022/');
+      }
+      if (resolvedSrc.includes('/Blogs-content/June 2022/') || resolvedSrc.includes('/Blogs-content/June%202022/')) {
+        resolvedSrc = resolvedSrc.replace(/\/Blogs-content\/June(%20| )2022\//g, '/Blogs-content/June-2022/');
+      }
+      if (resolvedSrc.includes('/Event images/') || resolvedSrc.includes('/Event%20images/')) {
+        resolvedSrc = resolvedSrc.replace(/\/Event(%20| )images\//g, '/event-images/');
+      }
+
       blocks.push({
         _key: item._key,
         type: 'img',
+        src: resolvedSrc,
         alt: item.alt || '',
         assetId: item.asset?._ref || '',
       });

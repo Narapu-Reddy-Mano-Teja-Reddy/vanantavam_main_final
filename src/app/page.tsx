@@ -228,6 +228,8 @@ export default function Home() {
                 loading={slide.id === heroSlides[0].id ? "eager" : "lazy"}
                 decoding="sync"
                 className="hero-bg-img"
+                width={1920}
+                height={1080}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </picture>

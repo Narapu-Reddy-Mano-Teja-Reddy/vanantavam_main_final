@@ -42,12 +42,70 @@ const nextConfig: NextConfig = {
         destination: "/ishavana",
         permanent: true,
       },
+      {
+        source: "/Blogs-content/May%202022/:path*",
+        destination: "/Blogs-content/May-2022/:path*",
+        permanent: true,
+      },
+      {
+        source: "/Blogs-content/June%202022/:path*",
+        destination: "/Blogs-content/June-2022/:path*",
+        permanent: true,
+      },
+      {
+        source: "/Event%20images/:path*",
+        destination: "/event-images/:path*",
+        permanent: true,
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/Blogs-content/May%202022/:path*",
+        destination: "/Blogs-content/May-2022/:path*",
+      },
+      {
+        source: "/Blogs-content/June%202022/:path*",
+        destination: "/Blogs-content/June-2022/:path*",
+      },
+      {
+        source: "/Event%20images/:path*",
+        destination: "/event-images/:path*",
+      },
     ];
   },
   async headers() {
     return [
       {
-        source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico|woff|woff2)",
+        source: "/fonts/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/assets/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/event-images/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/Blogs-content/:path*",
         headers: [
           {
             key: "Cache-Control",

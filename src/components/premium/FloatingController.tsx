@@ -17,7 +17,13 @@ export default function FloatingController() {
     window.addEventListener('resize', checkMobile, { passive: true });
 
     const handleScroll = () => {
-      setScrolled(window.scrollY > 250);
+      const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+      const hero = document.getElementById('hero') || document.querySelector('.hero');
+      const threshold = hero
+        ? (hero.offsetTop + hero.offsetHeight) * 0.75
+        : (window.innerHeight ? window.innerHeight * 0.65 : 400);
+
+      setScrolled(scrollY > threshold);
     };
 
     handleScroll();
@@ -28,11 +34,6 @@ export default function FloatingController() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  // Completely unmount on mobile devices so there is zero DOM presence, zero ghost clicking, and zero overlap
-  if (isMobile) {
-    return null;
-  }
 
   return (
     <AnimatePresence>
@@ -47,7 +48,7 @@ export default function FloatingController() {
           style={{
             position: "fixed",
             right: 0,
-            top: "38%",
+            top: isMobile ? "50%" : "38%",
             transform: "translateY(-50%)",
             zIndex: 9990,
             display: "flex",
@@ -60,17 +61,17 @@ export default function FloatingController() {
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "8px",
+              gap: isMobile ? "4px" : "8px",
               background: "linear-gradient(135deg, #F39C12, #D67E0E)",
               color: "#FFFFFF",
-              padding: "16px 12px",
-              borderRadius: "12px 0 0 12px",
-              boxShadow: "-6px 8px 24px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.2)",
+              padding: isMobile ? "12px 8px" : "16px 12px",
+              borderRadius: "10px 0 0 10px",
+              boxShadow: "-4px 6px 20px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.2)",
               textDecoration: "none",
               writingMode: "vertical-rl",
               textOrientation: "mixed",
               fontFamily: "var(--font-sans, system-ui, sans-serif)",
-              fontSize: "0.92rem",
+              fontSize: isMobile ? "0.8rem" : "0.92rem",
               fontWeight: 700,
               letterSpacing: "0.08em",
               textTransform: "uppercase",

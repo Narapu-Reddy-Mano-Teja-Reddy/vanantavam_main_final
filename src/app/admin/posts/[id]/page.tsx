@@ -36,6 +36,7 @@ export default async function EditPostPage({
         author,
         img,
         coverImage,
+        "coverImageUrl": coalesce(coverImage.asset->url, coverImage.url, null),
         excerpt,
         contentBlocks,
         body
@@ -49,6 +50,10 @@ export default async function EditPostPage({
   let post: SanityRawPost;
   if (fetchedPost) {
     post = fetchedPost;
+    const local = blogsData.find((b) => b.id === id);
+    if (local?.img && !post.img) {
+      post.img = local.img;
+    }
   } else {
     const local = blogsData.find((b) => b.id === id);
     if (!local) {

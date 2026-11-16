@@ -331,6 +331,8 @@ export default function Brindavana() {
                 fetchPriority="high"
                 loading="eager"
                 decoding="sync"
+                width={1920}
+                height={1080}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </picture>
@@ -504,7 +506,7 @@ export default function Brindavana() {
               zIndex: 2,
               maxWidth: "1480px",
               paddingLeft: "16px",
-              paddingRight: "16px",
+              paddingRight: "clamp(28px, 4vw, 56px)",
               width: "100%",
             }}
           >
@@ -529,6 +531,8 @@ export default function Brindavana() {
                     alt="A view of Brindavana landscape"
                     loading="lazy"
                     decoding="async"
+                    width={800}
+                    height={1000}
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                   />
                    {/* Floating Acreage Badge */}
@@ -597,7 +601,7 @@ export default function Brindavana() {
                     color: "#4d594d",
                     fontSize: "1.04rem",
                     lineHeight: 1.8,
-                    textAlign: "justify",
+                    textAlign: "left",
                   }}
                 >
                   <Reveal delay={0.1}>
@@ -845,6 +849,9 @@ export default function Brindavana() {
                     src={item.src}
                     alt={item.alt || `Brindavana Gallery Image ${idx + 1}`}
                     loading="lazy"
+                    decoding="async"
+                    width={600}
+                    height={450}
                     style={{
                       width: "100%",
                       height: "100%",
@@ -2149,7 +2156,7 @@ export default function Brindavana() {
         isOpen={isBrochureOpen}
         onClose={() => setIsBrochureOpen(false)}
         projectName="Brindavana"
-        brochureUrl="/assets/project-images/Brindavana%20Brochure.pdf"
+        brochureUrl="/assets/project-images/Brindavana-Brochure.pdf"
       />
 
       <Footer />
@@ -2174,6 +2181,8 @@ export default function Brindavana() {
         .ishavana-idea-copy {
           width: 100%;
           max-width: 100%;
+          padding-right: clamp(48px, 6vw, 100px);
+          box-sizing: border-box;
         }
 
         .ishavana-idea-image-wrap {

@@ -20,6 +20,7 @@ export interface BlogPostItem {
   author: string;
   img: string;
   coverImage?: SanityImageSource;
+  coverImageUrl?: string;
   category: string;
   excerpt: string;
   body?: unknown[];

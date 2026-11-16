@@ -348,6 +348,8 @@ export default function Madhuvana() {
                 fetchPriority="high"
                 loading="eager"
                 decoding="sync"
+                width={1920}
+                height={1080}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </picture>
@@ -545,6 +547,9 @@ export default function Madhuvana() {
                     src="/assets/project-images/Maduvana/rustic-tropical-garden-gateway.webp"
                     alt="A view of the MadhuVana landscape"
                     loading="lazy"
+                    decoding="async"
+                    width={800}
+                    height={1000}
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                   />
                    {/* Floating Acreage Badge */}
@@ -888,6 +893,10 @@ export default function Madhuvana() {
                   <img
                     src="/assets/project-images/Maduvana/mv-masterplan1.webp"
                     alt="MadhuVana Concept Master Plan Layout"
+                    loading="lazy"
+                    decoding="async"
+                    width={1400}
+                    height={900}
                     style={{
                       width: "100%",
                       height: "auto",
@@ -2195,7 +2204,7 @@ export default function Madhuvana() {
         isOpen={isBrochureOpen}
         onClose={() => setIsBrochureOpen(false)}
         projectName="MadhuVana"
-        brochureUrl="/assets/project-images/MadhuVana%20Brochure.pdf"
+        brochureUrl="/assets/project-images/MadhuVana-Brochure.pdf"
       />
 
       <Footer />
@@ -2220,6 +2229,8 @@ export default function Madhuvana() {
         .ishavana-idea-copy {
           width: 100%;
           max-width: 100%;
+          padding-right: clamp(48px, 6vw, 100px);
+          box-sizing: border-box;
         }
 
         .ishavana-idea-image-wrap {

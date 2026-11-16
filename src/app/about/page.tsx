@@ -49,6 +49,8 @@ export default function About() {
               fetchPriority="high"
               loading="eager"
               decoding="sync"
+              width={1920}
+              height={1080}
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           </picture>
@@ -213,6 +215,8 @@ export default function About() {
                 alt="A family walking through a green landscape at sunrise"
                 loading="lazy"
                 decoding="async"
+                width={800}
+                height={600}
                 style={{
                   display: "block",
                   width: "100%",
@@ -301,6 +305,10 @@ export default function About() {
                       <img
                         src="/assets/images/founder.webp"
                         alt="Founder leadership and land care"
+                        loading="lazy"
+                        decoding="async"
+                        width={600}
+                        height={800}
                         style={{ width: "100%", height: "100%", objectFit: "cover" }}
                       />
                     </div>
