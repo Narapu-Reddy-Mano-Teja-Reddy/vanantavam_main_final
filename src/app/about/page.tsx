@@ -198,14 +198,6 @@ export default function About() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
-            style={{
-              minWidth: 0,
-              position: "sticky",
-              top: "120px",
-              height: "min(76vh, 760px)",
-              minHeight: "1000px",
-              overflow: "visible",
-            }}
           >
             <div className="about-story-photo">
               <motion.img
@@ -230,29 +222,13 @@ export default function About() {
           </motion.div>
         </div>
         <style jsx>{`
-          @media (max-width: 850px) {
-            .about-story-layout {
-              grid-template-columns: minmax(0, 1fr) !important;
-            }
-
-            .about-story-image {
-              position: relative !important;
-              top: auto !important;
-              height: 480px;
-              min-height: 0;
-              max-width: 600px;
-              margin: 0 auto;
-            }
-
-            .about-story-photo {
-              height: 100%;
-            }
-
-            .about-story-callout {
-              left: 0 !important;
-              bottom: -48px !important;
-              width: calc(100% - 24px) !important;
-            }
+          .about-story-image {
+            min-width: 0;
+            position: sticky;
+            top: 120px;
+            height: min(76vh, 760px);
+            min-height: 1000px;
+            overflow: visible;
           }
 
           .about-story-photo {
@@ -263,6 +239,43 @@ export default function About() {
             border: 1px solid rgba(198, 162, 101, 0.55);
             box-shadow: 0 32px 80px rgba(18, 34, 23, 0.24);
             background: var(--bg-dark-forest);
+          }
+
+          @media (max-width: 850px) {
+            .about-story-layout {
+              grid-template-columns: minmax(0, 1fr) !important;
+              gap: 40px !important;
+            }
+
+            .about-story-image {
+              position: relative !important;
+              top: auto !important;
+              width: 100% !important;
+              height: clamp(260px, 42vh, 320px) !important;
+              min-height: 0 !important;
+              max-width: 100% !important;
+              margin: 0 auto;
+            }
+
+            .about-story-photo {
+              position: relative !important;
+              width: 100% !important;
+              height: 100% !important;
+              border-radius: 20px !important;
+            }
+
+            .about-story-callout {
+              left: 0 !important;
+              bottom: -48px !important;
+              width: calc(100% - 24px) !important;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .about-story-image {
+              height: 250px !important;
+              min-height: 0 !important;
+            }
           }
         `}</style>
       </section>

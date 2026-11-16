@@ -52,12 +52,19 @@ export function normalizeBlogImagePath(src: string | undefined | null): string {
 
 export function resolvePostImage(post: {
   id?: string
-  coverImage?: SanityImageSource | null
+  coverImage?: SanityImageSource | string | null
   coverImageUrl?: string | null
   img?: string
 }): string {
-  if (post.coverImageUrl && typeof post.coverImageUrl === 'string' && post.coverImageUrl.startsWith('http')) {
-    return post.coverImageUrl
+  if (post.coverImageUrl && typeof post.coverImageUrl === 'string' && post.coverImageUrl.trim()) {
+    const cleanUrl = post.coverImageUrl.trim()
+    if (cleanUrl.startsWith('http')) return cleanUrl
+    return normalizeBlogImagePath(cleanUrl)
+  }
+  if (typeof post.coverImage === 'string' && post.coverImage.trim()) {
+    const cleanUrl = post.coverImage.trim()
+    if (cleanUrl.startsWith('http')) return cleanUrl
+    return normalizeBlogImagePath(cleanUrl)
   }
   if (post.coverImage && typeof post.coverImage === 'object' && (post.coverImage as { asset?: unknown })?.asset) {
     try {

@@ -582,6 +582,7 @@ export default function Investment() {
                 src="/assets/images/global-asset-allocation-infographic.webp"
                 alt="Market Volatility and Diversification Analytics"
                 fill
+                unoptimized
                 sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: 'cover' }}
               />

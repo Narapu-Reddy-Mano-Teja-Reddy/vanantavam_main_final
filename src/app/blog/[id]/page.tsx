@@ -100,6 +100,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
               alt={blog.title}
               fill
               priority
+              unoptimized
               style={{
                 objectFit: 'cover',
                 objectPosition: 'center 35%',
@@ -322,6 +323,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
                   alt={blog.title}
                   fill
                   priority
+                  unoptimized
                   style={{ objectFit: 'cover' }}
                 />
               </div>
@@ -776,6 +778,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
                         src={resolvePostImage(r)}
                         alt={r.title}
                         fill
+                        unoptimized
                         sizes="(max-width: 768px) 100vw, 33vw"
                         style={{ objectFit: 'cover' }}
                       />
