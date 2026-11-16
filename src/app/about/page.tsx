@@ -243,7 +243,7 @@ export default function About() {
               position: relative !important;
               top: auto !important;
               width: 100% !important;
-              height: clamp(260px, 42vh, 340px) !important;
+              height: clamp(260px, 41vh, 340px) !important;
               min-height: 0 !important;
               max-width: 100% !important;
               margin: 0 auto;
