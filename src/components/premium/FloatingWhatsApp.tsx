@@ -15,10 +15,7 @@ export default function FloatingWhatsApp() {
 
     const handleScroll = () => {
       const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
-      const hero = document.getElementById('hero') || document.querySelector('.hero');
-      const threshold = hero
-        ? (hero.offsetTop + hero.offsetHeight) * 0.75
-        : (window.innerHeight ? window.innerHeight * 0.65 : 400);
+      const threshold = 80;
 
       setVisible(scrollY > threshold);
     };
@@ -46,8 +43,8 @@ export default function FloatingWhatsApp() {
           transition={{ type: 'spring', stiffness: 350, damping: 25 }}
           style={{
             position: 'fixed',
-            bottom: isMobile ? '86px' : '96px',
-            right: isMobile ? '18px' : '26px',
+            bottom: isMobile ? '80px' : '96px',
+            right: isMobile ? '18px' : '24px',
             zIndex: 9995,
           }}
         >
@@ -61,8 +58,8 @@ export default function FloatingWhatsApp() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '60px',
-              height: '60px',
+              width: isMobile ? '50px' : '56px',
+              height: isMobile ? '50px' : '56px',
               borderRadius: '50%',
               backgroundColor: '#25D366',
               color: '#FFFFFF',
@@ -84,8 +81,8 @@ export default function FloatingWhatsApp() {
           >
             {/* Official WhatsApp Vector Icon */}
             <svg
-              width="34"
-              height="34"
+              width={isMobile ? '28' : '32'}
+              height={isMobile ? '28' : '32'}
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

@@ -474,7 +474,7 @@ export default function Navigation() {
                 }}
               >
                 <Phone size={15} style={{ marginRight: "8px" }} />
-               +91 80470 95111
+                +91 80 4709 5111
               </a>
               <a
                 href="mailto:info@vanatvam.com"

@@ -26,10 +26,7 @@ export default function MarketingShell({ children }: { children: React.ReactNode
 
     const handleScroll = () => {
       const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
-      const hero = document.getElementById('hero') || document.querySelector('.hero');
-      const threshold = hero
-        ? (hero.offsetTop + hero.offsetHeight) * 0.75
-        : (window.innerHeight ? window.innerHeight * 0.65 : 400);
+      const threshold = 80;
 
       if (scrollY <= threshold) {
         document.body.classList.add('in-hero-section');
@@ -42,16 +39,19 @@ export default function MarketingShell({ children }: { children: React.ReactNode
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll, { passive: true });
 
-    // Clean up Kenyt's duplicate WhatsApp button so only our native FloatingWhatsApp renders
-    const removeKenytWhatsApp = () => {
+    // Clean up Kenyt's duplicate WhatsApp icon and speech bubble popups so only the clean launcher and our native FloatingWhatsApp render
+    const cleanKenytElements = () => {
       document.querySelectorAll(
-        '#kenyt-bot-launcher .kenyt-whatsapp-btn, #kenyt-bot-launcher [class*="whatsapp"], #kenyt-bot-launcher [id*="whatsapp"], #kenyt-bot-launcher img[src*="whatsapp"], [id*="kenyt"] img[src*="whatsapp"]'
+        '#bubbleTail, [id*="bubbleTail"], #messageWrapperBox, .chatWithUsMessageWrapper, [id*="kenyt-greeting"], .kenyt-greeting, #kenytBubbleContainer .kchannel-icon, #kenytChatBubble [class*="whatsapp"], #kenytChatBubble a[href*="wa.me"]'
       ).forEach((el) => {
-        el.remove();
+        const htmlEl = el as HTMLElement;
+        htmlEl.style.setProperty('display', 'none', 'important');
+        htmlEl.style.setProperty('visibility', 'hidden', 'important');
+        htmlEl.style.setProperty('pointer-events', 'none', 'important');
       });
     };
-    removeKenytWhatsApp();
-    const cleanTimer = setInterval(removeKenytWhatsApp, 1000);
+    cleanKenytElements();
+    const cleanTimer = setInterval(cleanKenytElements, 600);
 
     return () => {
       clearInterval(cleanTimer);

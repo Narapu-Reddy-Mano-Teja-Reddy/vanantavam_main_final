@@ -219,7 +219,7 @@ export default function Footer() {
               <div className="vt-footer__contact-row">
                 <a href="tel:+918047095111" className="vt-footer__contact-item">
                   <Phone size={15} aria-hidden="true" />
-                  <span>+91 (080) 4709-5111</span>
+                  <span>+91 80 4709 5111</span>
                 </a>
 
                 <span

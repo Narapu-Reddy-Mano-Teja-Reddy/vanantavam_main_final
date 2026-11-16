@@ -23,7 +23,7 @@ export default function Projects() {
       id: 'brindavana',
       category: 'completed',
       name: 'BRINDAVANA',
-      logo: '/assets/images/Project-Logos/BrindaVana.webp',
+      logo: '/assets/images/Project-Logos/1.webp',
       location: 'PAVAGADA · 30 ACRES',
       desc: 'Our first project demonstrating ecological restoration. What began as largely barren land has evolved into a thriving green ecosystem with over 3000+ mature trees.',
       img: '/assets/project-images/Brindavana/brindavanaaa.webp',
@@ -37,7 +37,7 @@ export default function Projects() {
       id: 'madhuvana',
       category: 'water',
       name: 'MADHUVANA',
-      logo: '/assets/images/Project-Logos/Logo-MadhuVana.svg',
+      logo: '/assets/images/Project-Logos/2.webp',
       location: 'MADDUR - 17 Acres',
       desc: 'A pristine channel bound ecosystem built around 200+ rare & endangered tree species. Features sacred groves like Vinayaka Vana, and cozy cottages designed for peaceful living for our community owners.',
       img: '/assets/project-images/Maduvana/hero.webp',
@@ -51,7 +51,7 @@ export default function Projects() {
       id: 'anantavana',
       category: 'wildlife',
       name: 'ANANTAVANA',
-      logo: '/assets/images/Project-Logos/Anantavana.webp',
+      logo: '/assets/images/Project-Logos/3.webp',
       location: 'NEAR KABINI · 34 ACRES',
       desc: 'A nature-rich ecosystem nestled in Kabini’s thriving biodiversity belt, surrounded by pristine forests and abundant wildlife. A peaceful forest community offering thoughtfully planned farm parcels where life unfolds closer to nature.',
       img: '/assets/project-images/Ananthavana/hero-image-2.webp',
@@ -65,7 +65,7 @@ export default function Projects() {
       id: 'ishavana',
       category: 'riverfront',
       name: 'ISHAVANA',
-      logo: '/assets/images/Project-Logos/ishavaanalogo.webp',
+      logo: '/assets/images/Project-Logos/4.webp',
       location: 'KOLLEGALA - 10 Acres',
       desc: 'Our premier riverfront community set along the banks of the sacred Kaveri river. Designed around the deep relationship between people, riparian ecology, and water.',
       img: '/assets/project-images/Esahavana/EV.webp',
@@ -74,8 +74,6 @@ export default function Projects() {
       badgeBg: '#1B4965',
        
     },
-    
-   
   ];
 
   const filteredProjects = filter === 'all' ? projects : projects.filter(p => p.category === filter);
@@ -161,15 +159,15 @@ export default function Projects() {
 
                   </TiltCard>
                   <div style={{ padding: '28px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ color: 'var(--accent-gold)', fontSize: '0.85rem', letterSpacing: '0.15em', fontWeight: 600, marginBottom: '10px', display: 'block', textTransform: 'uppercase' }}>{proj.location}</span>
+                    <span style={{ color: 'var(--accent-gold)', fontSize: '0.85rem', letterSpacing: '0.15em', fontWeight: 600, marginBottom: '4px', display: 'block', textTransform: 'uppercase' }}>{proj.location}</span>
                     
                     {proj.logo ? (
                       <div
                         className="project-card-logo-container"
                         style={{
-                          margin: '8px 0 20px 0',
-                          padding: '6px 0',
-                          minHeight: '60px',
+                          margin: '2px 0 10px 0',
+                          padding: '0',
+                          height: '42px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'flex-start',
@@ -180,13 +178,13 @@ export default function Projects() {
                           alt={proj.name}
                           loading="lazy"
                           decoding="async"
-                          width={190}
-                          height={52}
+                          width={180}
+                          height={42}
                           style={{
                             height: 'auto',
-                            maxHeight: proj.id === 'madhuvana' ? '46px' : '52px',
+                            maxHeight: '40px',
                             width: 'auto',
-                            maxWidth: '190px',
+                            maxWidth: '180px',
                             objectFit: 'contain',
                             objectPosition: 'left center',
                             display: 'block',
@@ -194,10 +192,10 @@ export default function Projects() {
                         />
                       </div>
                     ) : (
-                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', color: 'var(--bg-dark-forest)', marginBottom: '18px' }}>{proj.name}</h3>
+                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.6rem', color: 'var(--bg-dark-forest)', margin: '4px 0 10px 0' }}>{proj.name}</h3>
                     )}
 
-                    <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '25px', flex: 1 }}>{proj.desc}</p>
+                    <p style={{ color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '20px', flex: 1 }}>{proj.desc}</p>
                     
                    
 
@@ -246,9 +244,10 @@ export default function Projects() {
             }
 
             .project-card-logo-container {
-              margin: 10px 0 20px 0 !important;
-              padding: 8px 0 !important;
-              min-height: 58px !important;
+              margin: 4px 0 10px 0 !important;
+              padding: 0 !important;
+              height: 42px !important;
+              min-height: 42px !important;
             }
           }
         `}</style>

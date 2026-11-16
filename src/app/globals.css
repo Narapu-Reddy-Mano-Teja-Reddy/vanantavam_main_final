@@ -475,10 +475,10 @@ ul {
 @media (max-width: 768px) {
   .logo-group {
     height: auto !important;
-    min-height: 76px !important;
+    min-height: 84px !important;
   }
   .header-logo-img {
-    height: 80px !important;
+    height: 90px !important;
     max-width: 220px !important;
   }
 }
@@ -486,10 +486,10 @@ ul {
 @media (max-width: 480px) {
   .logo-group {
     height: auto !important;
-    min-height: 72px !important;
+    min-height: 80px !important;
   }
   .header-logo-img {
-    height: 76px !important;
+    height: 86px !important;
     max-width: 210px !important;
   }
 }
@@ -497,11 +497,22 @@ ul {
 @media (max-width: 360px) {
   .logo-group {
     height: auto !important;
-    min-height: 64px !important;
+    min-height: 72px !important;
   }
   .header-logo-img {
-    height: 68px !important;
+    height: 76px !important;
     max-width: 185px !important;
+  }
+}
+
+/* Anantavana 3-stat mobile centering */
+@media (max-width: 640px) {
+  .anantavana-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .anantavana-stat-last {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
   }
 }
 
@@ -3893,31 +3904,34 @@ ul {
   }
 
   .hero-badge {
-    font-size: 0.72rem !important;
+    font-size: clamp(0.64rem, 2.7vw, 0.74rem) !important;
     font-weight: 700 !important;
-    letter-spacing: 0.14em !important;
-    padding: 5px 14px !important;
+    letter-spacing: 0.1em !important;
+    padding: 6px 14px !important;
     margin-bottom: 14px !important;
     white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    max-width: fit-content !important;
     border: 1px solid rgba(255, 255, 255, 0.35) !important;
-    background: rgba(18, 34, 23, 0.3) !important;
+    background: rgba(18, 34, 23, 0.35) !important;
     backdrop-filter: blur(6px) !important;
     -webkit-backdrop-filter: blur(6px) !important;
   }
 
   .hero-heading {
-    font-size: clamp(2.4rem, 10.5vw, 3.4rem) !important;
-    line-height: 1.05 !important;
-    letter-spacing: 0.02em !important;
+    font-size: clamp(2.1rem, 9.2vw, 2.8rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.01em !important;
     margin-bottom: 12px !important;
     text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8) !important;
   }
 
   .hero-tagline {
-    font-size: 0.98rem !important;
+    font-size: clamp(0.9rem, 3.8vw, 1rem) !important;
     line-height: 1.55 !important;
-    margin-bottom: 24px !important;
-    max-width: 95% !important;
+    margin-bottom: 22px !important;
+    max-width: 92% !important;
     color: rgba(255, 255, 255, 0.92) !important;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75) !important;
   }
@@ -3926,17 +3940,17 @@ ul {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 16px !important;
+    gap: 14px !important;
   }
 
   .hero-cta-btn {
-    padding: 13px 28px !important;
-    font-size: 0.95rem !important;
+    padding: 12px 26px !important;
+    font-size: 0.92rem !important;
     letter-spacing: 0.02em !important;
   }
 
   .hero-secondary-link {
-    font-size: 0.92rem !important;
+    font-size: 0.88rem !important;
     padding-bottom: 2px !important;
     border-bottom: 1.5px solid rgba(255, 255, 255, 0.65) !important;
   }
@@ -4387,27 +4401,115 @@ body.admin-mode {
   }
 }
 
-/* Kenyt AI Floating Launcher: Positioned directly under the WhatsApp icon */
-#kenyt-bot-launcher,
-[id*="kenyt-bot-launcher"],
-div[id*="kenyt-bot-launcher"] {
-  position: fixed !important;
-  bottom: 24px !important;
-  right: 26px !important;
-  z-index: 9990 !important;
-  transition: opacity 0.3s ease, transform 0.3s ease !important;
+/* Hidden in hero section: chatbot displays only when scrolled down, matching WhatsApp */
+body.in-hero-section #kenytChatBubble,
+body.in-hero-section [id*="kenytChatBubble"],
+body.in-hero-section #chatbox-container.k-hide {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: scale(0) !important;
 }
 
-/* Suppress Kenyt's duplicate WhatsApp button so only our native FloatingWhatsApp renders */
-#kenyt-bot-launcher .kenyt-whatsapp-btn,
-#kenyt-bot-launcher [class*="whatsapp"],
-#kenyt-bot-launcher [id*="whatsapp"],
-#kenyt-bot-launcher img[src*="whatsapp"],
-#kenyt-bot-launcher a[href*="wa.me"],
-#kenyt-bot-launcher a[href*="whatsapp"],
-[id*="kenyt"] [class*="whatsapp"],
-[id*="kenyt"] [id*="whatsapp"],
-[id*="kenyt"] img[src*="whatsapp"] {
+/* Base styling for Kenyt AI Chatbot launcher: neatly circular, crisp, anchored at bottom-right */
+#kenytChatBubble.style1,
+#kenytChatBubble {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+  width: 56px !important;
+  height: 56px !important;
+  max-width: 56px !important;
+  max-height: 56px !important;
+  min-width: 56px !important;
+  min-height: 56px !important;
+  border-radius: 50% !important;
+  z-index: 9990 !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28) !important;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  overflow: visible !important;
+}
+
+@media (max-width: 768px) {
+  #kenytChatBubble.style1,
+  #kenytChatBubble {
+    bottom: 18px !important;
+    right: 18px !important;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    width: 50px !important;
+    height: 50px !important;
+    max-width: 50px !important;
+    max-height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+  }
+}
+
+#kenytChatBubble .kbubble-container {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  border-radius: 50% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#kenytChatBubble .img-container {
+  width: 42px !important;
+  height: 42px !important;
+  margin: auto !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+#kenytChatBubble .img-container img {
+  max-width: 38px !important;
+  max-height: 38px !important;
+  margin: auto !important;
+}
+
+/* Suppress Kenyt bubble tail to permanently eliminate the giant yellow oval balloon bug */
+#kenytChatBubble #bubbleTail,
+[id*="bubbleTail"] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: none !important;
+}
+
+/* Suppress auto-opening speech bubble / greeting popups so only the clean launcher displays */
+#kenytChatBubble #messageWrapperBox,
+#kenytChatBubble .chatWithUsMessageWrapper,
+#kenytChatBubble .kpopup-container,
+#kenyt-greeting,
+[id*="kenyt-greeting"],
+.kenyt-greeting,
+#kenyt-greeting-container {
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
@@ -4416,16 +4518,17 @@ div[id*="kenyt-bot-launcher"] {
   height: 0 !important;
   position: absolute !important;
   top: -9999px !important;
-  left: -9999px !important;
 }
 
-@media (max-width: 768px) {
-  #kenyt-bot-launcher,
-  [id*="kenyt-bot-launcher"],
-  div[id*="kenyt-bot-launcher"] {
-    bottom: 18px !important;
-    right: 18px !important;
-  }
+/* Suppress Kenyt internal duplicate WhatsApp icon so our FloatingWhatsApp handles WhatsApp */
+#kenytBubbleContainer .kchannel-icon,
+#kenytBubbleContainer .kchannels-container,
+#kenytChatBubble [class*="whatsapp"],
+#kenytChatBubble a[href*="wa.me"],
+#kenytChatBubble img[src*="whatsapp"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 /* Kenyt Chat container visibility & closed state fix */
@@ -4440,35 +4543,40 @@ iframe[id*="kenytChatWindow"].k-hide {
   pointer-events: none !important;
 }
 
-/* Hidden in hero section so zero phantom clicks or overlay */
-body.in-hero-section #kenyt-bot-launcher,
-body.in-hero-section [id*="kenyt-bot-launcher"],
-body.in-hero-section div[id*="kenyt-bot-launcher"],
-body.in-hero-section iframe[src*="kenyt"],
-body.in-hero-section #kenyt-bot-window,
-body.in-hero-section .kenyt-chat-window,
-body.in-hero-section #chatbox-container,
-body.in-hero-section div[id*="chatbox-container"] {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-/* Permanently suppress annoying auto-opening greeting speech balloon */
-[id*="kenyt-greeting"],
-[class*="kenyt-greeting"],
-.kenyt-greeting,
-#kenyt-greeting-container {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-  top: -9999px !important;
-}
-
 @media (max-width: 768px) {
   .grain-overlay {
     display: none !important;
+  }
+
+  .home-story-composition {
+    min-height: 420px !important;
+    width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+
+  .home-story-main-card {
+    width: 86% !important;
+    height: 380px !important;
+    border-radius: 20px !important;
+  }
+
+  .home-story-main-img {
+    object-position: 8% center !important;
+  }
+
+  .home-story-offset-card {
+    width: 54% !important;
+    height: 190px !important;
+    bottom: 5px !important;
+    right: 0 !important;
+    border-width: 3.5px !important;
+    border-radius: 16px !important;
+  }
+
+  .home-story-caption-tag {
+    bottom: -18px !important;
+    left: 12px !important;
+    padding: 12px 18px !important;
+    border-radius: 14px !important;
   }
 }

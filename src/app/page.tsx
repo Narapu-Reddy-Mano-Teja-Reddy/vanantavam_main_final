@@ -218,7 +218,7 @@ export default function Home() {
             <picture>
               <source
                 media="(max-width: 768px)"
-                srcSet={slide.mobileImg}
+                srcSet={slide.img}
                 type="image/webp"
               />
               <img
@@ -370,6 +370,7 @@ export default function Home() {
           >
             {/* Image composition column */}
             <div
+              className="home-story-composition"
               style={{
                 flex: "1 1 440px",
                 position: "relative",
@@ -377,6 +378,7 @@ export default function Home() {
               }}
             >
               <motion.div
+                className="home-story-main-card"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -390,18 +392,20 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="/assets/project-images/Ananthavana/ananthavana-hero-opt.webp"
+                  src="/assets/project-images/Ananthavana/ananthavana-hero.webp"
                   alt="Ancient tall forest grove canopy"
                   loading="lazy"
                   decoding="async"
                   width="600"
                   height="460"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  className="home-story-main-img"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left center" }}
                 />
               </motion.div>
 
               {/* Overlapping offset image */}
               <motion.div
+                className="home-story-offset-card"
                 initial={{ opacity: 0, scale: 0.9, x: 20 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -419,18 +423,20 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="/assets/project-images/Maduvana/rustic-tropical-garden-gateway-opt.webp"
+                  src="/assets/project-images/Maduvana/rustic-tropical-garden-gateway.webp"
                   alt="Living landscape gateway"
                   loading="lazy"
                   decoding="async"
                   width="400"
                   height="240"
+                  className="home-story-offset-img"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </motion.div>
 
               {/* Floating aesthetic caption tag */}
               <div
+                className="home-story-caption-tag"
                 style={{
                   position: "absolute",
                   bottom: "-25px",

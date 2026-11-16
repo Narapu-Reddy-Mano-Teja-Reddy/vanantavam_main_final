@@ -689,7 +689,7 @@ export default function Anantavana() {
         </motion.div>
 
         <div
-          className="container relative"
+          className="container relative hero-container"
           style={{
             zIndex: 10,
             display: "flex",
@@ -715,85 +715,47 @@ export default function Anantavana() {
             style={{ maxWidth: "800px" }}
           >
             <motion.span
+              className="hero-badge"
               variants={{
-                hidden: { opacity: 0, y: 30 },
+                hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-              }}
-              style={{
-                display: "inline-block",
-                border: "1px solid rgba(255,255,255,0.4)",
-                padding: "6px 16px",
-                borderRadius: "30px",
-                fontSize: "1.3rem",
-                fontWeight: 900,
-                letterSpacing: "0.15em",
-                color: "#FFF",
-                textTransform: "uppercase",
-                marginBottom: "24px",
               }}
             >
               Nature-First Farm Communities
             </motion.span>
 
             <motion.h1
+              className="hero-heading"
               variants={{
                 hidden: { opacity: 0, y: 30 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-              }}
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontWeight: 700,
-                fontSize: "clamp(3rem, 6.0vw, 5.8rem)",
-                lineHeight: 1.05,
-                color: "#FFFFFF",
-                marginBottom: "20px",
-                letterSpacing: "0.04em",
-                textShadow: "0 4px 24px rgba(0,0,0,0.65)",
               }}
             >
               ANANTAVANA
             </motion.h1>
 
             <motion.p
+              className="hero-tagline"
               variants={{
                 hidden: { opacity: 0, y: 30 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
               }}
-              style={{
-                fontSize: "1.3rem",
-                color: "#FFFFFF",
-                textShadow: "0 2px 12px rgba(0,0,0,0.7)",
-                lineHeight: 1.6,
-                maxWidth: "640px",
-                marginBottom: "36px",
-                fontWeight: 400,
-              }}
             >
-
               An Extensive Eco Conservation project to restore Bio Diversity.
             </motion.p>
 
             <motion.div
+              className="hero-cta-group"
               variants={{
                 hidden: { opacity: 0, y: 30 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-              }}
-              style={{
-                display: "flex",
-                gap: "28px",
-                alignItems: "center",
-                flexWrap: "wrap",
               }}
             >
               <button
                 type="button"
                 onClick={() => setIsBrochureOpen(true)}
-                className="btn-pill btn-pill-gold"
+                className="btn-pill btn-pill-gold hero-cta-btn"
                 style={{
-                  padding: "16px 36px",
-                  fontSize: "1.1rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.02em",
                   boxShadow: "0 8px 30px rgba(198, 162, 101, 0.4)",
                   border: "none",
                   cursor: "pointer",
@@ -808,16 +770,7 @@ export default function Anantavana() {
               </button>
               <Link
                 href="/contact"
-                style={{
-                  color: "#FFFFFF",
-                  textDecoration: "none",
-                  fontSize: "1.1rem",
-                  fontWeight: 600,
-                  borderBottom: "2px solid rgba(255,255,255,0.7)",
-                  paddingBottom: "4px",
-                  transition: "border-color 0.3s",
-                  textShadow: "0 2px 8px rgba(0,0,0,0.5)",
-                }}
+                className="hero-secondary-link"
               >
                 Plan a site visit
               </Link>
@@ -988,6 +941,7 @@ export default function Anantavana() {
       >
         <div className="container">
           <div
+            className="anantavana-stats-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 180px), 1fr))",
@@ -1014,6 +968,7 @@ export default function Anantavana() {
             ].map((s, i) => (
               <motion.div
                 key={s.label}
+                className={i === 2 ? "anantavana-stat-last" : undefined}
                 initial={reduce ? false : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}

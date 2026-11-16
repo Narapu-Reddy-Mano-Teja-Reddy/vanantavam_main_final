@@ -74,6 +74,18 @@ const nextConfig: NextConfig = {
         source: "/Event%20images/:path*",
         destination: "/event-images/:path*",
       },
+      {
+        source: "/assets/images/question.png",
+        destination: "/assets/images/question.webp",
+      },
+      {
+        source: "/assets/images/Strategic.png",
+        destination: "/assets/images/strategic.webp",
+      },
+      {
+        source: "/assets/images/strategic.png",
+        destination: "/assets/images/strategic.webp",
+      },
     ];
   },
   async headers() {

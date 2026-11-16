@@ -27,6 +27,12 @@ export function normalizeBlogImagePath(src: string | undefined | null): string {
   if (clean.includes('/Event images/') || clean.includes('/Event%20images/')) {
     clean = clean.replace(/\/Event(%20| )images\//g, '/event-images/')
   }
+  if (clean.includes('/assets/images/question.png')) {
+    clean = clean.replace('/assets/images/question.png', '/assets/images/question.webp')
+  }
+  if (clean.includes('/assets/images/Strategic.png') || clean.includes('/assets/images/strategic.png')) {
+    clean = clean.replace(/\/assets\/images\/(Strategic|strategic)\.png/g, '/assets/images/strategic.webp')
+  }
 
   // Normalize legacy uppercase VT_Blog_* filenames to lowercase hyphenated
   const legacyFilenames: Record<string, string> = {
