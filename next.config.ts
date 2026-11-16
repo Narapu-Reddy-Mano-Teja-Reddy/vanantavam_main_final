@@ -42,6 +42,37 @@ const nextConfig: NextConfig = {
         destination: "/ishavana",
         permanent: true,
       },
+      {
+        source: "/Blogs-content/May%202022/:path*",
+        destination: "/Blogs-content/May-2022/:path*",
+        permanent: true,
+      },
+      {
+        source: "/Blogs-content/June%202022/:path*",
+        destination: "/Blogs-content/June-2022/:path*",
+        permanent: true,
+      },
+      {
+        source: "/Event%20images/:path*",
+        destination: "/event-images/:path*",
+        permanent: true,
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/Blogs-content/May%202022/:path*",
+        destination: "/Blogs-content/May-2022/:path*",
+      },
+      {
+        source: "/Blogs-content/June%202022/:path*",
+        destination: "/Blogs-content/June-2022/:path*",
+      },
+      {
+        source: "/Event%20images/:path*",
+        destination: "/event-images/:path*",
+      },
     ];
   },
   async headers() {

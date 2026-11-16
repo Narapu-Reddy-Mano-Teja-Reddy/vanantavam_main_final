@@ -33,9 +33,3 @@ dist/
 
 # Zoho Catalyst CLI local project-link state (account-specific)
 .catalystrc
-
-# Legacy folder aliases for backward-compatibility
-public/Blogs-content/* 2022*
-public/Event images
-public/assets/project-images/* Brochure.pdf
-public/blogs-content
