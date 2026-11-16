@@ -6,6 +6,7 @@ export const postsQuery = `*[_type == "post"] | order(_createdAt desc) {
   author,
   img,
   coverImage,
+  "coverImageUrl": coalesce(coverImage.asset->url, coverImage.url, null),
   category,
   excerpt,
   contentBlocks
@@ -19,9 +20,16 @@ export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0] {
   author,
   img,
   coverImage,
+  "coverImageUrl": coalesce(coverImage.asset->url, coverImage.url, null),
   category,
   excerpt,
-  body,
+  body[] {
+    ...,
+    _type == "image" => {
+      ...,
+      "url": coalesce(asset->url, url, null)
+    }
+  },
   contentBlocks
 }`
 

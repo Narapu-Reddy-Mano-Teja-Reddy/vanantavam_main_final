@@ -415,7 +415,12 @@ function SpaceBand() {
       <motion.div style={{ position: "absolute", inset: "-15% 0", y }}>
         <img
           src="/assets/project-images/Ananthavana/hero-image-2.webp"
-          alt=""
+          alt="Anantavana Nature Reserve"
+          fetchPriority="high"
+          loading="eager"
+          decoding="sync"
+          width={1920}
+          height={1080}
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
         <div
@@ -667,6 +672,8 @@ export default function Anantavana() {
                 fetchPriority="high"
                 loading="eager"
                 decoding="sync"
+                width={1920}
+                height={1080}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </picture>
@@ -1227,6 +1234,10 @@ export default function Anantavana() {
           <img
             src="/assets/images/c-1.webp"
             alt="AnantaVana Concept Master Plan Layout"
+            loading="lazy"
+            decoding="async"
+            width={1400}
+            height={900}
             style={{
               width: "100%",
               height: "auto",
@@ -2548,7 +2559,7 @@ export default function Anantavana() {
         isOpen={isBrochureOpen}
         onClose={() => setIsBrochureOpen(false)}
         projectName="AnantaVana"
-        brochureUrl="/assets/project-images/AnantaVana%20Brochure.pdf"
+        brochureUrl="/assets/project-images/AnantaVana-Brochure.pdf"
       />
 
       <Footer />

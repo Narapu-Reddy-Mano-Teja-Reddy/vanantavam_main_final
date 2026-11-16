@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { writeClient } from '@/sanity/client';
 import { createBiginContact } from '@/lib/zohoBigin';
+import { sendLeadNotificationEmail } from '@/lib/mailer';
 
 export async function POST(req: Request) {
   let body: Record<string, unknown>;
@@ -54,6 +55,22 @@ export async function POST(req: Request) {
     await createBiginContact({ name, phone, email, project, date, message, source });
   } catch (error) {
     console.error('Failed to push lead to Zoho Bigin:', error);
+  }
+
+  // Best-effort notification email via Nodemailer to client/admin
+  try {
+    await sendLeadNotificationEmail({
+      name,
+      phone,
+      email,
+      project,
+      date,
+      message,
+      source,
+      submittedAt: new Date().toISOString(),
+    });
+  } catch (error) {
+    console.error('Failed to send lead notification email via Nodemailer:', error);
   }
 
   return NextResponse.json({ success: true, id: leadId });

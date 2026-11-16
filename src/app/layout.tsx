@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
+import { cinzel, playfair, plusJakarta } from "@/app/fonts";
 import MarketingShell from "@/app/components/MarketingShell";
 
 
@@ -51,6 +52,15 @@ export const metadata: Metadata = {
     title: "Vanatvam | Sustainable Managed Farmland",
     card: "summary_large_image",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180" },
+    ],
+  },
 };
 
 export const viewport: Viewport = {
@@ -89,8 +99,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" className={`${cinzel.variable} ${playfair.variable} ${plusJakarta.variable}`}>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         {/* Preload critical LCP hero image responsively for ultra-fast First Paint */}
         <link
           rel="preload"
@@ -107,22 +119,6 @@ export default function RootLayout({
           media="(min-width: 769px)"
           fetchPriority="high"
           type="image/webp"
-        />
-
-        {/* Preload critical local body and hero serif fonts for sub-50ms font availability */}
-        <link
-          rel="preload"
-          href="/fonts/plus-jakarta-sans.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/playfair-display.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
         />
 
         <script

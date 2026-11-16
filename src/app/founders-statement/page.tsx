@@ -39,7 +39,7 @@ const COLORS = {
 /*  image, so nothing looks broken while you swap them in.             */
 /* ------------------------------------------------------------------ */
 
-const BASE_IMG = "/assets/project-images/Brindavana/Farmer%20Tending%20Lush%20Seedlings.webp";
+const BASE_IMG = "/assets/project-images/Brindavana/farmer-tending-lush-seedlings.webp";
 
 const IMAGES = {
   hero: BASE_IMG,
@@ -184,7 +184,7 @@ const PROJECTS = [
     logo: "/assets/images/Project-Logos/BrindaVana.webp",
     location: "PAVAGADA · 30 ACRES",
     desc: "Our benchmark project demonstrating ecological restoration. What began as largely barren land is evolving into a thriving green ecosystem with deep water harvesting and native tree canopy.",
-    img: "/assets/project-images/Brindavana/Sunny%20Tropical%20Banana%20Orchard.webp",
+    img: "/assets/project-images/Brindavana/sunny-tropical-banana-orchard.webp",
     badge: "Completed",
     badgeBg: "var(--bg-dark-forest, #122217)",
     pills: ["Native Canopy", "Rain Catchments"],
@@ -220,7 +220,7 @@ const PROJECTS = [
     logo: "/assets/images/Project-Logos/ishavaanalogo.webp",
     location: "KOLLEGALA · CAUVERY RIVERFRONT",
     desc: "A riverfront community along the sacred Kaveri, designed around the relationship between people, riparian ecology, and water.",
-    img: "/assets/project-images/Esahavana/EV%20Image.webp",
+    img: "/assets/project-images/Esahavana/EV.webp",
     badge: "Kaveri Riverfront",
     badgeBg: "#1B4965",
     pills: ["Kaveri Frontage", "River Ecosystem"],

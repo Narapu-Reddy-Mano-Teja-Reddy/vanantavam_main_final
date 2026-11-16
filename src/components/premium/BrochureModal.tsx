@@ -14,7 +14,7 @@ type BrochureModalProps = {
 export default function BrochureModal({
   isOpen,
   onClose,
-  brochureUrl = "/assets/project-images/AnantaVana%20Brochure.pdf",
+  brochureUrl = "/assets/project-images/AnantaVana-Brochure.pdf",
   projectName = "VanaTvam Project",
 }: BrochureModalProps) {
   const [submitting, setSubmitting] = useState(false);

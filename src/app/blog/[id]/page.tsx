@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getBlogs, getBlogById, getAllBlogIds } from '@/data/blogs';
-import { resolvePostImage } from '@/sanity/image';
+import { resolvePostImage, normalizeBlogImagePath } from '@/sanity/image';
 import TableOfContents from '../components/TableOfContents';
 
 export const revalidate = 60;
@@ -418,7 +418,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
                         }}
                       >
                         <img
-                          src={block.src}
+                          src={normalizeBlogImagePath(block.src)}
                           alt={block.alt || 'Vanatvam blog visual'}
                           style={{
                             width: '100%',

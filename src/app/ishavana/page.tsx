@@ -288,25 +288,25 @@ const overview = [
 
 const amenities = [
   {
-    image: "/assets/project-images/Esahavana/EV%20Arial%20View%204.webp",
+    image: "/assets/project-images/Esahavana/Biopool.webp",
     title: "Bio-pool",
     description:
       "A natural-style water feature is proposed as a shared gathering space.",
   },
   {
-    image: "/assets/project-images/Esahavana/EV%20Arial%20View%202.webp",
+    image: "/assets/project-images/Esahavana/golden-hour-ganesha-shrine-in-tropical-garden.webp",
     title: "Temple",
     description: "A place for quiet reflection within the community plan.",
   },
   {
-    image: "/assets/project-images/Esahavana/WAlking%20path.webp",
+    image: "/assets/project-images/Esahavana/sunlit-riverside-amphitheatre-retreat.webp",
     title: "Garden and landscape",
     description:
       "Planned green spaces to soften the built environment and create places to pause.",
   },
   {
     image:
-      "/assets/project-images/Esahavana/ChatGPT%20Image%20Jul%2014,%202026,%2005_50_15%20PM%20(1).webp",
+      "/assets/project-images/Esahavana/EV1.webp",
     title: "Play area",
     description: "A shared outdoor space intended for children and families.",
   },
@@ -316,19 +316,19 @@ const amenities = [
     description: "A proposed venue for community gatherings and small events.",
   },
   {
-    image: "/assets/project-images/Esahavana/WAlking%20path.webp",
+    image: "/assets/project-images/Esahavana/ev-river-view-1.webp",
     title: "Riverside promenade",
     description:
       "A planned walking edge, subject to the applicable river buffer and approvals.",
   },
   {
-    image: "/assets/project-images/Esahavana/Dainind%20Deck.webp",
+    image: "/assets/project-images/Esahavana/dainind-deck.webp",
     title: "Riverside dining and sitting decks",
     description:
       "Conceptual places to gather outdoors, subject to permissions and final design.",
   },
   {
-    image: "/assets/project-images/Esahavana/EV%20Arial%20View%203.webp",
+    image: "/assets/project-images/Esahavana/EV.webp",
     title: "Car parking and internal roads",
     description:
       "Circulation and parking are indicated in the concept master plan.",
@@ -398,6 +398,8 @@ export default function Ishavana() {
                 fetchPriority="high"
                 loading="eager"
                 decoding="sync"
+                width={1920}
+                height={1080}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </picture>
@@ -597,6 +599,9 @@ export default function Ishavana() {
                    src="/assets/project-images/Esahavana/EV.webp"
                    alt="A view of the Kaveri river landscape"
                    loading="lazy"
+                   decoding="async"
+                   width={800}
+                   height={1000}
                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                  />
                   {/* Floating Acreage Badge */}
@@ -916,6 +921,10 @@ export default function Ishavana() {
                   <img
                     src="/assets/project-images/Esahavana/masterplan.webp"
                     alt="Ishavana Concept Master Plan Layout"
+                    loading="lazy"
+                    decoding="async"
+                    width={1400}
+                    height={900}
                     style={{
                       width: "100%",
                       height: "auto",
@@ -2266,7 +2275,7 @@ export default function Ishavana() {
         isOpen={isBrochureOpen}
         onClose={() => setIsBrochureOpen(false)}
         projectName="Ishavana"
-        brochureUrl="/assets/project-images/Eeshavana%20Brochure.pdf"
+        brochureUrl="/assets/project-images/Eeshavana-Brochure.pdf"
       />
 
       <Footer />
@@ -2349,6 +2358,8 @@ export default function Ishavana() {
         .ishavana-idea-copy {
           width: 100%;
           max-width: 100%;
+          padding-right: clamp(48px, 6vw, 100px);
+          box-sizing: border-box;
         }
 
         .ishavana-idea-image-wrap {

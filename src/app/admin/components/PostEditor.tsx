@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import AdminHeader from './AdminHeader';
 import TiptapArticleEditor from './TiptapArticleEditor';
-import { resolvePostImage, SanityImageSource } from '@/sanity/image';
+import { resolvePostImage, normalizeBlogImagePath, SanityImageSource } from '@/sanity/image';
 import { contentBlocksToHtml, tiptapJsonToContentBlocks } from '@/lib/tiptapUtils';
 import type { ContentBlock } from '@/data/blogs';
 
@@ -94,7 +94,10 @@ export default function PostEditor({ mode, initialPost }: PostEditorProps) {
   );
 
   // Content state (synced from Tiptap JSON)
-  const initialBlocks = useMemo(() => initialPost?.contentBlocks || [], [initialPost]);
+  const initialBlocks = useMemo(() => {
+    const raw = initialPost?.contentBlocks || [];
+    return raw.map((b) => (b.type === 'img' && b.src ? { ...b, src: normalizeBlogImagePath(b.src) } : b));
+  }, [initialPost]);
   const initialHtml = useMemo(() => contentBlocksToHtml(initialBlocks), [initialBlocks]);
   const [blocks, setBlocks] = useState<ContentBlock[]>(initialBlocks);
   const [wordCount, setWordCount] = useState<number>(() => {
@@ -539,6 +542,15 @@ export default function PostEditor({ mode, initialPost }: PostEditorProps) {
                       <img
                         src={img}
                         alt="Cover preview"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          const fallback = initialPost?.img
+                            ? normalizeBlogImagePath(initialPost.img)
+                            : '/assets/project-images/Brindavana/sunny-tropical-banana-orchard.webp';
+                          if (!target.src.includes('sunny-tropical-banana-orchard')) {
+                            target.src = fallback;
+                          }
+                        }}
                         style={{
                           width: '100%',
                           aspectRatio: '16 / 10',

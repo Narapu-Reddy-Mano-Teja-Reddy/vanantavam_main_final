@@ -40,18 +40,31 @@ export default function Navigation() {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [hidden, setHidden] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const [hoveredPath, setHoveredPath] = useState<string | null>(null);
   const lastScrollY = useRef<number>(0);
   const pathname = usePathname();
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile, { passive: true });
+
     lastScrollY.current = window.scrollY;
 
     const handleScroll = () => {
       const currentY = window.scrollY;
-      const delta = currentY - lastScrollY.current;
-
       setScrolled(currentY > 30);
+
+      // On mobile devices, keep navbar constant (always visible at top)
+      if (window.innerWidth <= 1024) {
+        setHidden(false);
+        return;
+      }
+
+      const delta = currentY - lastScrollY.current;
 
       if (currentY < TOP_ZONE) {
         // Always show near the top
@@ -73,7 +86,10 @@ export default function Navigation() {
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   // Lock body scroll while the mobile drawer is open
@@ -96,7 +112,7 @@ export default function Navigation() {
   return (
     <>
       <motion.header
-        animate={{ y: hidden && !isDrawerOpen ? -140 : 0 }}
+        animate={{ y: !isMobile && hidden && !isDrawerOpen ? -140 : 0 }}
         transition={{ duration: 0.35, ease: EASE_PREMIUM }}
         style={{
           position: "fixed",

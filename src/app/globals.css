@@ -5,85 +5,6 @@
  * Luxury Architectural & Eco-Estate Design System
  */
 
-/* High-performance locally-hosted woff2 font definitions with font-display: swap (Zero external font network hops) */
-@font-face {
-  font-family: 'Cinzel';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/fonts/cinzel.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Cinzel';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('/fonts/cinzel.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/fonts/playfair-display.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/fonts/playfair-display.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('/fonts/playfair-display.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/plus-jakarta-sans.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/fonts/plus-jakarta-sans.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/fonts/plus-jakarta-sans.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('/fonts/plus-jakarta-sans.woff2') format('woff2');
-}
-
-/* Content visibility optimizations for offscreen sections (Saves initial CPU & layout calculations across all pages) */
-#life-at-the-farm,
-.polaroid-marquee-track,
-.reviews-marquee-track,
-.vt-footer,
-.project-gallery-section,
-.project-testimonials,
-.faq-section,
-.experience-section,
-.journal-listing-section,
-.footer {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 500px;
-}
 
 :root {
   /* Color Tokens */
@@ -4442,69 +4363,74 @@ body.admin-mode {
   }
 }
 
-/* Kenyt AI & WhatsApp Widget Custom Size & Window Styling */
+/* Kenyt AI Floating Launcher: Positioned directly under the WhatsApp icon */
+#kenyt-bot-launcher,
+[id*="kenyt-bot-launcher"],
+div[id*="kenyt-bot-launcher"] {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 26px !important;
+  z-index: 9990 !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+
+/* Suppress Kenyt's duplicate WhatsApp button so only our native FloatingWhatsApp renders */
+#kenyt-bot-launcher .kenyt-whatsapp-btn,
+#kenyt-bot-launcher [class*="whatsapp"],
+#kenyt-bot-launcher [id*="whatsapp"],
 #kenyt-bot-launcher img[src*="whatsapp"],
-.kenyt-whatsapp-btn,
-div[id*="kenyt"] img[src*="whatsapp"],
-div[class*="whatsapp"],
-div[id*="whatsapp"] {
-  transform: scale(1.35) !important;
-  transform-origin: center center !important;
+#kenyt-bot-launcher a[href*="wa.me"],
+#kenyt-bot-launcher a[href*="whatsapp"],
+[id*="kenyt"] [class*="whatsapp"],
+[id*="kenyt"] [id*="whatsapp"],
+[id*="kenyt"] img[src*="whatsapp"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
 }
 
-/* Kenyt AI Chatbot Window Custom Styling (Desktop & Mobile) */
-iframe[src*="kenyt"],
-iframe[id*="kenyt"],
-#kenyt-bot-window,
-.kenyt-bot-container,
-div[id*="kenyt-bot-container"],
-div[class*="kenyt-chat-window"] {
-  border-radius: 20px !important;
-  box-shadow: 0 20px 60px rgba(18, 34, 23, 0.3), 0 0 0 1px rgba(198, 162, 101, 0.3) !important;
-  overflow: hidden !important;
-  z-index: 999999 !important;
-}
-
-@media (min-width: 769px) {
-  iframe[src*="kenyt"]:not([style*="display: none"]),
-  iframe[id*="kenyt"]:not([style*="display: none"]) {
-    max-width: 390px !important;
-    max-height: 640px !important;
-    border-radius: 20px !important;
+@media (max-width: 768px) {
+  #kenyt-bot-launcher,
+  [id*="kenyt-bot-launcher"],
+  div[id*="kenyt-bot-launcher"] {
+    bottom: 18px !important;
+    right: 18px !important;
   }
+}
+
+/* Hidden in hero section so zero phantom clicks or overlay */
+body.in-hero-section #kenyt-bot-launcher,
+body.in-hero-section [id*="kenyt-bot-launcher"],
+body.in-hero-section div[id*="kenyt-bot-launcher"],
+body.in-hero-section iframe[src*="kenyt"],
+body.in-hero-section #kenyt-bot-window,
+body.in-hero-section .kenyt-chat-window {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Permanently suppress annoying auto-opening greeting speech balloon */
+[id*="kenyt-greeting"],
+[class*="kenyt-greeting"],
+.kenyt-greeting,
+#kenyt-greeting-container {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  top: -9999px !important;
 }
 
 @media (max-width: 768px) {
   .grain-overlay {
     display: none !important;
-  }
-
-  .floating-enquire-tab {
-    display: none !important;
-  }
-
-  #kenyt-bot-launcher img[src*="whatsapp"],
-  .kenyt-whatsapp-btn,
-  div[id*="kenyt"] img[src*="whatsapp"],
-  div[class*="whatsapp"],
-  div[id*="whatsapp"] {
-    transform: none !important;
-  }
-
-  iframe[src*="kenyt"],
-  iframe[id*="kenyt"],
-  #kenyt-bot-window,
-  .kenyt-bot-container,
-  div[id*="kenyt-bot-container"] {
-    width: min(360px, calc(100vw - 24px)) !important;
-    max-width: 360px !important;
-    height: min(580px, 80vh) !important;
-    max-height: 580px !important;
-    position: fixed !important;
-    bottom: 20px !important;
-    right: 12px !important;
-    left: auto !important;
-    border-radius: 22px !important;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(198, 162, 101, 0.4) !important;
   }
 }

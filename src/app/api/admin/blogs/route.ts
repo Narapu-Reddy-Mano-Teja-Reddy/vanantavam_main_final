@@ -20,6 +20,7 @@ export async function GET() {
       author,
       img,
       coverImage,
+      "coverImageUrl": coalesce(coverImage.asset->url, coverImage.url, null),
       excerpt,
       contentBlocks,
       body,
@@ -107,7 +108,10 @@ export async function POST(req: Request) {
           .toUpperCase(),
       author: author || 'Vanatvam Team',
       excerpt: excerpt || '',
-      img: img || '',
+      img: (img || '')
+        .replace(/\/Blogs-content\/May(%20| )2022\//g, '/Blogs-content/May-2022/')
+        .replace(/\/Blogs-content\/June(%20| )2022\//g, '/Blogs-content/June-2022/')
+        .replace(/\/Event(%20| )images\//g, '/event-images/'),
       contentBlocks: formattedBlocks,
       body: bodyBlocks,
     };

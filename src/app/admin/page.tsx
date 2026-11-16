@@ -25,6 +25,7 @@ export default async function AdminPage() {
         author,
         img,
         coverImage,
+        "coverImageUrl": coalesce(coverImage.asset->url, coverImage.url, null),
         excerpt,
         _updatedAt
       }`
@@ -38,6 +39,14 @@ export default async function AdminPage() {
       ...b,
       _id: `post-${b.id}`,
     }));
+  } else {
+    posts = posts.map((p) => {
+      const local = blogsData.find((b) => b.id === p.id);
+      return {
+        ...p,
+        img: p.img || local?.img,
+      };
+    });
   }
 
   return <AdminPostsList initialPosts={posts} />;

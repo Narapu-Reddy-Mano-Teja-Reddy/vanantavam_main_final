@@ -45,7 +45,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Deepotsava",
     subtitle:
       "Hundreds of earthen lamps lovingly lit across pathways, courtyards, and sacred groves.",
-    img: "/Event images/DSC08963-thumb.webp",
+    img: "/event-images/DSC08963-thumb.webp",
   },
   {
     id: "banana-orchard",
@@ -85,7 +85,7 @@ const lifeAtVanatvamPolaroids: PolaroidItem[] = [
     caption: "Bonfire Nights",
     subtitle:
       "Stargazing, storytelling, and communal cooking around gentle twilight farm fires.",
-    img: "/Event images/DSC09025-thumb.webp",
+    img: "/event-images/DSC09025-thumb.webp",
   },
   {
     id: "green-tunnel",
@@ -228,6 +228,8 @@ export default function Home() {
                 loading={slide.id === heroSlides[0].id ? "eager" : "lazy"}
                 decoding="sync"
                 className="hero-bg-img"
+                width={1920}
+                height={1080}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </picture>
@@ -1433,7 +1435,7 @@ By bringing together ecological restoration, India’s cultural heritage, and th
                 }}
               >
                 <img
-                  src="/Event images/award.webp"
+                  src="/event-images/award.webp"
                   alt="Vanatvam's natural forest landscape"
                   loading="lazy"
                   decoding="async"

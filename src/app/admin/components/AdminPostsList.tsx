@@ -305,6 +305,15 @@ export default function AdminPostsList({ initialPosts }: AdminPostsListProps) {
                   <img
                     src={resolvePostImage(post)}
                     alt={post.title}
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      const fallback = post.img
+                        ? resolvePostImage({ img: post.img })
+                        : '/assets/project-images/Brindavana/sunny-tropical-banana-orchard.webp';
+                      if (!target.src.includes('sunny-tropical-banana-orchard')) {
+                        target.src = fallback;
+                      }
+                    }}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <span
