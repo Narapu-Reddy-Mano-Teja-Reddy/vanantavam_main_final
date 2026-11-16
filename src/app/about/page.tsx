@@ -604,7 +604,7 @@ export default function About() {
               }}
             >
               <motion.img
-                src="/Event images/award.webp"
+                src="/event-images/award.webp"
                 alt="Vanatvam's nature-led landscape and green surroundings"
                 whileHover={{ scale: 1.04 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
